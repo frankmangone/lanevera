@@ -1,2 +1,60 @@
+/*function parseForm($form){
+	var data = {};
+
+	$form.find("input[name]").each(function (index, node) {
+		data[node.name] = node.value;
+	});
+
+	return data;
+}*/
+
+// First, hide the new category tab and render the form:
 $("#new-category-btn").parent().hide().after("<%= j render 'form' %>");
-$("#new_category").hide().slideDown();
+
+// Then, slide down the form:
+$("#new_category").hide().slideDown( function(){
+
+	var $form = $("#new-category-cancel").parent();
+
+	// Then, bind the cancel button:
+	$("#new-category-cancel").click( function(event){
+		event.preventDefault();
+		$(this).parent().parent().slideUp( function(){
+			$("#new-category-btn").parent().slideDown();
+			$(this).remove();
+		});
+	});
+	
+
+	/* And the create button, but with an ajax request:
+	 * Note that this REPLACES the remote: true in the view. */
+	$("#create-category").click( function(event){
+
+		/* Don't forget to prevent default behaviour!!
+		 * If I don't, it sends an html request. */
+		event.preventDefault();
+
+		$.ajax({
+			type: 'POST',
+			url: $form.attr("action"),
+			data: $form.serialize(),
+			dataType: 'json',
+
+			success: function(data){
+				$("#new_category").parent().remove();
+
+				var id = data.id;
+				id = id.toString();
+
+				$(".category-tab").last().before("<%= escape_javascript(render(:partial => 'category')) %>").show();
+				$("#cat"+id).hide().slideDown();
+			},
+
+			error: function(data){
+				alert('nope');
+			}
+		});
+
+	});
+
+});

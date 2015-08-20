@@ -28,9 +28,6 @@
 	<% @products.each do |product| %>
 		<%= render product %>
 	<% end %>
-	<div class="col-md-3">
-		<div class="product">
-			<%= link_to "Agregar", new_product_path(category_id: @category_id), remote: true %>
-		</div>
-	</div>
+
+	<%= render 'new_product_btn' %>
 </div>

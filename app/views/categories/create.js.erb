@@ -1,7 +1,0 @@
-$("#new_category").parent().remove();
-
-var id = <%= @category.id %>
-id = id.toString();
-
-$(".category-tab").last().before("<%= j render @category %>").show();
-$("#cat"+id).hide().slideDown();

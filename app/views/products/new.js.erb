@@ -1,1 +1,23 @@
-$("#products").append("<%= j render 'form' %>")
+// First, slide the add button up and then remove it.
+
+$("#new-product").slideUp( function(){
+	$(this).remove();
+});
+
+// At the same time render the form and slide it down
+$("#products").append("<%= j render 'form' %>");
+$("#new-product-form").parent().hide().slideDown( function(){
+
+	// Finally, once it's down, bind the 'cancel' button with the corresponding action:
+	$("#new-product-cancel").click( function(event){
+		event.preventDefault();
+		$(this).parent().parent().parent().slideUp( function(){
+
+			$(this).remove();
+			$("#products").append("<%= j render 'new_product_btn' %>");
+			$("#new-product").hide().slideDown();
+
+		});
+	});
+
+});

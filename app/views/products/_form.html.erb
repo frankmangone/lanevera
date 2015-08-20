@@ -1,24 +1,29 @@
-<%= form_for @product, remote: true do |f|%>
+<div class="col-xs-12">
+	<div id="new-product-form">
+		<%= form_for @product, remote: true do |f|%>
 
-	<%= f.label "Nombre del producto" %>
-	<%= f.text_field :title, class: 'form-control' %>
+			<%= f.label "Nombre del producto" %>
+			<%= f.text_field :title, class: 'form-control' %>
 
-	<% if !@category_id %>
-		<!-- If not viewing a category, select to which category the product belongs to -->
-		<%= f.select(:category_id) do %>
-			<% @categories.each do |cat| -%>
-				<%= content_tag(:option, cat.name, value: cat.id, class: 'form-control') %>
+			<% if !@category_id %>
+				<!-- If not viewing a category, select to which category the product belongs to -->
+				<%= f.select(:category_id) do %>
+					<% @categories.each do |cat| -%>
+						<%= content_tag(:option, cat.name, value: cat.id, class: 'form-control') %>
+					<% end %>
+				<% end %>
+
+			<% else %>
+				<!-- If viewing a category, create the element directly into it -->
+				<%= f.select(:category_id) do %>
+					<%= content_tag(:option, @category.name, value: @category_id) %>
+				<% end %>
+
 			<% end %>
+			<br>
+
+			<%= f.submit "Agregar", class: 'btn btn-primary' %>
+			<%= link_to "Cancelar", "#", class: 'btn btn-primary', id: 'new-product-cancel' %>
 		<% end %>
-
-	<% else %>
-		<!-- If viewing a category, create the element directly into it -->
-		<%= f.select(:category_id) do %>
-			<%= content_tag(:option, @category.name, value: @category_id) %>
-		<% end %>
-
-	<% end %>
-
-	<%= f.submit "Agregar", class: 'btn btn-primary' %>
-
-<% end %>
+	</div>
+</div>

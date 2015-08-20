@@ -15,13 +15,11 @@ class CategoriesController < ApplicationController
 	def create
 		@category = Category.new(category_params)
 
-		if @category.save
-			respond_to do |format|
-				format.js
-			end
-		else
-			respond_to do |format|
-				format.js
+		respond_to do |format|
+			if @category.save
+				format.json { render json: @category }
+			else
+				format.json { render json: @category.errors.full_messages, status: :unprocessable_entity }
 			end
 		end
 	end
@@ -31,13 +29,12 @@ class CategoriesController < ApplicationController
 	end
 
 	def destroy
-		if @category.destroy
-			respond_to do |format|
-				format.js
-			end
-		else
-			# Handle error?
+		@category.destroy
+
+		respond_to do |format|
+			format.js
 		end
+		
 	end
 
 	private
