@@ -1,0 +1,286 @@
+/* 
+	La Nevera - Stylesheet contents
+	-------------------------------------------------
+
+	0) Used colors
+	1) Universal assets
+	2) General typography
+	3) Header / Navigation bar
+	4) Homepage
+	5) Product buttons & views
+
+*/
+
+
+
+/* 0: Colors used in the application */
+/* ------------------------------------------- */
+
+/* 
+	The main colors are 3 different shades of a dark blue:
+	--------------------
+	Darkest:  #365A72
+	Darker:   #487798
+	Normal:   #9AC3D0
+	Lighter:  #B9D6E0
+
+	In addition, I use this color instead of plain white and plain black:
+	--------------------
+	White: #F1F2F3
+	Black: #0B1D2A
+
+	Also, in case brighter blues are needed, I can use:
+	--------------------
+	Bright darker:   #6C91AA
+	Bright normal:   #86B7C7
+	Bright lighter:  #9FDAE2
+*/
+
+
+/* 1: Universal assets */
+/* ------------------------------------------- */
+
+body {
+	background-color: #FFFFFF;
+}
+
+.container-fluid {
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.divider {
+	height: 75px;
+}
+
+.centered {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+#content {
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.btn-symbol {
+	padding: 2px 6px;
+	border-radius: 40px;
+}
+
+/* 2: General typography & some effects */
+/* ------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+h1 {
+	color: #0B1D2A;
+}
+
+h3 {
+	color: #487798;
+}
+
+a {
+	transition: all 0.2s linear;
+}
+
+/* 3: Navigation bar */
+/* ------------------------------------------- */
+
+/* Normal Navigation bar */
+
+.navbar {
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-bottom: 0;
+	border: none;
+}
+
+.navbar-nav li a {
+	color: #F1F2F3;
+	font-size: 1.1em;
+}
+
+.navbar-nav li a:hover, .navbar-nav li a:focus {
+	color: #FFFFFF;
+	text-shadow: 0px 0px 3px #F1F2F3;
+	background-color: transparent;
+}
+
+/* Home: the navigation bar is replaced by a bigger header */
+
+#home-header{
+	background-color: #487798;
+	padding-bottom: 75px;
+	margin-bottom: 0;
+	text-align: center;
+	/* This actually centers divs with the display: inline-block property */
+}
+
+#header {
+	background-color: #487798;
+	margin-bottom: 0;
+}
+
+#fridge {
+	padding: 50px 0 25px 0;
+	display: inline-block;
+}
+
+#brand {
+	padding-bottom: 25px;
+}
+
+#brand h1 {
+	color: #F1F2F3;
+	font-size: 3.2em;
+}
+
+#brand h2 {
+	color: #F1F2F3;
+	font-size: 1.5em;
+}
+
+#search {
+	border-radius: 3px 0 0 3px;
+	border: none;
+	float: left;
+	width: 88%;
+	height: 45px;
+	font-size: 1.3em;
+}
+
+#search-submit {
+	background-color: #FFF;
+	border-radius: 0 3px 3px 0;
+	border: none;
+	overflow: hidden;
+	width: 12%;
+	height: 45px;
+	font-size: 1.3em;
+}
+
+/* 4: Homepage */
+/* ------------------------------------------- */
+
+#offers, #cart-announcement {
+	text-align: center;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+#cart-announcement {
+	background-color: #F1F2F3;
+}
+
+#cart-image {
+	display: inline-block;
+	padding-bottom: 50px;
+}
+
+/* 5: Product buttons & views */
+/* ------------------------------------------- */
+
+.product-large {
+	width: 300px;
+	height: 380px;
+	margin-left: 25px;
+	margin-right: 25px;
+	display: inline-block;
+	transition: all 0.8s ease;
+	/* filters */
+	filter:         sepia(100%) hue-rotate(105deg) grayscale(40%);
+	-webkit-filter: sepia(100%) hue-rotate(105deg) grayscale(40%);
+	-moz-filter:    sepia(100%) hue-rotate(105deg) grayscale(40%);
+	-o-filter:      sepia(100%) hue-rotate(105deg) grayscale(40%);
+	-ms-filter:     sepia(100%) hue-rotate(105deg) grayscale(40%);
+}
+
+.product-large:hover {
+	filter:         sepia(0%) hue-rotate(0deg) grayscale(0%);
+	-webkit-filter: sepia(0%) hue-rotate(0deg) grayscale(0%);
+	-moz-filter:    sepia(0%) hue-rotate(0deg) grayscale(0%);
+	-o-filter:      sepia(0%) hue-rotate(0deg) grayscale(0%);
+	-ms-filter:     sepia(0%) hue-rotate(0deg) grayscale(0%);
+}
+
+#placeholder1 {
+	width: 100%;
+	height: 100%;
+	padding: 0 0;
+	margin: 0 0;
+	background-image: url('placeholder1.jpg');
+	background-size: cover;
+}
+
+#placeholder2 {
+	width: 100%;
+	height: 100%;
+	padding: 0 0;
+	margin: 0 0;
+	background-image: url('placeholder2.jpg');
+	background-size: cover;
+}
+
+#placeholder3 {
+	width: 100%;
+	height: 100%;
+	padding: 0 0;
+	margin: 0 0;
+	background-image: url('placeholder3.jpg');
+	background-size: cover;
+}
+
+/* Products section */
+/* ------------------------------------------- */
+
+#categories {
+	background-color: #F1F2F3;
+	padding-left: 0;
+	padding-right: 0;
+	border-right: 1px solid #D0D8E0;
+	/* For correct background-color display: */
+	margin-top: -50px;
+}
+
+.category-tab {
+	/*color: #487798;*/
+	text-align: left;
+	border-bottom: 1px solid #D0D8E0;
+	padding: 8px 45px;
+}
+
+#new-category-form {
+	padding: 8px 45px;
+}
+
+#new-category-form .form-control {
+	margin-bottom: 8px;
+}
+
+.glyphicon-minus, .glyphicon-plus {
+	font-size: 0.8em;
+}
+
+.product {
+	background-color: #F1F2F3;
+	margin-bottom: 20px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}

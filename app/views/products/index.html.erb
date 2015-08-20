@@ -1,0 +1,36 @@
+<%= provide(:title, 'Productos') %>
+
+<!-- Categories -->
+
+<div class="col-sm-4 col-lg-3" id="categories">
+	<div class="category-tab">
+		<h4>Categorías</h4>
+	</div>
+
+	<% if !@categories.empty? %>
+		<% @categories.each do |category| %>
+			<%= render category %>
+		<% end %>
+	<% else %>
+		<p>No hay ninguna categoría aún</p>
+	<% end %>
+
+	<div class="category-tab">
+		<%= link_to new_category_path, class: 'btn btn-primary btn-symbol', id: 'new-category-btn', remote: true do %>
+			<span class="glyphicon glyphicon-plus"></span>
+		<% end %>
+	</div>
+</div>
+
+<!-- Products -->
+
+<div class="col-sm-8 col-lg-9" id="products">
+	<% @products.each do |product| %>
+		<%= render product %>
+	<% end %>
+	<div class="col-md-3">
+		<div class="product">
+			<%= link_to "Agregar", new_product_path(category_id: @category_id), remote: true %>
+		</div>
+	</div>
+</div>

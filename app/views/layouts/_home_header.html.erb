@@ -1,0 +1,36 @@
+<div id="home-header">
+	<!-- Navigation bar -->
+	<nav class="navbar">
+		<ul class="nav navbar-nav">
+			<li><a href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
+			<li><%= link_to 'Productos',   products_path %></li>
+			<li><%= link_to 'Información', info_path     %></li>
+			<li><%= link_to 'Contacto',    "#" %></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><%= link_to 'Acceso', "#" %></li>
+			<li><%= link_to 'Registro', signup_path %></li>
+		</ul>
+	</nav>
+
+	<!-- Brand section -->
+	<div id="fridge">
+		<%= image_tag 'fridge.png' %>
+	</div>
+	<div id="brand">
+		<h1>La Nevera</h1>
+		<h2>Tu tienda de congelados</h2>
+	</div>
+
+	<!-- Search bar -->
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<%= form_tag "#", method: 'get', class: 'search' do %>
+				<%= text_field_tag :search, params[:search], placeholder: "Buscar producto...", class: 'form-control' %>
+				<%= button_tag(type: 'submit', id: 'search-submit') do  %>
+					<span class="glyphicon glyphicon-search"></span>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

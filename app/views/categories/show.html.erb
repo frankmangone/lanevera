@@ -1,0 +1,11 @@
+<%= provide(:title, @category.name) %>
+
+<h1><%= @category.name %></h1>
+
+<% @products.each do |product| %>
+	<%= render product %>
+<% end %>
+
+<div class="col-md-4">
+	<p>Nuevo producto</p>
+</div>

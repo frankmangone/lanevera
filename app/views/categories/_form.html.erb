@@ -1,0 +1,7 @@
+<div id="new-category-form">
+	<%= form_for @category, remote: true do |f|%>
+		<%= f.text_field :name, placeholder: 'Categoría...', class: 'form-control' %>
+		<%= f.submit "Crear", class: 'btn btn-primary' %>
+		<%= button_to "Cancelar", "#", class: 'btn btn-default' %>
+	<% end %>
+</div>

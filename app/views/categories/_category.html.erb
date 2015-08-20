@@ -1,0 +1,7 @@
+<div class="category-tab" id="cat<%= category.id %>">
+	<%= link_to category, class: 'btn btn-primary btn-symbol', method: 'delete', remote: true do %>
+		<span class="glyphicon glyphicon-minus"></span>
+	<% end %>
+	&nbsp;
+	<%= link_to category.name, products_path(category_id: category.id) %>
+</div>
