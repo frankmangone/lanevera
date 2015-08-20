@@ -16,7 +16,7 @@ $("#new_category").hide().slideDown( function(){
 
 	var $form = $("#new-category-cancel").parent();
 
-	// Then, bind the cancel button:
+	/* Then, bind the cancel button: */
 	$("#new-category-cancel").click( function(event){
 		event.preventDefault();
 		$(this).parent().parent().slideUp( function(){
@@ -41,17 +41,30 @@ $("#new_category").hide().slideDown( function(){
 			dataType: 'json',
 
 			success: function(data){
+				/* Create the new category tab*/
 				$("#new_category").parent().remove();
 
 				var id = data.id;
 				id = id.toString();
 
-				$(".category-tab").last().before("<%= escape_javascript(render(:partial => 'category')) %>").show();
+				$(".category-tab").last().before("<%= j render 'blank_category' %>").show();
+				fillCategoryInfo(data, $("#new-cat"));
+
 				$("#cat"+id).hide().slideDown();
 			},
 
 			error: function(data){
-				alert('nope');
+				/* Since theres only one field, show error messages
+				 * and display red border. */
+
+				$("#category-name-errors").html("<p>"+data.responseJSON[0]+"</p>")
+										  .hide()
+										  .slideDown();
+
+				$("#category_name").addClass("invalid-field").on("keydown", function(){
+					$("#category-name-errors").slideUp();
+					$(this).removeClass("invalid-field").off("keydown");
+				});
 			}
 		});
 

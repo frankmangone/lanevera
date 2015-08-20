@@ -1,6 +1,9 @@
 <div id="new-category-form">
-	<%= form_for @category do |f|%>
+	<%= form_for @category, remote: true do |f|%>
 		<%= f.text_field :name, placeholder: 'Categoría...', class: 'form-control' %>
+
+		<div class="errors" id="category-name-errors"></div>
+
 		<%= f.submit "Crear", class: 'btn btn-primary', id: 'create-category' %>
 		<%= button_to "Cancelar", "#", class: 'btn btn-primary', id: 'new-category-cancel' %>
 	<% end %>

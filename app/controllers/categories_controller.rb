@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
 
 	def new
 		@category = Category.new
+		@ola = "alo"
 		respond_to do |format|
 			format.js
 		end
@@ -17,7 +18,8 @@ class CategoriesController < ApplicationController
 
 		respond_to do |format|
 			if @category.save
-				format.json { render json: @category }
+				format.js
+				format.json { render json: @category, status: :ok }
 			else
 				format.json { render json: @category.errors.full_messages, status: :unprocessable_entity }
 			end
