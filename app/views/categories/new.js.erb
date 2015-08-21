@@ -8,19 +8,21 @@
 	return data;
 }*/
 
-// First, hide the new category tab and render the form:
-$("#new-category-btn").parent().hide().after("<%= j render 'form' %>");
+// First, slide up the new category tab and render the form:
+$("#new-category-btn").parent().slideUp().after("<%= j render 'form' %>");
 
 // Then, slide down the form:
 $("#new_category").hide().slideDown( function(){
 
-	var $form = $("#new-category-cancel").parent();
+	var $form = $(this);
+	$("#category_name").focus();
 
-	/* Then, bind the cancel button: */
+	/* Bind the cancel button: */
 	$("#new-category-cancel").click( function(event){
 		event.preventDefault();
+
+		$("#new-category-btn").parent().slideDown();
 		$(this).parent().parent().slideUp( function(){
-			$("#new-category-btn").parent().slideDown();
 			$(this).remove();
 		});
 	});
@@ -41,30 +43,36 @@ $("#new_category").hide().slideDown( function(){
 			dataType: 'json',
 
 			success: function(data){
-				/* Create the new category tab*/
-				$("#new_category").parent().remove();
 
-				var id = data.id;
-				id = id.toString();
+				var $add_button_tab = $(".category-tab").last();
+				var $category_form_tab = $("#new_category").parent();
 
-				$(".category-tab").last().before("<%= j render 'blank_category' %>").show();
-				fillCategoryInfo(data, $("#new-cat"));
+				/* Render the passed partial */
+				$add_button_tab.before(data.partial);
 
-				$("#cat"+id).hide().slideDown();
+				$add_button_tab.slideDown();
+				$category_form_tab.slideUp( function(){
+					$(this).remove();
+				});
+
+				var $new_category_tab = $("#cat"+data.id);
+				$new_category_tab.hide().slideDown();
+				
 			},
 
 			error: function(data){
+				handleErrors('category', data.responseJSON);
 				/* Since theres only one field, show error messages
 				 * and display red border. */
 
-				$("#category-name-errors").html("<p>"+data.responseJSON[0]+"</p>")
+				/*$("#category-name-errors").html("<p>"+data.responseJSON[0]+"</p>")
 										  .hide()
 										  .slideDown();
 
 				$("#category_name").addClass("invalid-field").on("keydown", function(){
 					$("#category-name-errors").slideUp();
 					$(this).removeClass("invalid-field").off("keydown");
-				});
+				});*/
 			}
 		});
 

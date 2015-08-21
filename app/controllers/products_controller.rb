@@ -34,13 +34,13 @@ class ProductsController < ApplicationController
 
 	def create
 		@product = Product.create(product_params)
+		@product.category_name = Category.find(@product.category_id).name
+
 		respond_to do |format|
 			if @product.save
-				format.html { redirect_to @product }
-				format.js
+				format.json { render json: @product, status: :ok }
 			else
-				format.html { render 'index' }
-				format.js
+				format.json { render json: @product.errors, status: :unprocessable_entity }
 			end
 		end
 	end

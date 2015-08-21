@@ -1,7 +1,50 @@
 <div class="category-tab" id="cat<%= category.id %>">
-	<%= link_to category, class: 'btn btn-primary btn-symbol', method: 'delete', remote: true do %>
+	<%= link_to "#", class: 'btn btn-primary btn-symbol' do %>
 		<span class="glyphicon glyphicon-minus"></span>
 	<% end %>
 	&nbsp;
 	<%= link_to category.name, products_path(category_id: category.id) %>
 </div>
+
+<div class="category-delete-tab">
+	<p>
+		<%= link_to "#", class: 'btn btn-danger btn-symbol' do %>
+			 <span class="glyphicon glyphicon-remove"></span>
+		<% end %>
+
+		<%= link_to category, class: 'btn btn-danger btn-symbol', method: 'delete', remote: true do %>
+			<span class="glyphicon glyphicon-ok"></span>
+		<% end %>
+
+		&nbsp;
+		¿Estás seguro?
+	</p>
+</div>
+
+<script>
+	var $this_tab = $("#cat<%= category.id %>");
+	var $this_delete_tab = $this_tab.next();
+
+	$this_tab.find(".btn-symbol").click( function(event){
+		event.preventDefault();
+
+		var $tab = $(this).parent();
+		$tab.slideUp();
+		$tab.next().slideDown();
+	});
+
+	$this_delete_tab.hide();
+	$this_delete_tab.find(".btn-symbol").last().click( function(){
+		/* Delete button, do not prevent default behaviour */
+		$(this).parent().parent().slideUp( function(){
+			$(this).remove();
+		});
+	});
+	$this_delete_tab.find(".btn-symbol").first().click( function(event){
+		/* Show the category again */
+		event.preventDefault();
+		$(this).parent().parent().slideUp();
+		$(this).parent().parent().prev().slideDown();
+	});
+
+</script>

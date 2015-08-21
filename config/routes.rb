@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'info' => 'static#info'
   get 'signup' => 'users#new'
 
+  # Categories
   resources :categories
+
+  # Products
   resources :products
 end

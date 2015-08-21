@@ -5,6 +5,11 @@
 			<%= f.label "Nombre del producto" %>
 			<%= f.text_field :title, class: 'form-control' %>
 
+			<div class="errors" id="product-title-errors"></div>
+
+			<br>
+			<%= f.label "Categoría" %>
+			<br>
 			<% if !@category_id %>
 				<!-- If not viewing a category, select to which category the product belongs to -->
 				<%= f.select(:category_id) do %>
@@ -21,8 +26,8 @@
 
 			<% end %>
 			<br>
-
-			<%= f.submit "Agregar", class: 'btn btn-primary' %>
+			<br>
+			<%= f.submit "Agregar", class: 'btn btn-primary', id: 'create-product' %>
 			<%= link_to "Cancelar", "#", class: 'btn btn-primary', id: 'new-product-cancel' %>
 		<% end %>
 	</div>

@@ -14,3 +14,24 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+/* Capitalize first letter of a string */
+function capitalize(string){
+	return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+/* Display error messages upon failed [model] creation. */
+function handleErrors(model, data){
+	$.each(data, function(key, value){
+
+		$("#"+model+"-"+key+"-errors").html("<p>"+capitalize(key)+" "+value+"</p>")
+										  .hide()
+										  .slideDown();
+
+		$("#"+model+"_"+key).addClass("invalid-field").on("keydown", function(){
+			$("#"+model+"-"+key+"-errors").slideUp();
+			$(this).removeClass("invalid-field").off("keydown");
+		});
+
+	});
+}

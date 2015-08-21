@@ -2,7 +2,11 @@
 	<!-- Navigation bar -->
 	<nav class="navbar">
 		<ul class="nav navbar-nav">
-			<li><a href="<%= root_path %>"><span class="glyphicon glyphicon-home"></span></a></li>
+			<li>
+				<%= link_to root_path do %>
+					<span class="glyphicon glyphicon-home"></span>
+				<% end %>
+			</li>
 			<li><%= link_to 'Productos',   products_path %></li>
 			<li><%= link_to 'Información', info_path     %></li>
 			<li><%= link_to 'Contacto',    "#" %></li>
