@@ -31,19 +31,23 @@ $("#new-product-form").parent().hide().slideDown( function(){
 		$.ajax({
 			type: 'POST',
 			url: $form.attr("action"),
-			data: $form.serialize(),
+			data: $form.serialize(), // Esto es lo que causa problemas creo.
 			dataType: 'json',
 
 			success: function(data){
-				$form.parent().parent().before("<%= j render 'blank_product' %>").slideUp( function(){
+				var $form_div = $form.parent().parent();
+
+				$form_div.before(data.partial);
+
+				$form_div.slideUp( function(){
 					$(this).remove();
 					$("#products").append("<%= j render 'new_product_btn' %>");
 					$("#new-product").hide().slideDown();
 				});
 
-				fillProductInfo(data, $("#new-prod"));
-
-				$("#prod"+data.id).hide().slideDown();
+				$new_product = $("#prod"+data.id);
+				productImageAutosize($new_product);
+				$new_product.hide().slideDown();
 										
 			},
 

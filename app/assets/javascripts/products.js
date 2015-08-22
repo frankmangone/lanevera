@@ -1,7 +1,26 @@
-/* Fill in new product info on display div upon creation */
-function fillProductInfo(data, $div){
-	$div.attr("id", "prod"+data.id);
+function productImageAutosize($wrapper){
+	var width = $wrapper.width();
 
-	$div.find(".title-display").text(data.title);
-	$div.find(".category-display").text("Categoría: "+data.category_name);
+	$wrapper.find("img").width(width);
+	$wrapper.find("img").height(width);
 }
+
+function addCategoryTabsListeners(){
+	var $category_tabs = $(".category-tab");
+	$category_tabs = $category_tabs.slice(0, -1);
+	$category_tabs.each( function(){
+		alert('alo');
+	});
+}
+
+/* Events */
+$(document).ready( function(){
+	$("#products").find(".image-wrapper").each( function(){
+		productImageAutosize($(this));
+		addCategoryTabsListeners();
+	});
+}).on("page:change", function(){
+	$("#products").find(".image-wrapper").each( function(){
+		productImageAutosize($(this));
+	});
+});

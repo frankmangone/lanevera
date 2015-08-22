@@ -57,22 +57,11 @@ $("#new_category").hide().slideDown( function(){
 
 				var $new_category_tab = $("#cat"+data.id);
 				$new_category_tab.hide().slideDown();
-				
+
 			},
 
 			error: function(data){
 				handleErrors('category', data.responseJSON);
-				/* Since theres only one field, show error messages
-				 * and display red border. */
-
-				/*$("#category-name-errors").html("<p>"+data.responseJSON[0]+"</p>")
-										  .hide()
-										  .slideDown();
-
-				$("#category_name").addClass("invalid-field").on("keydown", function(){
-					$("#category-name-errors").slideUp();
-					$(this).removeClass("invalid-field").off("keydown");
-				});*/
 			}
 		});
 

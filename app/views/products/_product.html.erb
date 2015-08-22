@@ -1,6 +1,10 @@
-<div class="col-lg-3" id="prod<%= product.id %>">
+<div class="col-lg-3 product-display" id="prod<%= product.id %>">
+	<div class="image-wrapper">
+		<%= image_tag 'ph.jpg' %>
+	</div>
+
 	<div class="product">
 		<p class="title-display"><%= product.title %></p>
-		<p class="category-display">Categoría: <%= @category_names["name"+product.category_id.to_s] %></p>
+		<p class="category-display">Categoría: <%= product.category_name %></p>
 	</div>
 </div>

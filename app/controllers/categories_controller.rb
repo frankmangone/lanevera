@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
 		
 		respond_to do |format|
 			if @category.save
-				# Add info for rendering
+				# Add rendered partial as string
 				partial = { partial: render_to_string(@category) }
 				@category = JSON::parse(@category.to_json).merge( partial ).to_json
 
