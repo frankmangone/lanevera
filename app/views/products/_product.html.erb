@@ -1,10 +1,12 @@
-<div class="col-lg-3 product-display" id="prod<%= product.id %>">
-	<div class="image-wrapper">
-		<%= image_tag product.photo.url() %>
-	</div>
+<div class="col-lg-3 clearfix product-display" id="prod<%= product.id %>">
+	<div class="product-wrapper">
+		<div class="image-wrapper">
+			<%= image_tag product.photo.url() %>
+		</div>
 
-	<div class="product">
-		<p class="title-display"><%= product.title %></p>
-		<p class="category-display">Categoría: <%= product.category.name %></p>
+		<div class="product">
+			<p class="title-display"><%= product.title %></p>
+			<p class="category-display">Categoría: <%= product.category.name %></p>
+		</div>
 	</div>
 </div>
