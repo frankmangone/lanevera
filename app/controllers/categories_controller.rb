@@ -15,17 +15,9 @@ class CategoriesController < ApplicationController
 
 	def create
 		@category = Category.new(category_params)
-		
+		@category.save
 		respond_to do |format|
-			if @category.save
-				# Add rendered partial as string
-				partial = { partial: render_to_string(@category) }
-				@category = JSON::parse(@category.to_json).merge( partial ).to_json
-
-				format.json { render json: @category, status: :ok }
-			else
-				format.json { render json: @category.errors, status: :unprocessable_entity }
-			end
+			format.js
 		end
 	end
 
@@ -34,8 +26,8 @@ class CategoriesController < ApplicationController
 	end
 
 	def destroy
+		@category.destroy_product_images
 		@category.destroy
-
 		respond_to do |format|
 			format.js
 		end

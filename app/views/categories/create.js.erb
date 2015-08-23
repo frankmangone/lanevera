@@ -1,0 +1,29 @@
+/* Check if there are any errors */
+
+if(<%= @category.errors.any? %>){
+	var key;
+	var value;
+
+	<% @category.errors.each do |key, value| %>
+		key = "<%= key %>";
+		value = "<%= value %>";
+		handleError('category', key, value);
+	<% end %>
+}
+
+/* If there aren't, render the new tab */
+
+else {
+	var $add_button_tab = $(".category-tab").last();
+	var $category_form_tab = $("#new_category").parent();
+
+	$add_button_tab.before("<%= j render @category %>");
+
+	$add_button_tab.slideDown();
+	$category_form_tab.slideUp( function(){
+		$(this).remove();
+	});
+
+	var $new_category_tab = $("#cat<%= @category.id %>");
+	$new_category_tab.hide().slideDown();
+}

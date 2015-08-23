@@ -373,6 +373,7 @@ a:hover, a:focus, a:visited {
 
 
 .image-wrapper {
+	background-color: #9AC3D0;
 	overflow: hidden;
 	border-radius: 3px 3px 0 0;
 }

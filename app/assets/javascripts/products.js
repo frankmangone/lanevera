@@ -17,7 +17,7 @@ function addCategoryTabsListeners(){
 $(document).ready( function(){
 	$("#products").find(".image-wrapper").each( function(){
 		productImageAutosize($(this));
-		addCategoryTabsListeners();
+		//addCategoryTabsListeners();
 	});
 }).on("page:change", function(){
 	$("#products").find(".image-wrapper").each( function(){

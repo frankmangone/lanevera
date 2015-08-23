@@ -26,45 +26,5 @@ $("#new_category").hide().slideDown( function(){
 			$(this).remove();
 		});
 	});
-	
-
-	/* And the create button, but with an ajax request:
-	 * Note that this REPLACES the remote: true in the view. */
-	$("#create-category").click( function(event){
-
-		/* Don't forget to prevent default behaviour!!
-		 * If I don't, it sends an html request. */
-		event.preventDefault();
-
-		$.ajax({
-			type: 'POST',
-			url: $form.attr("action"),
-			data: $form.serialize(),
-			dataType: 'json',
-
-			success: function(data){
-
-				var $add_button_tab = $(".category-tab").last();
-				var $category_form_tab = $("#new_category").parent();
-
-				/* Render the passed partial */
-				$add_button_tab.before(data.partial);
-
-				$add_button_tab.slideDown();
-				$category_form_tab.slideUp( function(){
-					$(this).remove();
-				});
-
-				var $new_category_tab = $("#cat"+data.id);
-				$new_category_tab.hide().slideDown();
-
-			},
-
-			error: function(data){
-				handleErrors('category', data.responseJSON);
-			}
-		});
-
-	});
 
 });

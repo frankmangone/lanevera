@@ -23,7 +23,6 @@ class ProductsController < ApplicationController
 			@categories = Category.all
 		end
 
-		# Later, if a category is selected, add it directly to that category.
 		respond_to do |format|
 			format.js
 		end
@@ -31,17 +30,16 @@ class ProductsController < ApplicationController
 
 
 	def create
-		@product = Product.create(product_params)
-
+		@product = Product.new(product_params)
+		
 		respond_to do |format|
 			if @product.save
-				# Add rendered partial as string
-				partial = { partial: render_to_string(@product) }
-				@product = JSON::parse(@product.to_json).merge( partial ).to_json
-				# @product.public_serialized_response
-				format.json { render json: @product, status: :ok }
+				# For now, even though the request is ajax (remote: true),
+				# it falls back to html due to the image upload.
+				# Look for possible solutions (ie. dropzonejs)
+				format.html { redirect_to products_path }
 			else
-				format.json { render json: @product.errors, status: :unprocessable_entity }
+				format.js
 			end
 		end
 	end
@@ -70,7 +68,7 @@ class ProductsController < ApplicationController
 	private
 
 		def product_params
-			params.require(:product).permit(:title, :category_id, :photo, :photo_file_name)#, :description, :price, :stock)
+			params.require(:product).permit(:title, :category_id, :photo, :photo_file_name)
 		end
 
 		def find_product

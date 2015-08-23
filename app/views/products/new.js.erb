@@ -22,39 +22,4 @@ $("#new-product-form").parent().hide().slideDown( function(){
 		});
 	});
 
-	// And bind the create button with an ajax request:
-	$("#create-product").click( function(){
-		event.preventDefault();
-
-		var $form = $(this).parent();
-
-		$.ajax({
-			type: 'POST',
-			url: $form.attr("action"),
-			data: $form.serialize(), // Esto es lo que causa problemas creo.
-			dataType: 'json',
-
-			success: function(data){
-				var $form_div = $form.parent().parent();
-
-				$form_div.before(data.partial);
-
-				$form_div.slideUp( function(){
-					$(this).remove();
-					$("#products").append("<%= j render 'new_product_btn' %>");
-					$("#new-product").hide().slideDown();
-				});
-
-				$new_product = $("#prod"+data.id);
-				productImageAutosize($new_product);
-				$new_product.hide().slideDown();
-										
-			},
-
-			error: function(data){
-				handleErrors('product', data.responseJSON);
-			}
-		});
-	});
-
 });

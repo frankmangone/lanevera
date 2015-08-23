@@ -21,17 +21,13 @@ function capitalize(string){
 }
 
 /* Display error messages upon failed [model] creation. */
-function handleErrors(model, data){
-	$.each(data, function(key, value){
+function handleError(model, key, value){
+	$("#"+model+"-"+key+"-errors").html("<p>"+capitalize(key)+" "+value+"</p>")
+									  .hide()
+									  .slideDown();
 
-		$("#"+model+"-"+key+"-errors").html("<p>"+capitalize(key)+" "+value+"</p>")
-										  .hide()
-										  .slideDown();
-
-		$("#"+model+"_"+key).addClass("invalid-field").on("keydown", function(){
-			$("#"+model+"-"+key+"-errors").slideUp();
-			$(this).removeClass("invalid-field").off("keydown");
-		});
-
+	$("#"+model+"_"+key).addClass("invalid-field").on("keydown", function(){
+		$("#"+model+"-"+key+"-errors").slideUp();
+		$(this).removeClass("invalid-field").off("keydown");
 	});
 }
