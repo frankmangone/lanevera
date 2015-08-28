@@ -15,6 +15,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'devise'
+
 
 group :development, :test do
   gem 'sqlite3'
@@ -23,9 +25,9 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg',             '0.17.1'
+  #gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.3'
-  #gem 'puma',           '2.12.3'
+  gem 'puma',           '2.12.3'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
