@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'info' => 'static#info'
   get 'signup' => 'users#new'
 
+  # Users
+  devise_for :users
+
   # Categories
   resources :categories
 
