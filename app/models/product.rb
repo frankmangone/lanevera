@@ -6,8 +6,8 @@ class Product < ActiveRecord::Base
 										dropbox_credentials: Rails.root.join("config/dropbox.yml"),
 										dropbox_visibility: 'public'
 
-	validates_attachment_presence :photo
-	validates_attachment_content_type :photo, content_type: ['image/jpeg', 'image/png'] #/\Aimage\/.*\Z/
+	validates_attachment_presence     :photo, on: :update
+	validates_attachment_content_type :photo, on: :update, content_type: ['image/jpeg', 'image/png']#/\Aimage\/.*\Z/
 
 	validates :title, :category_id, presence: true#, :price, :stock, :photo
 

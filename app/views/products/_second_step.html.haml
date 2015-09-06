@@ -1,0 +1,16 @@
+/ Second step: Photo uploading
+= form_for @product, html: { multipart: true }, method: :patch, remote: true do |f|
+  = f.label "Foto"
+  .photo-preview
+
+  = f.file_field :photo, class: 'form-control'
+  #product-photo-errors.errors
+  %br/
+
+  %br/
+  %br/
+
+  = f.button :submit, class: 'btn btn-primary', id: 'next-step' do
+    %span.glyphicon.glyphicon-arrow-right
+  = link_to "#", class: 'btn btn-primary', id: 'new-product-cancel' do
+    %span.glyphicon.glyphicon-remove

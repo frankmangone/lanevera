@@ -1,6 +1,7 @@
 /* Check if there are any errors */
 
 if(<%= @product.errors.any? %>){
+	alert(<%= @product.errors.empty? %>);
 	var key;
 	var value;
 
@@ -14,18 +15,5 @@ if(<%= @product.errors.any? %>){
 /* If there aren't, render the new tab */
 
 else {
-	var $form = $("#new-product-form").parent();
-	$form.before("<%= j render @product %>");
-	var $product = $("#prod<%= @product.id %>");
-
-	$form.slideUp( function(){
-		$(this).remove();
-	});
-
-	productImageAutosize($product.find(".image-wrapper"));
-
-	$product.hide().slideDown( function(){
-		$("#new-product").slideDown();
-	});
-
+	// delete current step, and render the next step.
 }

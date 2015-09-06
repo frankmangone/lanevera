@@ -1,6 +1,4 @@
 <div class="col-xs-12" id="new-product">
-	<div>
-		<!-- :category_id is passed as parameter in case I am in a category already. -->
-		<%= link_to "Nuevo producto", new_product_path(category_id: @category_id), remote: true %>
-	</div>
+	<!-- :category_id is passed as parameter in case I am in a category already. -->
+	<%= link_to "Nuevo producto", new_product_path(category_id: @category_id), class: 'btn btn-primary', remote: true %>
 </div>

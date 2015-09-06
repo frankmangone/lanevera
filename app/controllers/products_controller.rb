@@ -34,10 +34,7 @@ class ProductsController < ApplicationController
 		
 		respond_to do |format|
 			if @product.save
-				# For now, even though the request is ajax (remote: true),
-				# it falls back to html due to the image upload.
-				# Look for possible solutions (ie. dropzonejs)
-				format.html { redirect_to products_path }
+				format.js
 			else
 				format.js
 			end
@@ -61,7 +58,8 @@ class ProductsController < ApplicationController
 
 
 	def destroy
-		
+		@product.destroy
+		redirect_to products_path
 	end
 	
 

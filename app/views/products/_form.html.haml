@@ -1,32 +1,8 @@
-.col-xs-12
+.col-xs-4.col-xs-offset-4
   #new-product-form
-    = form_for @product, html: { multipart: true }, remote: true do |f|
-      = hidden_field_tag :authenticity_token, form_authenticity_token
 
-      = f.label "Título del producto"
-      = f.text_field :title, class: 'form-control'
-      #product-title-errors.errors
-      %br/
+    / First step: Basic information.
+    = render 'first_step'
 
-      = f.label "Foto"
-      .photo-preview
-        
-      = f.file_field :photo, class: 'form-control'
-      #product-photo-errors.errors
-      %br/
-
-      = f.label "Categoría"
-      %br/
-      - if !@category_id
-        / If not viewing a category, select to which category the product belongs to
-        = f.select(:category_id) do
-          - @categories.each do |cat|
-            = content_tag(:option, cat.name, value: cat.id, class: 'form-control')
-      - else
-        / If viewing a category, create the element directly into it
-        = f.select(:category_id) do
-          = content_tag(:option, @category.name, value: @category_id)
-      %br/
-      %br/
-      = f.submit "Agregar", class: 'btn btn-primary', id: 'create-product'
-      = link_to "Cancelar", "#", class: 'btn btn-primary', id: 'new-product-cancel'
+    / = f.button :submit, class: 'btn btn-primary', id: 'create-product' do
+    /  %span.glyphicon.glyphicon-ok
