@@ -13,6 +13,7 @@
 	<div class="container-fluid">
 		<%= render 'layouts/header' %>
 		<div class="row" id="content">
+			<%= render "shared/alerts" if flash.present? %>
 			<%= yield %>
 		</div>
 		<%= debug(params) if Rails.env.development? %>

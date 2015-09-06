@@ -1,5 +1,5 @@
 // First, slide the add button up and then remove it.
-
+$("#new-product").find("div").find("a").attr('disabled', 'true'); // ??? hacerlo un botón??
 $("#new-product").slideUp( function(){
 	$(this).remove();
 });

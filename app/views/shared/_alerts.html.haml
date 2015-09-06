@@ -1,0 +1,18 @@
+- if flash[:notice] || flash[:alert]
+  .alert.alert-info
+    %a.close{"data-dismiss" => "alert", "aria-label" => "close"}
+      &times;
+    .container-default.text-center
+      != flash[:notice] || flash[:alert]
+- if flash[:error]
+  .alert.alert-danger
+    %a.close{"data-dismiss" => "alert", "aria-label" => "close"}
+      &times;
+    .container-default.text-center
+      != flash[:error]
+- if flash[:success]
+  .alert.alert-success
+    %a.close{"data-dismiss" => "alert", "aria-label" => "close"}
+      &times;
+    .container-default.text-center
+      != flash[:success]

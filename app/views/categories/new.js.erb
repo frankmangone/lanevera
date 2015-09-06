@@ -1,14 +1,5 @@
-/*function parseForm($form){
-	var data = {};
-
-	$form.find("input[name]").each(function (index, node) {
-		data[node.name] = node.value;
-	});
-
-	return data;
-}*/
-
 // First, slide up the new category tab and render the form:
+$("#new-category-btn").attr('disabled', 'true');
 $("#new-category-btn").parent().slideUp().after("<%= j render 'form' %>");
 
 // Then, slide down the form:

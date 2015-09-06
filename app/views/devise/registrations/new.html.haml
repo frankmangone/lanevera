@@ -1,0 +1,37 @@
+%h2 Sign up
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+
+  .field
+    = f.label "Nombre"
+    %br/
+    = f.text_field :first_name
+
+  .field
+    = f.label "Apellido"
+    %br/
+    = f.text_field :last_name
+
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true
+
+  .field
+    = f.label "Contraseña"
+    - if @validatable
+      %em
+        (#{@minimum_password_length} caracteres mínimo)
+    %br/
+    = f.password_field :password, autocomplete: "off"
+
+  .field
+    = f.label "Confirmar contraseña"
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "off"
+    
+  .actions
+    = f.submit "Regístrate!"
+
+= render "devise/shared/links"

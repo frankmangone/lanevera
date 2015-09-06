@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   root 'static#home'
   
   get 'info' => 'static#info'
-  get 'signup' => 'users#new'
 
   # Users
-  devise_for :users
+  devise_for :users, controllers: { 
+    registrations: "users/registrations" 
+  }
+
+  resources  :users
 
   # Categories
   resources :categories
