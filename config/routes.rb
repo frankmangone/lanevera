@@ -17,4 +17,7 @@ Rails.application.routes.draw do
 
   # Products
   resources :products
+
+  # Photos
+  resources :photos, only: [:new, :create, :edit, :update, :destroy]
 end

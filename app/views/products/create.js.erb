@@ -1,7 +1,6 @@
 /* Check if there are any errors */
 
 if(<%= @product.errors.any? %>){
-	alert(<%= @product.errors.empty? %>);
 	var key;
 	var value;
 
@@ -15,5 +14,22 @@ if(<%= @product.errors.any? %>){
 /* If there aren't, render the new tab */
 
 else {
-	// delete current step, and render the next step.
+	// Disable the submit (next) button.
+	$("#next-step").attr('disabled', 'true');
+
+	// Render the next step and bind events.
+	$next_step = $("<%= j render 'second_step' %>");
+	$("#new_product").fadeOut( function(){
+		// Delete current step, then display the next one.
+		$(this).after($next_step);
+		$(this).remove();
+		$("#next-step").attr('disabled', 'true');
+		$("#new-product.cancel").attr('disabled', 'true');
+
+		$("#edit_product_<%= @product.id %>").hide().fadeIn( function(){
+			$("#next-step").removeAttr('disabled');
+			$("#new-product.cancel").removeAttr('disabled');
+		});
+
+	});
 }

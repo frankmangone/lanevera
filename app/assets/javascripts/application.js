@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require turbolinks
 //= require_tree .
 
@@ -27,6 +28,9 @@ function handleError(model, key, value){
 									  .slideDown();
 
 	$("#"+model+"_"+key).addClass("invalid-field").on("keydown", function(){
+		$("#"+model+"-"+key+"-errors").slideUp();
+		$(this).removeClass("invalid-field").off("keydown");
+	}).on("change", function(){
 		$("#"+model+"-"+key+"-errors").slideUp();
 		$(this).removeClass("invalid-field").off("keydown");
 	});

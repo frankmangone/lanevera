@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
 
 	def new
 		@product = Product.new
+		@photo = Photo.new
 		@category_id = params[:category_id]
 
 		if @category_id
@@ -53,7 +54,17 @@ class ProductsController < ApplicationController
 
 
 	def update
-
+		respond_to do |format|
+			if @product.update_attributes(product_params)
+				if remotipart_submitted? 
+					format.js { render 'photo.js.erb' }
+				else
+					format.js
+				end
+			else
+				format.js #{ 'update_error.js.erb' }
+			end
+		end
 	end
 
 

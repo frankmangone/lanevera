@@ -1,13 +1,6 @@
 class Product < ActiveRecord::Base
 	belongs_to :category
-
-	has_attached_file :photo,
-										storage: :dropbox,
-										dropbox_credentials: Rails.root.join("config/dropbox.yml"),
-										dropbox_visibility: 'public'
-
-	validates_attachment_presence     :photo, on: :update
-	validates_attachment_content_type :photo, on: :update, content_type: ['image/jpeg', 'image/png']#/\Aimage\/.*\Z/
+	belongs_to :photo
 
 	validates :title, :category_id, presence: true#, :price, :stock, :photo
 

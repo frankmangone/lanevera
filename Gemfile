@@ -18,6 +18,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem "haml-rails", "~> 0.6.0"
 
+# For ajax file uploads
+gem 'remotipart', '~> 1.2'
+
 
 group :development, :test do
   gem 'sqlite3'
