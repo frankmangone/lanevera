@@ -7,7 +7,7 @@ $("#new-product").slideUp( function(){
 // At the same time render the form and slide it down
 $("#products").append("<%= j render 'form' %>");
 $("#photo-input").toggle();
-$("#new-product-form").hide().slideDown();
+$("#new-product-form").parent().hide().slideDown();
 
 // On the form: -----------------------------------------------
 
@@ -23,8 +23,9 @@ $("#new-product-cancel").click( function(event){
 	});
 });
 
-// Hide the "ready" button:
-$("#create-product").hide();
-
-// Bind the "next" button
+// Bind the photo events:
+$("#photo-preview").click( function(){
+	$photo_upload = $("#photo_photo");
+	$photo_upload.trigger('click');
+})
 

@@ -1,0 +1,24 @@
+if(<%= @photo.errors.any? %>){
+	/* Error */
+
+	var key;
+	var value;
+
+	<% @photo.errors.each do |key, value| %>
+		key = "<%= key %>";
+		value = "<%= value %>";
+		handleError('photo', key, value);
+	<% end %>
+	// In this case I should mark the border of the preview
+}
+
+else {
+	/* Success */
+
+	$("#new_photo").remove();
+	$("#new_product").append('<input class="form-control" type="hidden" name="product[photo_id]" id="product_photo">');
+	$("#product_photo").val("<%= @photo.id %>");
+
+	$("#photo-preview").css('background-image', 'url(<%= j @photo.photo.url() %>)');
+}
+

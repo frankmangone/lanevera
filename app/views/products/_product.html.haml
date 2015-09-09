@@ -3,7 +3,7 @@
 		= link_to "X", product, method: 'delete', data: { confirm: 'Are you sure?' }
 	.product-wrapper
 		.image-wrapper
-			= image_tag product.photo.url()
+			= image_tag product.photo.photo.url()
 		.product
 			%p.title-display= product.title
 			%p.category-display
