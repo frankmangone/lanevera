@@ -1,24 +1,15 @@
-if(<%= @photo.errors.any? %>){
-	/* Error */
+/* Success */
 
-	var key;
-	var value;
+$("#new_photo").remove();
+$("#new_product").append('<input class="form-control" type="hidden" name="product[photo_id]" id="product_photo">');
+$("#product_photo").val("<%= @photo.id %>");
 
-	<% @photo.errors.each do |key, value| %>
-		key = "<%= key %>";
-		value = "<%= value %>";
-		handleError('photo', key, value);
-	<% end %>
-	// In this case I should mark the border of the preview
-}
+$("#photo-preview").css('background-image', 'url(<%= j @photo.photo.url() %>)');
 
-else {
-	/* Success */
+// Remove upload info:
 
-	$("#new_photo").remove();
-	$("#new_product").append('<input class="form-control" type="hidden" name="product[photo_id]" id="product_photo">');
-	$("#product_photo").val("<%= @photo.id %>");
+$icon = $("#photo-upload-info").find("h2").find("span")
+$text = $("#photo-upload-info").find("p")
 
-	$("#photo-preview").css('background-image', 'url(<%= j @photo.photo.url() %>)');
-}
-
+$icon.removeClass('glyphicon-time');
+$text.text('');

@@ -1,0 +1,16 @@
+// Place all the styles related to the Photo controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.delete-button {
+	z-index: 100;
+	height: 16px;
+	margin-top: -42px;
+	margin-bottom: 42px;
+	padding-right: 5px;
+	text-align: right;
+}
+
+.image-wrapper {
+	z-index: 50;
+}

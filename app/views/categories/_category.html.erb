@@ -1,25 +1,29 @@
 <div class="category-tab" id="cat<%= category.id %>">
-	<%= link_to "#", class: 'btn btn-primary btn-symbol' do %>
-		<span class="glyphicon glyphicon-minus"></span>
+	<% if current_user.admin? %>
+		<%= link_to "#", class: 'btn btn-primary btn-symbol' do %>
+			<span class="glyphicon glyphicon-minus"></span>
+		<% end %>
+		&nbsp;
 	<% end %>
-	&nbsp;
 	<%= link_to category.name, products_path(category_id: category.id) %>
 </div>
 
-<div class="category-delete-tab">
-	<p>
-		<%= link_to "#", class: 'btn btn-danger btn-symbol' do %>
-			 <span class="glyphicon glyphicon-remove"></span>
-		<% end %>
+<% if current_user.admin? %>
+	<div class="category-delete-tab">
+		<p>
+			<%= link_to "#", class: 'btn btn-danger btn-symbol' do %>
+				 <span class="glyphicon glyphicon-remove"></span>
+			<% end %>
 
-		<%= link_to category, class: 'btn btn-danger btn-symbol', method: 'delete', remote: true do %>
-			<span class="glyphicon glyphicon-ok"></span>
-		<% end %>
+			<%= link_to category, class: 'btn btn-danger btn-symbol', method: 'delete', remote: true do %>
+				<span class="glyphicon glyphicon-ok"></span>
+			<% end %>
 
-		&nbsp;
-		¿Estás seguro?
-	</p>
-</div>
+			&nbsp;
+			¿Estás seguro?
+		</p>
+	</div>
+<% end %>
 
 <script>
 	//MAKE THIS UNOBSTRUSIVE OH GOD!!!

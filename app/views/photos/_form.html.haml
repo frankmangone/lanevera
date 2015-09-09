@@ -1,13 +1,13 @@
 #photo-preview
-	%p Click acá para seleccionar una imagen
+	#photo-upload-info
+		%h2
+			%span.glyphicon.glyphicon-upload
+		%p
+			Click aquí para elegir una imagen
+#photo-photo-errors.errors
 = form_for @photo, html: { multipart: true }, remote: true do |f|
-	= f.label "Foto"
 
-	= f.file_field :photo, class: 'form-control'
-	%br/
+	= f.file_field :photo
 
-	%br/
-	%br/
-
-	= f.button :submit, class: 'btn btn-primary', id: 'photo-submit' do
+	= f.button :submit, id: 'photo-submit' do
 		Subir foto

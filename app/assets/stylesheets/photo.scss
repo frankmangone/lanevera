@@ -5,10 +5,21 @@
 #photo-preview {
 	width: 200px;
 	height: 200px;
-	background-color: #000;
+	background-color: #FFFFFF;
 	background-size: cover;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	transition: all 0.2s linear;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	#photo-upload-info {
+		color: #6C91AA;
+	}
+
 }
 
-#photo_photo {
+#photo_photo, #photo-submit {
 	display: none;
 }

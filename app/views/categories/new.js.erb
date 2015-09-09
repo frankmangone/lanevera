@@ -13,6 +13,8 @@ $("#new_category").hide().slideDown( function(){
 		event.preventDefault();
 
 		$("#new-category-btn").parent().slideDown();
+		$("#new-category-btn").removeAttr('disabled');
+		
 		$(this).parent().parent().slideUp( function(){
 			$(this).remove();
 		});

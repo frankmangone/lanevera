@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
 	belongs_to :category
-	belongs_to :photo
+	belongs_to :photo, dependent: :destroy
 
 	validates :title, :category_id, presence: true#, :price, :stock, :photo
 

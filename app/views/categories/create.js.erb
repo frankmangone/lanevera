@@ -20,6 +20,8 @@ else {
 	$add_button_tab.before("<%= j render @category %>");
 
 	$add_button_tab.slideDown();
+	$add_button_tab.find("a").removeAttr('disabled');
+	
 	$category_form_tab.slideUp( function(){
 		$(this).remove();
 	});

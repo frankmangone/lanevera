@@ -5,6 +5,7 @@
 			= form_for @product, remote: true do |f|
 				= hidden_field_tag :authenticity_token, form_authenticity_token
 
+				/ Title
 				= f.label "Título del producto"
 				= f.text_field :title, class: 'form-control'
 				#product-title-errors.errors
@@ -21,6 +22,12 @@
 					/ If viewing a category, create the element directly into it
 					= f.select(:category_id) do
 						= content_tag(:option, @category.name, value: @category_id)
+				%br/
+
+				%br/
+				= f.label "Precio"
+				%br/
+				= f.number_field :price, step: 0.5
 
 				%br
 				%br

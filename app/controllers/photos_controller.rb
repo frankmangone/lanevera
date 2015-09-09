@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
 			if @photo.save
 				format.js
 			else
-				format.js
+				format.js { render 'create_error.js.erb' }
 			end
 		end
 	end
