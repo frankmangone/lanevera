@@ -1,5 +1,5 @@
 <div class="category-tab" id="cat<%= category.id %>">
-	<% if current_user.admin? %>
+	<% if current_user_admin? %>
 		<%= link_to "#", class: 'btn btn-primary btn-symbol' do %>
 			<span class="glyphicon glyphicon-minus"></span>
 		<% end %>
@@ -8,7 +8,7 @@
 	<%= link_to category.name, products_path(category_id: category.id) %>
 </div>
 
-<% if current_user.admin? %>
+<% if current_user_admin? %>
 	<div class="category-delete-tab">
 		<p>
 			<%= link_to "#", class: 'btn btn-danger btn-symbol' do %>

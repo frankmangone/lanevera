@@ -7,6 +7,6 @@
 			%p.category-display
 				Categoría: #{product.category.name}
 		.delete-button
-			- if current_user.admin?
+			- if current_user_admin?
 				= link_to product, method: 'delete', data: { confirm: 'Are you sure?' } do
 					%span.glyphicon.glyphicon-remove

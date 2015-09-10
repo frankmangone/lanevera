@@ -1,8 +1,24 @@
 function productImageAutosize($wrapper){
-	var width = $wrapper.width();
+	var $image = $wrapper.find("img");
+	var wrapper_side = $wrapper.width();
+	var width =  $image.width();
+	var height = $image.height();
+	var ratio;
 
-	$wrapper.find("img").width(width);
-	$wrapper.find("img").height(width);
+	// Revisar este script porque en realidad width y height están quedando como 0
+
+	if( width >= height ){
+		ratio = width/height;
+
+		$image.height( wrapper_side );
+		$image.width( wrapper_side*ratio );
+	}
+	else {
+		ratio = height/width;
+
+		$image.height( wrapper_side );
+		$image.width( wrapper_side*ratio );
+	}
 }
 
 /* Event handler binders */
@@ -15,13 +31,11 @@ function addProductTabListeners($target){
 
 	$target.hover( function(){
 		// Mouse enter
-		$(this).trigger("hover");
 		$image_wrapper.height( image_wrapper_height - 15);
 		$product_info.height( product_info_height + 15);
 		$image_wrapper.find("img").toggleClass("image-hover");
 	}, function(){
 		//Mouse leave
-		$(this).trigger("hover");
 		$image_wrapper.height( image_wrapper_height );
 		$product_info.height( product_info_height );
 		$image_wrapper.find("img").toggleClass("image-hover");
@@ -40,11 +54,11 @@ function addCategoryTabsListeners(){
 /* ------------------------------------------- */
 
 function addEventsOnLoad(){
-	$products = $("#products");
+	$products = $(".product-index");
 
 	$products.find(".image-wrapper").each( function(){
 		productImageAutosize($(this));
-		//addCategoryTabsListeners();
+			//addCategoryTabsListeners();
 	});
 
 	//AFTER the images are resized (because of the height getter):

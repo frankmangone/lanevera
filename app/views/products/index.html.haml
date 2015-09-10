@@ -10,15 +10,17 @@
   - else
     %p No hay ninguna categoría aún
   
-  - if current_user.admin?
+  - if current_user_admin?
     .category-tab
       = link_to new_category_path, class: 'btn btn-primary btn-symbol', id: 'new-category-btn', remote: true do
         %span.glyphicon.glyphicon-plus
       
 / Products
 #products.col-sm-8.col-lg-9
-  - @products.each do |product|
-    = render product
+  .product-index
+    - @products.each do |product|
+      = render product
 
-  - if current_user.admin?
-    = render 'new_product_btn'
+  .product-creation
+    - if current_user_admin?
+      = render 'new_product_btn'

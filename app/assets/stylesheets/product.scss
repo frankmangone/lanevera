@@ -1,16 +1,85 @@
-// Place all the styles related to the Photo controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// Index show -----------------------------------------------
 
-.delete-button {
-	z-index: 100;
-	height: 16px;
-	margin-top: -42px;
-	margin-bottom: 42px;
-	padding-right: 5px;
-	text-align: right;
+#products {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	.product-index {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
+	.product-creation {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
 }
 
-.image-wrapper {
-	z-index: 50;
+.product-wrapper {
+	transition: all 0.2s linear;
+	width: 230px;
+
+	.image-wrapper {
+		transition: all 0.2s linear;
+		background-color: #9AC3D0;
+		overflow: hidden;
+		height: 230px;
+		border-radius: 3px 3px 0 0;
+		img {
+			transition: all 0.2s linear;
+		}
+	}
+
+	.product {
+		transition: all 0.2s linear;
+		background-color: #F1F2F3;
+		text-align: left;
+		margin-bottom: 20px;
+		padding: 10px 10px;
+		border-radius: 0 0 3px 3px;
+		p {
+			margin-bottom: 0;
+		}
+		.title-display {
+			color: #6C91AA;
+			font-weight: bold;
+		}
+		.category-display {
+			color: #9AC3D0;
+			font-size: 0.8em;
+		}
+	}
+
+	.delete-button {
+		z-index: 100;
+		height: 16px;
+		margin-top: -42px;
+		margin-bottom: 42px;
+		padding-right: 5px;
+		text-align: right;
+	}
+}
+
+.image-hover {
+	-ms-transform:     scale(1.05, 1.05);
+  -webkit-transform: scale(1.05, 1.05);
+  transform:         scale(1.05, 1.05);
+  opacity: 0.4;
+}
+
+// Form -----------------------------------------------------
+
+#new-product-form {
+	// Careful! This is the container for both the actual Product form, and the Photo form.
+	align-self: center;
+	transition: all 0.2s linear;
+	background-color: #F1F2F3;
+	border-radius: 3px;
+	margin-bottom: 20px;
+	padding: 35px 0;
+	width: 600px;
+	display: flex;
+	justify-content: space-between;
 }
