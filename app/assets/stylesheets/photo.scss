@@ -5,10 +5,13 @@
 #photo-preview {
 	width: 200px;
 	height: 200px;
-	background-color: #FFFFFF;
-	background-size: cover;
+	margin-top: 24px;
 	border: 1px solid #CCC;
 	border-radius: 3px;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	cursor: pointer;
+	background-color: #FFFFFF;
+	background-size: cover;
 	transition: all 0.2s linear;
 	display: flex;
 	flex-direction: column;

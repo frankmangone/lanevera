@@ -5,23 +5,21 @@
 			= hidden_field_tag :authenticity_token, form_authenticity_token
 
 			/ Title
-			= f.label "Título del producto"
+			= f.label "Título"
 			= f.text_field :title, class: 'form-control'
 			#product-title-errors.errors
 			%br/
 
 			= f.label "Precio"
-			%br/
 			= f.number_field :price, step: 0.5, class: 'form-control'
+			#product-price-errors.errors
 			%br/
 
 			= f.label "Categoría"
-			%br/
 			- if !@category_id
 				/ If not viewing a category, select to which category the product belongs to
-				= f.select :category_id, class: 'form-control' do
-					- @categories.each do |cat|
-						= content_tag(:option, cat.name, value: cat.id)
+
+				= f.select(:category_id, list_categories_for_select(@categories), {}, { class: 'form-control' })
 			- else
 				/ If viewing a category, create the element directly into it
 				= f.select :category_id, class: 'form-control' do

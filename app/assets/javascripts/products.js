@@ -63,7 +63,8 @@ function addEventsOnLoad(){
 
 	$products.children(".product-display").children(".product-wrapper").each( function(){
 		addProductTabListeners( $(this) );
-		//$(this).trigger("hover");
+		// The following is so that the hover fires properly on the first try.
+		$(this).trigger('mouseout');
 	});
 }
 
