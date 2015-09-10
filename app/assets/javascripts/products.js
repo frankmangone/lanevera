@@ -16,8 +16,8 @@ function productImageAutosize($wrapper){
 	else {
 		ratio = height/width;
 
-		$image.height( wrapper_side );
-		$image.width( wrapper_side*ratio );
+		$image.height( wrapper_side*ratio );
+		$image.width( wrapper_side );
 	}
 }
 
@@ -33,12 +33,12 @@ function addProductTabListeners($target){
 		// Mouse enter
 		$image_wrapper.height( image_wrapper_height - 15);
 		$product_info.height( product_info_height + 15);
-		$image_wrapper.find("img").toggleClass("image-hover");
+		$image_wrapper.find("img").addClass("image-hover");
 	}, function(){
 		//Mouse leave
 		$image_wrapper.height( image_wrapper_height );
 		$product_info.height( product_info_height );
-		$image_wrapper.find("img").toggleClass("image-hover");
+		$image_wrapper.find("img").removeClass("image-hover");
 	});
 }
 
@@ -58,12 +58,12 @@ function addEventsOnLoad(){
 
 	$products.find(".image-wrapper").each( function(){
 		productImageAutosize($(this));
-			//addCategoryTabsListeners();
+		//addCategoryTabsListeners();
 	});
 
-	//AFTER the images are resized (because of the height getter):
 	$products.children(".product-display").children(".product-wrapper").each( function(){
 		addProductTabListeners( $(this) );
+		//$(this).trigger("hover");
 	});
 }
 
@@ -71,6 +71,6 @@ function addEventsOnLoad(){
 /* ------------------------------------------- */
 $(document).ready( function(){
 	addEventsOnLoad();
-})/*.on("page:change", function(){
+}).on("page:change", function(){
 	addEventsOnLoad();
-});*/
+});

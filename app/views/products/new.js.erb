@@ -23,6 +23,9 @@ $("#new-product-cancel").click( function(event){
 	});
 });
 
+// Disable the submit button until a photo is uploaded
+$("#create-product").attr('disabled', 'true');
+
 // Bind the photo events:
 $("#photo-preview").click( function(){
 	// Trigger file selection
