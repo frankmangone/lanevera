@@ -236,13 +236,19 @@ label {
 }
 
 #search-submit {
+	transition: all 0.2s linear;
 	background-color: #FFF;
 	border-radius: 0 3px 3px 0;
+	color: #FFF;/*#6C91AA;*/
 	border: none;
 	overflow: hidden;
 	width: 12%;
 	height: 45px;
 	font-size: 1.3em;
+}
+
+.valid-search {
+	background-color: #9AC3D0 !important;
 }
 
 /* 5: Homepage */
@@ -330,7 +336,7 @@ label {
 
 /* Category tabs */
 
-.category-tab {
+.category-tab, .category-add-tab {
 	/*color: #487798;*/
 	text-align: left;
 	border-bottom: 1px solid #D0D8E0;

@@ -1,9 +1,12 @@
 = provide(:title, 'Productos')
+- content_for :javascript_includes do
+  = javascript_include_tag "category_tab_listeners.js"
 
 / Categories
 #categories.col-sm-4.col-lg-3
   .category-tab
     %h4 Categorías
+
   - if !@categories.empty?
     - @categories.each do |category|
       = render category
@@ -11,7 +14,7 @@
     %p No hay ninguna categoría aún
   
   - if current_user_admin?
-    .category-tab
+    .category-add-tab
       = link_to new_category_path, class: 'btn btn-primary btn-symbol', id: 'new-category-btn', remote: true do
         %span.glyphicon.glyphicon-plus
       
