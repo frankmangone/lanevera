@@ -3,26 +3,15 @@ class ProductsController < ApplicationController
 
 	def index
 		@categories = Category.all
-		@category_id = params[:category_id]
-
-		if @category_id
-			@products = Category.find(@category_id).products.all
-		else
-			@products = Product.all
-		end
+		@products = Category.search(params[:category_id], params[:search])
 	end
 
 
 	def new
 		@product = Product.new
-		@photo = Photo.new
-		@category_id = params[:category_id]
-
-		if @category_id
-			@category = Category.find(@category_id)
-		else 
-			@categories = Category.all
-		end
+		@photo   = Photo.new
+		# TODO for some reason, :category_id in params is nil... 
+		@categories = Category.filter(params[:category_id])
 
 		respond_to do |format|
 			format.js
@@ -54,17 +43,7 @@ class ProductsController < ApplicationController
 
 
 	def update
-		respond_to do |format|
-			if @product.update_attributes(product_params)
-				if remotipart_submitted? 
-					format.js { render 'photo.js.erb' }
-				else
-					format.js
-				end
-			else
-				format.js #{ 'update_error.js.erb' }
-			end
-		end
+		
 	end
 
 

@@ -1,6 +1,8 @@
+/* Oh God... See if you can clean this up a little... */
+
 // First, slide the add button up and then remove it.
-$("#new-product").find("a").attr('disabled', 'true');
-$("#new-product").slideUp( function(){
+$("#new-product-button").find("a").attr('disabled', 'true');
+$("#new-product-button").slideUp( function(){
 	$(this).remove();
 });
 
@@ -18,13 +20,20 @@ $("#new-product-cancel").click( function(event){
 
 		$(this).remove();
 		$("#products").append("<%= j render 'new_product_btn' %>");
-		$("#new-product").hide().slideDown();
+		$("#new-product-button").hide().slideDown();
 
 	});
 });
 
 // Disable the submit button until a photo is uploaded
 $("#create-product").attr('disabled', 'true');
+// And disable buttons on click, to prevent double submissions.
+$("#new_product").submit( function(){
+	$("#create-product").attr('disabled', 'true');
+	$("#new-product-cancel").attr('disabled', 'true');
+});
+
+// Photo events: -----------------------------------------------
 
 // Bind the photo events:
 $("#photo-preview").click( function(){

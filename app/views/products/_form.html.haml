@@ -16,14 +16,7 @@
 			%br/
 
 			= f.label "Categoría"
-			- if !@category_id
-				/ If not viewing a category, select to which category the product belongs to
-
-				= f.select(:category_id, list_categories_for_select(@categories), {}, { class: 'form-control' })
-			- else
-				/ If viewing a category, create the element directly into it
-				= f.select :category_id, class: 'form-control' do
-					= content_tag(:option, @category.name, value: @category_id)
+			= f.select(:category_id, list_categories_for_select(@categories), {}, { class: 'form-control' })
 
 			%br
 			%br

@@ -4,11 +4,37 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
+	.product-search {
+		margin-bottom: 40px;
+		display: flex;
+		justify-content: center;
+		form {
+			width: 400px;
+			input[type=search] {
+				border: #F1F2F3 1px solid;
+				box-shadow: none;
+				border-right: none;
+				height: 35px;
+				font-size: 1.1em;
+			}
+			button[type=submit] {
+				transition: background-color 0.2s linear;
+				background-color: #6C91AA;
+				color: #FFF;
+				height: 35px;
+				font-size: 1.2em;
+			}
+			button[type=submit]:hover {
+				background-color: #9AC3D0;
+			}
+		}
+	}
 	.product-index {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: flex-start;
+		flex-grow: 1;
 	}
 	.product-creation {
 		display: flex;
@@ -82,4 +108,9 @@
 	width: 600px;
 	display: flex;
 	justify-content: space-between;
+	.info-input {
+		form {
+			text-align: left;
+		}
+	}
 }

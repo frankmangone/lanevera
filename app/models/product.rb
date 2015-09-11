@@ -2,17 +2,13 @@ class Product < ActiveRecord::Base
 	belongs_to :category
 	belongs_to :photo, dependent: :destroy
 
-	validates :title, :category_id, presence: true#, :price, :stock, :photo
+	validates :title, :price, :category_id, presence: true#, :stock
 
-	# 
-	#def public_serialized_response
-	#	{ 
-	#		title: self.title,
-	#		category: {
-				# Since the category is associated, there's no
-				# need to find it in the database
-	#			name: Category.name
-	#		}
-	#	}
-	#end
+	def self.search(search)
+		if search
+			where("title LIKE ?", "%#{search}%")
+		else
+			all
+		end
+	end
 end

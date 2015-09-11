@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title= full_title(yield(:title))
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = render 'layouts/shim'
+  %body
+    .container-fluid
+      = render 'layouts/header'
+      #content.row
+        = render "shared/alerts" if flash.present?
+        = yield
+      = debug(params) if Rails.env.development?
