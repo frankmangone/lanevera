@@ -1,7 +1,6 @@
 /* Check if field is empty and display correct search class */
 
-$(document).ready( function(){
-
+function handleSearchBar(){ 
 	// Disable submit button:
 
 	$("#search-submit").attr('disabled', 'true');
@@ -23,4 +22,10 @@ $(document).ready( function(){
 		}
 
 	});
+}
+
+$(document).ready( function(){
+	handleSearchBar();
+}).on("page:change", function(){
+	handleSearchBar();
 });

@@ -1,8 +1,9 @@
 // For products/index.html.haml
 
-$(document).ready( function(){
+function addCategoryTabListeners() {
 	// The first category tab is the one that just says "Categorías"
 	$tabs = $(".category-tab").not(":first");
+	// This doesn't select anything!!!
 
 	$tabs.each( function(){
 
@@ -31,5 +32,10 @@ $(document).ready( function(){
 		});
 
 	});
+}
 
+$(document).ready( function(){
+	addCategoryTabListeners();
+}).on("page:change", function(){
+	addCategoryTabListeners();
 });
