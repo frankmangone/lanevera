@@ -42,13 +42,6 @@ function addProductTabListeners($target){
 	});
 }
 
-function addCategoryTabsListeners(){
-	var $category_tabs = $(".category-tab");
-	$category_tabs = $category_tabs.slice(0, -1);
-	$category_tabs.each( function(){
-		alert('alo');
-	});
-}
 
 /* Master event binding function */
 /* ------------------------------------------- */
@@ -58,7 +51,6 @@ function addEventsOnLoad(){
 
 	$products.find(".image-wrapper").each( function(){
 		productImageAutosize($(this));
-		//addCategoryTabsListeners();
 	});
 
 	$products.children(".product-display").children(".product-wrapper").each( function(){

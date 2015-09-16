@@ -1,4 +1,6 @@
 class Photo < ActiveRecord::Base
+	before_save :randomize_file_name
+
 	has_one :product
 	
 	has_attached_file :photo,
@@ -8,4 +10,10 @@ class Photo < ActiveRecord::Base
 
 	validates_attachment_presence     :photo
 	validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
+
+	private
+
+	def randomize_file_name
+		
+	end
 end

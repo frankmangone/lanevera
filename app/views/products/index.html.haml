@@ -22,10 +22,10 @@
 #products.col-sm-8.col-lg-9
   = render 'search_bar'
   
-  .product-index
-    - @products.each do |product|
-      = render product
-
   .product-creation
     - if current_user_admin?
       = render 'new_product_btn'
+      
+  .product-index
+    - @products.each do |product|
+      = render product
