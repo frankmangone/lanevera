@@ -3,14 +3,13 @@ class ProductsController < ApplicationController
 
 	def index
 		@categories = Category.all
-		@products = Category.search(params[:category_id], params[:search])
+		@products   = Category.search(params[:category_id], params[:search])
 	end
 
 
 	def new
 		@product = Product.new
 		@photo   = Photo.new
-		# TODO for some reason, :category_id in params is nil... 
 		@categories = Category.filter(params[:category_id])
 
 		respond_to do |format|
