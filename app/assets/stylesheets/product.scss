@@ -3,7 +3,8 @@
 #products {
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: space-between;
+
 	.product-search {
 		margin-bottom: 30px;
 		display: flex;
@@ -114,6 +115,39 @@
 	.info-input {
 		form {
 			text-align: left;
+		}
+	}
+}
+
+// Product viewpage ------------------------------------------
+
+.main-block {
+	display: flex;
+	justify-content: center;
+
+	.horizontal-wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		background-color: #F1F2F3;
+		border-radius: 3px;
+		padding: 30px 30px;
+		width: 1000px;
+
+		.photo {
+			width: 300px;
+			height: 300px;
+			overflow: hidden;
+			border-radius: 3px;
+
+			img {
+				width: 300px;
+				height: 300px;
+			}
+		}
+
+		.info {
+			flex-grow: 1;
 		}
 	}
 }

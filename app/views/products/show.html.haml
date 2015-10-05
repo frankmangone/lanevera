@@ -1,2 +1,8 @@
-= provide(:title, @product.name)
-%p= @product.name
+= provide(:title, @product.title)
+
+.main-block
+	.horizontal-wrapper
+		.photo
+			= image_tag @product.photo.photo.url()
+		.info
+			%p= @product.title
