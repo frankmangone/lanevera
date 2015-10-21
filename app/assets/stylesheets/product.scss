@@ -1,7 +1,12 @@
 // Index show -----------------------------------------------
 
+#categories {
+	width: 300px;
+}
+
 #products {
 	display: flex;
+	flex-grow: 1;
 	flex-direction: column;
 	justify-content: space-between;
 
@@ -30,13 +35,17 @@
 			}
 		}
 	}
+
 	.product-index {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: flex-start;
+		justify-content: space-around;//flex-start;
+		// I need to check how to solve making the last element non-centered if the row isn't complete.
 		flex-grow: 1;
+		padding: 0 10px;
 	}
+
 	.product-creation {
 		display: flex;
 		flex-direction: row;
@@ -50,6 +59,7 @@
 .product-wrapper {
 	transition: all 0.2s linear;
 	width: 230px;
+	margin: 0px 20px 0px 5px;
 
 	.image-wrapper {
 		transition: all 0.2s linear;
@@ -58,7 +68,29 @@
 		height: 230px;
 		border-radius: 3px 3px 0 0;
 		img {
+			z-index: 1;
 			transition: all 0.2s linear;
+		}
+	}
+
+	.price {
+		float: right;
+		position: relative;
+		z-index: 2;
+		padding: 10px;
+		margin-right: -15px;
+		margin-top: -20px;
+		height: 40px;
+		width: auto;
+
+		text-align: center;
+		border-radius: 3px;
+		background-color: #6C91AA;
+
+		p {
+			margin-bottom: 0;
+			color: #FFF;
+			font-size: 1.2em;
 		}
 	}
 
@@ -67,18 +99,17 @@
 		background-color: #F1F2F3;
 		text-align: left;
 		margin-bottom: 20px;
-		padding: 10px 10px;
+		padding: 15px 15px;
 		border-radius: 0 0 3px 3px;
 		p {
 			margin-bottom: 0;
 		}
 		.title-display {
 			color: #6C91AA;
-			font-weight: bold;
+			font-size: 1.2em;
 		}
 		.category-display {
 			color: #9AC3D0;
-			font-size: 0.8em;
 		}
 	}
 
@@ -121,11 +152,11 @@
 
 // Product viewpage ------------------------------------------
 
-.main-block {
+.show-wrapper {
 	display: flex;
 	justify-content: center;
 
-	.horizontal-wrapper {
+	#show-columns {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;

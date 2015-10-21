@@ -3,6 +3,8 @@
 		.image-wrapper
 			= link_to product, method: 'get' do
 				= image_tag product.photo.photo.url()
+		.price
+			%p= product.write_price
 		.product
 			%p.title-display= product.title
 			%p.category-display

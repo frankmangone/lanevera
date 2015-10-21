@@ -11,4 +11,9 @@ class Product < ActiveRecord::Base
 			all
 		end
 	end
+
+	def write_price
+		"$" +	price.to_s
+	end
+
 end

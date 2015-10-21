@@ -3,28 +3,29 @@
   = javascript_include_tag "category_tabs_listeners.js"
   
 / Categories
-#categories.col-sm-4.col-lg-3
-  .category-tab
-    %h4 Categorías
+.columns
+  #categories
+    .category-tab
+      %h4 Categorías
 
-  - if !@categories.empty?
-    - @categories.each do |category|
-      = render category
-  - else
-    %p No hay ninguna categoría aún
-  
-  - if current_user_admin?
-    .category-add-tab
-      = link_to new_category_path, class: 'btn btn-primary btn-symbol', id: 'new-category-btn', remote: true do
-        %span.glyphicon.glyphicon-plus
-      
-/ Products
-#products.col-sm-8.col-lg-9
-  = render 'search_bar'
-  
-  .product-index
-    = render @products
+    - if !@categories.empty?
+      - @categories.each do |category|
+        = render category
+    - else
+      %p No hay ninguna categoría aún
     
-  .product-creation
     - if current_user_admin?
-      = render 'new_product_btn'
+      .category-add-tab
+        = link_to new_category_path, class: 'btn btn-primary btn-symbol', id: 'new-category-btn', remote: true do
+          %span.glyphicon.glyphicon-plus
+        
+  / Products
+  #products
+    = render 'search_bar'
+    
+    .product-index
+      = render @products
+
+    .product-creation
+      - if current_user_admin?
+        = render 'new_product_btn'

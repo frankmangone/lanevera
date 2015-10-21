@@ -14,6 +14,6 @@ class Photo < ActiveRecord::Base
 	private
 
 	def randomize_file_name
-		
+		# See how I make this work
 	end
 end
