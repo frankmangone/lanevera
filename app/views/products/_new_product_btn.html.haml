@@ -1,3 +1,3 @@
 #new-product-button.col-xs-12
-  / :category_id is passed as parameter in case I am in a category already.
+  / :category_id is passed as parameter in case I'm viewing category already.
   = link_to "Nuevo producto", new_product_path(category_id: params[:category_id]), class: 'btn btn-primary', remote: true

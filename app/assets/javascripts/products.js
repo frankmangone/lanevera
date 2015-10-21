@@ -24,21 +24,31 @@ function productImageAutosize($wrapper){
 /* Event handler binders */
 /* ------------------------------------------- */
 function addProductTabListeners($target){
+	var $cart = $target.find(".cart-add");
+
 	var $image_wrapper = $target.find(".image-wrapper");
 	var image_wrapper_height = $image_wrapper.height();
+
 	var $product_info = $target.find(".product");
 	var product_info_height = $product_info.height();
 
 	$target.hover( function(){
 		// Mouse enter
+		$image_wrapper.find("img").addClass("image-hover");
+
 		$image_wrapper.height( image_wrapper_height - 15);
 		$product_info.height( product_info_height + 15);
-		$image_wrapper.find("img").addClass("image-hover");
-	}, function(){
+
+		$cart.css('opacity', '1');
+	}
+	,function(){
 		//Mouse leave
+		$image_wrapper.find("img").removeClass("image-hover");
+
 		$image_wrapper.height( image_wrapper_height );
 		$product_info.height( product_info_height );
-		$image_wrapper.find("img").removeClass("image-hover");
+
+		$cart.css('opacity', '0');
 	});
 }
 

@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation.
 
   root 'static#home'
-  
+
   get 'info' => 'static#info'
+  get 'cart' => 'static#cart'
 
   # Users
   devise_for :users, controllers: { 

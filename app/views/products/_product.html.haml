@@ -1,14 +1,15 @@
 .product-display{:id => "prod#{product.id}"}
 	.product-wrapper
-		.image-wrapper
+		.cart-add
 			= link_to product, method: 'get' do
-				= image_tag product.photo.photo.url()
+				= image_tag 'cart_add.png'
+		.image-wrapper
+			= image_tag product.photo.photo.url()
 		.price
 			%p= product.write_price
 		.product
 			%p.title-display= product.title
-			%p.category-display
-				Categoría: #{product.category.name}
+			%p.category-display= product.category.name
 		.delete-button
 			- if current_user_admin?
 				= link_to product, method: 'delete', data: { confirm: 'Are you sure?' } do

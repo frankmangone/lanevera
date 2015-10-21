@@ -16,6 +16,8 @@
     %ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
         %li
+          = link_to "Carro", "#"
+        %li
           = link_to "Perfil", current_user
         %li
           = link_to "Salir", destroy_user_session_path , method: :delete
