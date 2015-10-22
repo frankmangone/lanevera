@@ -21,6 +21,14 @@ function productImageAutosize($wrapper){
 	}
 }
 
+function disableRemoveButtons(){
+	$(".product-wrapper").each( function(){
+		if( $(this).find(".counter").length == 0 ){
+			$(this).find(".remove").toggleDisable();
+		}
+	});
+}
+
 /* Event handler binders */
 /* ------------------------------------------- */
 function addProductTabListeners($target){
@@ -74,6 +82,8 @@ function addEventsOnLoad(){
 /* ------------------------------------------- */
 $(document).ready( function(){
 	addEventsOnLoad();
+	disableRemoveButtons();
 }).on("page:change", function(){
 	addEventsOnLoad();
+	disableRemoveButtons();
 });

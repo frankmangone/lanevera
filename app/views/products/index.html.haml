@@ -29,3 +29,5 @@
     .product-creation
       - if current_user_admin?
         = render 'new_product_btn'
+
+/ = session[:cart].inspect

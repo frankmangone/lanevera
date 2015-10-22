@@ -6,22 +6,22 @@
 				= link_to root_path do
 					%span.glyphicon.glyphicon-home
 			%li
-				= link_to 'Productos', products_path
+				= link_to 'Productos',   products_path
 			%li
 				= link_to 'Información', info_path
 			%li
-				= link_to 'Contacto', "#"
+				= link_to 'Contacto',    "#"
 
 		%ul.nav.navbar-nav.navbar-right
 			- if user_signed_in?
 				%li
-					= link_to "Carro", "#"
+					= link_to "Carro",  cart_path
 				%li
 					= link_to "Perfil", current_user
 				%li
-					= link_to "Salir", destroy_user_session_path , method: :delete
+					= link_to "Salir",  destroy_user_session_path , method: :delete
 			- else
 				%li
-					= link_to 'Acceso', new_user_session_path
+					= link_to 'Acceso',   new_user_session_path
 				%li
 					= link_to 'Registro', new_user_registration_path

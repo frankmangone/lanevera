@@ -16,6 +16,23 @@
 //= require turbolinks
 //= require_tree .
 
+/* jQuery plugins */
+/* --------------------------------- */
+
+/* Toggle disable property for a button */
+$.fn.toggleDisable = function(){
+	if(this.attr('disabled') == 'disabled'){
+		this.removeAttr('disabled');
+	}
+	else{
+		this.attr('disabled', 'true');
+	}
+}
+
+
+/* Other */
+/* --------------------------------- */
+
 /* Capitalize first letter of a string */
 function capitalize(string){
 	return string.charAt(0).toUpperCase() + string.slice(1);

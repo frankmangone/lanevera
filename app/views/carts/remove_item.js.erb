@@ -1,0 +1,15 @@
+// To handle the addition I check if the amount is one, to see if I need to delete the counter or not.
+var $product = $("#prod<%= params[:product_id] %>");
+var $counter = $product.find(".counter");
+var $text = $counter.find("p");
+var amount = parseInt($text.text());
+
+if(amount != 1){
+	amount--;
+	$text.text(amount);
+}
+else {
+	// Delete the counter
+	$counter.remove();
+	$product.find(".remove").toggleDisable();
+}

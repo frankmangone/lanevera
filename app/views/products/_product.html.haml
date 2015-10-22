@@ -1,12 +1,20 @@
 .product-display{:id => "prod#{product.id}"}
 	.product-wrapper
 		.cart-add
-			= link_to product, method: 'get' do
-				= image_tag 'cart_add.png'
+			= image_tag 'cart.png'
+			= link_to add_item_path(product_id: product.id), class: 'btn btn-primary btn-symbol add', method: 'get', remote: true do
+				%span.glyphicon.glyphicon-plus
+			&nbsp;
+			= link_to remove_item_path(product_id: product.id), class: 'btn btn-primary btn-symbol remove', method: 'get', remote: true do
+				%span.glyphicon.glyphicon-minus
 		.image-wrapper
-			= image_tag product.photo.photo.url()
+			= image_tag 'ph.jpg'
+			/ = image_tag product.photo.photo.url()
 		.price
 			%p= product.write_price
+		- if item_amount(product.id) != 0
+			.counter
+				%p= item_amount(product.id)
 		.product
 			%p.title-display= product.title
 			%p.category-display= product.category.name
