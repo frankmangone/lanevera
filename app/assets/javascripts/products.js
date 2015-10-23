@@ -24,7 +24,7 @@ function productImageAutosize($wrapper){
 function disableRemoveButtons(){
 	$(".product-wrapper").each( function(){
 		if( $(this).find(".counter").length == 0 ){
-			$(this).find(".remove").toggleDisable();
+			$(this).find(".remove").attr('disabled', 'true');
 		}
 	});
 }
@@ -32,7 +32,9 @@ function disableRemoveButtons(){
 /* Event handler binders */
 /* ------------------------------------------- */
 function addProductTabListeners($target){
-	var $cart = $target.find(".cart-add");
+	var $cart = $target.find(".cart-manage");
+
+	var $price_text = $target.find(".price p");
 
 	var $image_wrapper = $target.find(".image-wrapper");
 	var image_wrapper_height = $image_wrapper.height();
@@ -48,6 +50,8 @@ function addProductTabListeners($target){
 		$product_info.height( product_info_height + 15);
 
 		$cart.css('opacity', '1');
+
+		$price_text.addClass("white-glow");
 	}
 	,function(){
 		//Mouse leave
@@ -57,6 +61,8 @@ function addProductTabListeners($target){
 		$product_info.height( product_info_height );
 
 		$cart.css('opacity', '0');
+
+		$price_text.removeClass("white-glow");
 	});
 }
 

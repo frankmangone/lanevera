@@ -1,3 +1,125 @@
 // Place all the styles related to the Carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cart-display {
+	padding: 0 40px;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	#cart {
+		padding: 0 0 30px;
+	}
+
+	.item-container {
+		width: 100%;
+		border-radius: 3px;
+		background-color: #F1F2F3;
+		padding: 40px 30px 10px;
+		box-shadow: inset 0px 0px 6px #CCC;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+}
+
+// Item partial
+.item-wrapper {
+	width: 140px;
+	margin: 0 20px 30px;
+
+	.thumb-wrapper {
+		box-shadow: 0px 0px 6px #CCC;
+		margin-bottom: 10px;
+	}
+	
+	.cart-thumb {
+		position: relative;
+		z-index: 1;
+		width: 140px;
+		height: 140px;
+		border-radius: 3px 3px 0 0;
+	}
+
+	.cart-counter {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		
+		float: left;
+		position: relative;
+		z-index: 2;
+		width: 25px;
+		height: 25px;
+		margin-top: -15px;
+		margin-left: -15px;
+
+		border-radius: 3px;
+		background-color: #CD3B2F;
+
+		p {
+			margin-bottom: 0;
+			color: #FFF;
+			cursor: default;
+			-webkit-touch-callout: none;
+    	-webkit-user-select: none;
+    	-khtml-user-select: none;
+    	-moz-user-select: none;
+    	-ms-user-select: none;
+    	user-select: none;
+		}
+	}
+	
+	.cart-price {
+		width: 100%;
+		position: relative;
+		z-index: 1;
+		background-color: #6C91AA;
+		border-radius: 0 0 3px 3px;
+		padding: 10px 0;
+		p {
+			margin-bottom: 0;
+			color: #FFF;
+			cursor: default;
+			font-size: 1.3em;
+			-webkit-touch-callout: none;
+    	-webkit-user-select: none;
+    	-khtml-user-select: none;
+    	-moz-user-select: none;
+    	-ms-user-select: none;
+    	user-select: none;
+		}
+	}	
+}
+
+// Info bar on the right
+
+.cart-info {
+	margin-top: 105px;
+	flex-basis: 350px;
+	flex-shrink: 0;
+
+	.blue {
+		color: #487798
+	}
+
+	#confirm-buy {
+		margin: 20px 0 5px;
+	}
+
+	.item-list {
+		width: 100%;
+		border-radius: 3px 0 0 3px;
+		background-color: #F1F2F3;
+		padding: 0px 30px;
+		//box-shadow: inset 0px 0px 6px #CCC;
+
+		.list-title {
+			flex-grow: 1;
+			text-align: left;
+		}
+	}
+}

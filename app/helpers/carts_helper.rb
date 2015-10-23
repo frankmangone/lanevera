@@ -53,7 +53,22 @@ module CartsHelper
 
 		amount
 	end
+	
 
+	def total_price
+		# Total price of items in cart
+		if !cart_empty?
+			total = 0
+
+			session[:cart].each do |item|
+				total += Product.find(item["id"]).price * item["amount"]
+			end
+
+			"$" + total.to_s
+		else
+			"$0"
+		end
+	end
 
 	private
 

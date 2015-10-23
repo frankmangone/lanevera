@@ -1,0 +1,28 @@
+var $item = $("#item<%= params[:product_id] %>");
+var $counter = $item.find(".cart-counter");
+
+var $text = $counter.find("p");
+var amount = parseInt($text.text());
+
+// Item in the side list
+var $list_item = $("#list_item<%= params[:product_id] %>");
+var $list_text = $list_item.find(".list-amount").find(".value");
+
+// Handle information
+if(amount == 1){
+	$item.fadeOut( function(){
+		$(this).remove();
+	});
+
+	$list_item.parent().fadeOut( function(){
+		remove();
+	});
+}
+
+else{
+	amount--;
+	$text.text(amount);
+	$list_text.text(amount);
+}
+
+setTotalPrice();

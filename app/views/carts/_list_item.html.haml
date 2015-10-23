@@ -1,0 +1,8 @@
+.wrapper
+	.columns{id: "list_item#{item[:product].id}", price: item[:product].price }
+		.list-title
+			= item[:product].title
+		.list-amount
+			= "x"
+			%span.value= item[:amount].to_s
+	%hr

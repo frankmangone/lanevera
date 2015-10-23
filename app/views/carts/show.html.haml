@@ -1,3 +1,24 @@
 - provide :title, "Carro de Compras"
 
-%p Acá va a estar el carro de compras.
+.columns
+	.cart-display
+		= image_tag 'cart.png', id: "cart"
+
+		.item-container
+			- @cart.each do |item|
+				= render 'item', item: item
+
+	.cart-info
+		%h2
+			Total:
+			%span.blue#total-price= total_price
+
+		= link_to "#", class: 'btn btn-primary', id: 'confirm-buy' do
+			%h4 Confirmar compra
+
+		.item-list
+			%hr
+			- @cart.each do |item|
+				= render 'list_item', item: item
+
+		

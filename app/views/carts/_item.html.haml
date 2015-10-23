@@ -1,0 +1,15 @@
+.item-wrapper{:id => "item#{item[:product].id}"}
+	.thumb-wrapper
+		= image_tag 'ph.jpg', class: 'cart-thumb'
+
+		.cart-counter
+			%p= item[:amount]
+
+		.cart-price
+			%p= item[:product].write_price
+
+	= link_to add_item_path(product_id: item[:product].id, from: "cart"), class: 'btn btn-primary btn-symbol add', method: 'get', remote: true do
+		%span.glyphicon.glyphicon-plus
+	&nbsp;
+	= link_to remove_item_path(product_id: item[:product].id, from: "cart"), class: 'btn btn-primary btn-symbol remove', method: 'get', remote: true do
+		%span.glyphicon.glyphicon-minus
