@@ -24,4 +24,7 @@ Rails.application.routes.draw do
 
   # Photos
   resources :photos, only: [:new, :create, :edit, :update, :destroy]
+
+  # Offers
+  resources :offers, only: [:index]
 end

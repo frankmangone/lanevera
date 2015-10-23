@@ -1,0 +1,12 @@
+.offer-wrapper
+	/ = image_tag offer.product.photo.photo.url()
+	= image_tag 'ph.jpg', class: 'offer-thumb'
+
+	.offer-info
+		%h3= offer.product.title
+		%p= offer.product.category.name
+
+	.offer-prices
+		%span.old-price= offer.product.write_price
+		%br/
+		%span.new-price= offer.write_price
