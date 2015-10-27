@@ -2,16 +2,136 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Offer Index
+
+.wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	.aligner {
+		width: 505px;
+		height: 0px;
+	}
+}
+
 .offer-wrapper {
 	background-color: #F1F2F3;
+	width: 475px;
 	border-radius: 3px;
-	margin: 30px;
-	padding: 20px;
+	margin: 15px 15px;
+	padding: 30px 20px;
 	display: flex;
 	flex-direction: row;
 
-	.offer-thumb {
-		width: 160px;
-		height: 160px;
+	// Thumb image
+	.offer-thumb-wrapper {
+		border-radius: 3px;
+		overflow: hidden;
+
+		.offer-thumb {
+			width: 160px;
+			height: 160px;
+		}
+	}
+
+	// Product info
+	.offer-info {
+		display: flex;
+		flex-direction: column;
+		text-align: left;
+		padding-left: 30px;
+
+		h3 {
+			margin: 0 0 10px;
+		}
+
+	// Prices
+		.offer-prices {
+			font-size: 1.2em;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			margin-bottom: 20px;
+
+			.tag {
+				padding: 10px;
+				border-radius: 3px;
+				margin: 0 10px 0 0;
+			}
+
+			.old-price {
+				background-color: #CD3B2F;
+				text-decoration: line-through;
+				color: #F0D0D0;
+			}
+			.new-price {
+				background-color: #487798;
+				color: #FFF;
+			}
+		}
+
+	// Admin options
+		.offer-options {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			font-size: 1.5em;
+			padding: 15px 0;
+			border-top: 1px solid #DCDCDC;
+
+			a {
+				margin: 0 10px 0 0;
+			}
+		}
+	}
+}
+
+// Offer create & update
+
+#new-offer-btn {
+	color: #FFF;
+}
+
+.rows {
+	align-items: center;
+}
+
+.offer-form-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #F1F2F3;
+	padding: 30px;
+	margin: 30px 0;
+	border-radius: 3px;
+	width: 500px;
+
+	.label {
+		color: #6C91AA;
+		font-weight: bold;
+		font-size: 1em;
+		margin-bottom: 5px;
+	}
+
+	.product-show {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		height: 200px;
+		width: 400px;
+		margin-bottom: 25px;
+		border-radius: 3px;
+		box-shadow: inset 0px 0px 6px #CCC;
+
+		#offer_search {
+			margin-bottom: 10px;
+		}
+
+		#offer-search-submit {
+			display: none;
+		}
 	}
 }

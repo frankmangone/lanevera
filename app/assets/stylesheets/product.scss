@@ -41,10 +41,14 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: space-around;//flex-start;
+		justify-content: space-around; //flex-start;
 		// I need to check how to solve making the last element non-centered if the row isn't complete.
 		flex-grow: 1;
 		padding: 0 10px;
+		.aligner {
+			width: 255px;
+			height: 0px;
+		}
 	}
 
 	.product-creation {
@@ -60,7 +64,7 @@
 .product-wrapper {
 	transition: all 0.2s linear;
 	width: 230px;
-	margin: 0px 20px 0px 5px;
+	margin: 0 20px 0 5px;
 
 	.cart-manage {
 		opacity: 0;

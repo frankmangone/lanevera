@@ -34,19 +34,6 @@ class CategoriesController < ApplicationController
 		
 	end
 
-	# Returns name of requested id
-	def find
-		@category = Category.find(params[:id])
-
-		respond_to do |format|
-			if @name
-				format.json {}
-			else
-
-			end
-		end
-	end
-
 	private
 
 

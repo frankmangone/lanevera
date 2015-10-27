@@ -18,16 +18,17 @@
       .category-add-tab
         = link_to new_category_path, class: 'btn btn-primary btn-symbol', id: 'new-category-btn', remote: true do
           %span.glyphicon.glyphicon-plus
-        
+
   / Products
   #products
     = render 'search_bar'
     
     .product-index
       = render @products
+      = render 'layouts/aligner'
 
     .product-creation
       - if current_user_admin?
         = render 'new_product_btn'
-
+        
 / = session[:cart].inspect

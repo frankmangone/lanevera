@@ -1,5 +1,6 @@
 .product-display{:id => "prod#{product.id}"}
 	.product-wrapper
+	
 		.cart-manage
 			= image_tag 'cart-glow.png'
 			= link_to add_item_path(product_id: product.id, from: "products"), class: 'btn btn-primary btn-symbol add', method: 'get', remote: true do
@@ -7,17 +8,21 @@
 			&nbsp;
 			= link_to remove_item_path(product_id: product.id, from: "products"), class: 'btn btn-primary btn-symbol remove', method: 'get', remote: true do
 				%span.glyphicon.glyphicon-minus
+
 		.image-wrapper
 			= image_tag 'ph.jpg'
 			/ = image_tag product.photo.photo.url()
+
 		.price
 			%p= product.write_price
 		- if item_amount(product.id) != 0
 			.counter
 				%p= item_amount(product.id)
+
 		.product
 			%p.title-display= product.title
 			%p.category-display= product.category.name
+
 		.delete-button
 			- if current_user_admin?
 				= link_to product, method: 'delete', data: { confirm: 'Are you sure?' } do

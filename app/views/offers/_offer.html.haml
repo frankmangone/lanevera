@@ -1,12 +1,19 @@
 .offer-wrapper
 	/ = image_tag offer.product.photo.photo.url()
-	= image_tag 'ph.jpg', class: 'offer-thumb'
+	.offer-thumb-wrapper
+		= image_tag 'ph.jpg', class: 'offer-thumb'
 
 	.offer-info
 		%h3= offer.product.title
-		%p= offer.product.category.name
 
-	.offer-prices
-		%span.old-price= offer.product.write_price
-		%br/
-		%span.new-price= offer.write_price
+		.offer-prices
+			.tag.old-price
+				= offer.product.write_price
+			.tag.new-price
+				= offer.write_price
+
+		.offer-options
+			= link_to edit_offer_path(offer), class: 'btn btn-primary btn-symbol' do
+				%span.glyphicon.glyphicon-pencil
+			= link_to offer, method: 'delete', class: 'btn btn-primary btn-symbol', data: { confirm: '¿Seguro desea eliminar esta oferta?' } do
+				%span.glyphicon.glyphicon-remove

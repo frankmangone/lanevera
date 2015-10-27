@@ -81,6 +81,11 @@ body {
   flex-direction: row;
 }
 
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
 /* 2: General typography & some effects */
 /* ------------------------------------------- */
 
@@ -146,6 +151,7 @@ label {
 
 .btn-primary {
 	background-color: #9AC3D0;
+	color: #FFF;
 	border: none;
 }
 

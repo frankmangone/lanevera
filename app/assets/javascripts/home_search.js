@@ -25,6 +25,7 @@ function handleSearchBar(){
 }
 
 $(document).ready( function(){
+	// Disable previously to prevent memory leaks?
 	handleSearchBar();
 }).on("page:change", function(){
 	handleSearchBar();

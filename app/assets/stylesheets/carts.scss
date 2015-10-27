@@ -23,6 +23,11 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: space-around;
+
+		.aligner {
+			width: 180px;
+			height: 0px;
+		}
 	}
 }
 

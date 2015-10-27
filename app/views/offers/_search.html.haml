@@ -1,0 +1,5 @@
+%span.label Producto
+.product-show
+	= form_tag offer_search_path, method: 'get', remote: true do
+		= search_field_tag :offer_search, params[:search], placeholder: "Buscar producto...", class: 'form-control'
+		= button_tag(type: 'submit', id: 'offer-search-submit', name: nil)

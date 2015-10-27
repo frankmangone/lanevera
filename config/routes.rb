@@ -23,8 +23,9 @@ Rails.application.routes.draw do
   resources :products
 
   # Photos
-  resources :photos, only: [:new, :create, :edit, :update, :destroy]
+  resources :photos, exclude: [:index, :show]
 
   # Offers
-  resources :offers, only: [:index]
+  resources :offers, exclude: :show
+  get 'offer_search' => 'offers#search'
 end
