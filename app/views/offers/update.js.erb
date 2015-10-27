@@ -1,0 +1,19 @@
+/* Check if there are any errors */
+
+if(<%= @offer.errors.any? %>){
+	var key;
+	var value;
+
+	<% @offer.errors.each do |key, value| %>
+		key = "<%= key %>";
+		value = "<%= value %>";
+		handleError('offer', key, value);
+	<% end %>
+}
+
+/* If there aren't, go to offers */
+
+else {
+	// With turbolinks, you can do a lot of crazy things. For instance:
+	Turbolinks.visit("<%= j offers_path %>");
+}

@@ -3,7 +3,49 @@
 #categories {
 	flex-basis: 280px;
 	flex-shrink: 0;
+	background-color: #F1F2F3;
+	padding-left: 0;
+	padding-right: 0;
+	border-right: 1px solid #D0D8E0;
+	margin-top: -50px;
 }
+
+/* Category tabs */
+
+.category-tab, .category-add-tab {
+	/*color: #487798;*/
+	text-align: left;
+	border-bottom: 1px solid #D0D8E0;
+	padding: 8px 45px;
+}
+
+.category-delete-tab {
+	text-align: left;
+	margin-top: -1px;
+	margin-right: -1px;
+	padding: 8px 43px;
+	border: 1px solid #CD3B2F;
+	background-color: #F3E3E3;
+}
+
+.category-delete-tab p {
+	margin-bottom: 0px;
+}
+
+#new-category-form {
+	padding: 8px 45px;
+	border-bottom: 1px solid #D0D8E0;
+}
+
+#new-category-form .form-control {
+	margin-bottom: 8px;
+}
+
+.glyphicon {
+	font-size: 0.8em;
+}
+
+/* Products */
 
 #products {
 	display: flex;
@@ -41,8 +83,7 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: space-around; //flex-start;
-		// I need to check how to solve making the last element non-centered if the row isn't complete.
+		justify-content: space-around;
 		flex-grow: 1;
 		padding: 0 10px;
 		.aligner {
@@ -57,6 +98,9 @@
 		justify-content: space-around;
 		#new-product-button {
 			margin-bottom: 30px;
+			a {
+				color: #FFF;
+			}
 		}
 	}
 }
@@ -103,7 +147,6 @@
 		text-align: center;
 		border-radius: 3px;
 		background-color: #6C91AA;
-		//box-shadow: 0px 0px 6px #365A72;
 
 		p {
 			transition: all 0.2s linear;
@@ -118,6 +161,12 @@
     	-ms-user-select: none;
     	user-select: none;
 		}
+	}
+
+	// Override background color of price tags if the price is from an offer
+	.offer {
+		//background-color: #DEAB00;
+		background-color: #54AC00;
 	}
 
 	.counter {
@@ -169,21 +218,14 @@
 		}
 	}
 
-	.delete-button {
-		z-index: 100;
+	.product-options {
+		font-size: 1.2em;
 		height: 16px;
 		margin-top: -42px;
 		margin-bottom: 42px;
 		padding-right: 5px;
 		text-align: right;
 	}
-}
-
-.image-hover {
-	-ms-transform: scale(1.05, 1.05);
-	-webkit-transform: scale(1.05, 1.05);
-	transform: scale(1.05, 1.05);
-	opacity: 0.4;
 }
 
 .white-glow {

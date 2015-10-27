@@ -1,18 +1,11 @@
-- content_for :javascript_includes do
-  = javascript_include_tag "home_search.js"
-
 #offers
   %h1 Ofertas
   %h3 ¡Actualizamos nuestras ofertas regularmente!
   .divider
-  .row
-    .col-xs-12.col-md-10.col-md-offset-1.centered
-      .product-large
-        #placeholder1
-      .product-large
-        #placeholder2
-      .product-large
-        #placeholder3
+  .columns
+    - @offers.each do |offer|
+      = render 'offer', offer: offer
+
 #cart-announcement
   #cart-image
     = image_tag 'cart.png'

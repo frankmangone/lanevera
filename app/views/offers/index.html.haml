@@ -3,8 +3,18 @@
 %h3 Ofertas
 
 .wrapper
-	= render @offers
-	.aligner
-	.aligner
+	- if !@offers.empty?
+		= render @offers
+		.aligner
+		.aligner
 
-= link_to "Crear oferta", new_offer_path, class: 'btn btn-primary', id: 'new-offer-btn'
+	- else
+		%br
+		%br
+		No hay ninguna oferta en el momento
+		%br
+		%br
+		%br
+		%br
+
+= link_to "Crear oferta", products_path, class: 'btn btn-primary', id: 'new-offer-btn'

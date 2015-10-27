@@ -5,8 +5,14 @@
 		.cart-counter
 			%p= item[:amount]
 
-		.cart-price
-			%p= item[:product].write_price
+		- if item[:product].offer
+			.cart-price.offer
+				%p
+					%span.glyphicon.glyphicon-certificate
+					= item[:product].offer.write_price
+		- else
+			.cart-price
+				%p= item[:product].write_price
 
 	= link_to add_item_path(product_id: item[:product].id, from: "cart"), class: 'btn btn-primary btn-symbol add', method: 'get', remote: true do
 		%span.glyphicon.glyphicon-plus

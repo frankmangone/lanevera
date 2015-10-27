@@ -13,8 +13,15 @@
 			= image_tag 'ph.jpg'
 			/ = image_tag product.photo.photo.url()
 
-		.price
-			%p= product.write_price
+		- if product.offer
+			.price.offer
+				%p
+					%span.glyphicon.glyphicon-certificate
+					= product.offer.write_price
+		- else
+			.price
+				%p= product.write_price
+
 		- if item_amount(product.id) != 0
 			.counter
 				%p= item_amount(product.id)
@@ -23,7 +30,11 @@
 			%p.title-display= product.title
 			%p.category-display= product.category.name
 
-		.delete-button
-			- if current_user_admin?
+		- if current_user_admin?
+			.product-options
+				= link_to new_offer_path(product_id: product.id) do
+					%span.glyphicon.glyphicon-certificate
 				= link_to product, method: 'delete', data: { confirm: 'Are you sure?' } do
 					%span.glyphicon.glyphicon-remove
+
+					

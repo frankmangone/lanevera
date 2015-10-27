@@ -1,0 +1,13 @@
+.home-offer
+	.offer-thumb-wrapper
+		= image_tag 'ph.jpg'
+		/ = image_tag offer.product.photo.photo.url()
+
+	.offer-info
+		%h3= offer.product.title
+
+	/	.offer-prices
+	/		.tag.old-price
+	/			= offer.product.write_price
+	/		.tag.new-price
+	/			= offer.write_price

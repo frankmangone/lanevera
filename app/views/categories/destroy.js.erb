@@ -1,5 +1,5 @@
 var id = <%= @category.id %>;
 
 $("#cat"+id.toString()).slideUp( function(){
-	$(this).remove();
+	Turbolinks.visit("<%= j products_path %>");
 });

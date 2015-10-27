@@ -1,0 +1,15 @@
+.product-show
+	.thumb
+		= image_tag 'ph.jpg'
+		/ = image_tag product.photo.photo.url()
+	.info
+		%h3= product.title
+		.offer-prices
+			- if product.offer.price
+				.tag.old-price
+					= product.write_price
+				.tag.new-price
+					= product.offer.write_price
+			- else
+				.tag.new-price
+					= product.write_price

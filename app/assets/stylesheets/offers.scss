@@ -2,7 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// Offer Index
+
+// Prices
+.offer-prices {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	margin-bottom: 20px;
+
+	.tag {
+		font-size: 1.2em;
+		padding: 10px;
+		border-radius: 3px;
+		margin: 0 10px 0 0;
+	}
+
+	.old-price {
+		background-color: #CD3B2F;
+		text-decoration: line-through;
+		color: #F0D0D0;
+	}
+	.new-price {
+		background-color: #487798;
+		color: #FFF;
+	}
+}
+
+// Offer Index ------------------------------------------------
 
 .wrapper {
 	display: flex;
@@ -47,32 +73,7 @@
 			margin: 0 0 10px;
 		}
 
-	// Prices
-		.offer-prices {
-			font-size: 1.2em;
-			display: flex;
-			flex-direction: row;
-			justify-content: flex-start;
-			margin-bottom: 20px;
-
-			.tag {
-				padding: 10px;
-				border-radius: 3px;
-				margin: 0 10px 0 0;
-			}
-
-			.old-price {
-				background-color: #CD3B2F;
-				text-decoration: line-through;
-				color: #F0D0D0;
-			}
-			.new-price {
-				background-color: #487798;
-				color: #FFF;
-			}
-		}
-
-	// Admin options
+		// Admin options
 		.offer-options {
 			display: flex;
 			flex-direction: row;
@@ -117,21 +118,45 @@
 
 	.product-show {
 		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		align-items: center;
-		height: 200px;
-		width: 400px;
+		flex-direction: row;
+		justify-content: center;
 		margin-bottom: 25px;
+		padding: 30px 20px 30px 30px;
 		border-radius: 3px;
 		box-shadow: inset 0px 0px 6px #CCC;
 
-		#offer_search {
-			margin-bottom: 10px;
+		.thumb {
+			overflow: hidden;
+			border-radius: 3px;
+			margin-right: 20px;
+			width: 180px;
+			height: 180px;
+
+			img {
+				width: 180px;
+				height: 180px;
+			}
 		}
 
-		#offer-search-submit {
-			display: none;
+		.info {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			h3 {
+				margin-bottom: 20px;
+			}
+
+			.offer-prices {
+				justify-content: center;
+				margin-left: 10px;
+			}
+		}
+	}
+
+	form {
+		button[type=submit] {
+			margin-top: 20px;
 		}
 	}
 }

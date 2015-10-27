@@ -54,7 +54,7 @@ function addProductTabListeners($target){
 		$price_text.addClass("white-glow");
 	}
 	,function(){
-		//Mouse leave
+		// Mouse leave
 		$image_wrapper.find("img").removeClass("image-hover");
 
 		$image_wrapper.height( image_wrapper_height );

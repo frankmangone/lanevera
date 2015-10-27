@@ -22,6 +22,6 @@ function totalPrice(){
 	});
 
 	total_price = "$" + total_price.toString();
-
+	alert(total_price);
 	return total_price;
 }

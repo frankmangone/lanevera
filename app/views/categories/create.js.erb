@@ -14,18 +14,16 @@ if(<%= @category.errors.any? %>){
 /* If there aren't, render the new tab */
 
 else {
-	var $add_button_tab = $(".category-tab").last();
+	var $add_button_tab = $(".category-add-tab");
 	var $category_form_tab = $("#new_category").parent();
 
 	$add_button_tab.before("<%= j render @category %>");
-
 	$add_button_tab.slideDown();
-	$add_button_tab.find("a").removeAttr('disabled');
-	
-	$category_form_tab.slideUp( function(){
-		$(this).remove();
-	});
+	$category_form_tab.slideUp();
 
 	var $new_category_tab = $("#cat<%= @category.id %>");
-	$new_category_tab.hide().slideDown();
+	$new_category_tab.next().hide();
+	$new_category_tab.hide().slideDown( function(){
+		Turbolinks.visit("<%= j products_path %>");
+	});
 }

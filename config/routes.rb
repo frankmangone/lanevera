@@ -27,5 +27,4 @@ Rails.application.routes.draw do
 
   # Offers
   resources :offers, exclude: :show
-  get 'offer_search' => 'offers#search'
 end

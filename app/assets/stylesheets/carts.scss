@@ -97,7 +97,13 @@
     	-ms-user-select: none;
     	user-select: none;
 		}
-	}	
+	}
+
+	// Override background color of price tags if the price is from an offer
+	.offer {
+		//background-color: #DEAB00;
+		background-color: #54AC00;
+	}
 }
 
 // Info bar on the right
@@ -113,6 +119,7 @@
 
 	#confirm-buy {
 		margin: 20px 0 5px;
+		color: #FFF;
 	}
 
 	.item-list {
@@ -121,10 +128,13 @@
 		background-color: #F1F2F3;
 		padding: 0px 30px;
 		//box-shadow: inset 0px 0px 6px #CCC;
-
-		.list-title {
-			flex-grow: 1;
-			text-align: left;
+		.columns {
+			width: 100%;
+			.list-title {
+				flex-grow: 1;
+				text-align: left;
+			}
 		}
+			
 	}
 }

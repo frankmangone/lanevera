@@ -61,7 +61,15 @@ module CartsHelper
 			total = 0
 
 			session[:cart].each do |item|
-				total += Product.find(item["id"]).price * item["amount"]
+				product = Product.find(item["id"])
+				
+				if product.offer
+					price = product.offer.price
+				else
+					price = product.price
+				end
+
+				total += price * item["amount"]
 			end
 
 			"$" + total.to_s

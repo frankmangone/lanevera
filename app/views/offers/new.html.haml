@@ -1,19 +1,18 @@
 = provide :title, 'Nueva oferta'
-- content_for :javascript_includes do
-	= javascript_include_tag "offer_search/new_search_handler.js"
 
 .rows
 	%h3 Nueva oferta
 
 	.offer-form-wrapper
-		= render 'search'
+		= render 'product', product: @offer.product
 
-		= form_for @offer do |f|
+		= form_for @offer, remote: true do |f|
 
-			= f.hidden_field :product_id
+			= f.hidden_field :product_id, value: @offer.product.id
 
 			= f.label "Precio de Oferta"
 			= f.number_field :price, step: 0.5, class: 'form-control'	
+			#offer-price-errors.errors
 
-			= f.button :submit, class: 'btn btn-primary' do	
+			= f.button :submit, class: 'btn btn-primary', id: 'create-product' do	
 				Crear
