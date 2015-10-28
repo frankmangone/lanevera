@@ -24,6 +24,9 @@
         %br/
         = f.email_field :email, autofocus: true, class: 'form-control'
 
+      = f.fields_for :location do |location|
+        = render 'location_fields', f: location
+
       .field
         = f.label "Contraseña"
         - if @validatable

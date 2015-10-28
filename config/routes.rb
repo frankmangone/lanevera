@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   }
   resources :users
 
+  # Locations
+  resources :locations, exclude: [:index, :show]
+
   # Categories
   resources :categories
 
@@ -23,8 +26,8 @@ Rails.application.routes.draw do
   resources :products
 
   # Photos
-  resources :photos, exclude: [:index, :show]
+  resources :photos,    exclude: [:index, :show]
 
   # Offers
-  resources :offers, exclude: :show
+  resources :offers,    exclude: :show
 end
