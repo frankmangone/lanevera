@@ -8,7 +8,7 @@
 	3) Forms
 	4) Header / Navigation bar
 	5) Homepage
-	6) Product buttons & views
+	6) Flashes
 
 */
 
@@ -115,6 +115,10 @@ a:hover, a:focus, a:active {
 /* 3: Forms & buttons */
 /* ------------------------------------------- */
 
+.field {
+	margin-bottom: 25px;
+}
+
 .invalid-field {
  	border-color: #CD3B2F !important;
  	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(229,170,166,0.6) !important;
@@ -135,6 +139,13 @@ a:hover, a:focus, a:active {
 
 label {
 	color: #6C91AA;
+}
+
+.label {
+	color: #6C91AA;
+	font-weight: bold;
+	font-size: 1em;
+	margin-bottom: 5px;
 }
 
 .btn {
@@ -249,7 +260,7 @@ label {
 	transition: all 0.2s linear;
 	background-color: #FFF;
 	border-radius: 0 3px 3px 0;
-	color: #FFF;/*#6C91AA;*/
+	color: #FFF;
 	border: none;
 	overflow: hidden;
 	width: 12%;
@@ -320,4 +331,15 @@ label {
 #cart-image {
 	display: inline-block;
 	padding-bottom: 50px;
+}
+
+/* 6: Flashes */
+/* ------------------------------------------- */
+
+.alert {
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	margin-left: -250px;
+	width: 500px;
 }

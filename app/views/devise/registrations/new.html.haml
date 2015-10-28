@@ -1,39 +1,45 @@
 = provide :title, "Nueva cuenta"
 
-%h2 Sign up
+.rows.form-wrapper
+  %h3 Registro de Usuario
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
+  .form-container.columns
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
 
-  .field
-    = f.label "Nombre"
-    %br/
-    = f.text_field :first_name
+      .field
+        = f.label "Nombre"
+        %br/
+        = f.text_field :first_name, class: 'form-control'
 
-  .field
-    = f.label "Apellido"
-    %br/
-    = f.text_field :last_name
+      .field
+        = f.label "Apellido"
+        %br/
+        = f.text_field :last_name, class: 'form-control'
 
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, class: 'form-control'
 
-  .field
-    = f.label "Contraseña"
-    - if @validatable
-      %em
-        (#{@minimum_password_length} caracteres mínimo)
-    %br/
-    = f.password_field :password, autocomplete: "off"
+      .field
+        = f.label "Contraseña"
+        - if @validatable
+          %span.label
+            (#{@minimum_password_length} caracteres mínimo)
+        %br/
+        = f.password_field :password, class: 'form-control', autocomplete: "off"
 
-  .field
-    = f.label "Confirmar contraseña"
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-    
-  .actions
-    = f.submit "¡Regístrate!"
+      .field
+        = f.label "Confirmar contraseña"
+        %br/
+        = f.password_field :password_confirmation, class: 'form-control', autocomplete: "off"
+        
+      .actions
+        = f.submit "¡Regístrate!",  class: 'btn btn-primary'
 
-= render "devise/shared/links"
+    .map-wrapper
+      %span.label Tu ubicación
+      #map
+
+  = render "devise/shared/links"

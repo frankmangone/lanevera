@@ -9,7 +9,8 @@
 				.tag.old-price
 					= product.write_price
 				.tag.new-price
+					%span.glyphicon.glyphicon-certificate
 					= product.offer.write_price
 			- else
-				.tag.new-price
+				.tag.old-price.unstrike
 					= product.write_price

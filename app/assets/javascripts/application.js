@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.remotipart
 //= require turbolinks
+//= require_self
 //= require_tree .
 
 /* jQuery plugins */
@@ -50,5 +51,21 @@ function handleError(model, key, value){
 	}).on("change", function(){
 		$("#"+model+"-"+key+"-errors").slideUp();
 		$(this).removeClass("invalid-field").off("keydown");
+	});
+}
+
+/* Listeners */
+/* --------------------------------- */
+
+$(document).ready( function(){
+	fadeFlashes();
+}).on("page:change", function(){
+	fadeFlashes();
+});
+
+function fadeFlashes(){
+	$alerts = $(".alert");
+	$alerts.each( function(){
+		$(this).delay(1500).fadeOut(1000);
 	});
 }

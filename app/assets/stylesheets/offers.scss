@@ -18,13 +18,16 @@
 	}
 
 	.old-price {
-		background-color: #CD3B2F;
+		background-color: #487798;
 		text-decoration: line-through;
-		color: #F0D0D0;
+		color: #FFF;
 	}
 	.new-price {
-		background-color: #487798;
+		background-color: #54AC00;
 		color: #FFF;
+	}
+	.unstrike {
+		text-decoration: none;
 	}
 }
 
@@ -107,14 +110,6 @@
 	padding: 30px;
 	margin: 30px 0;
 	border-radius: 3px;
-	width: 500px;
-
-	.label {
-		color: #6C91AA;
-		font-weight: bold;
-		font-size: 1em;
-		margin-bottom: 5px;
-	}
 
 	.product-show {
 		display: flex;

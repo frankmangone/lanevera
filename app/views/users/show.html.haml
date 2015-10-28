@@ -1,5 +1,7 @@
+= provide :title, @user.full_name
+
 %h1
-	= @user.first_name + " " + @user.last_name
+	= @user.full_name
 
 %p
 	= @user.email

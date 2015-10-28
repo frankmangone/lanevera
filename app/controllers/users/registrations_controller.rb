@@ -2,18 +2,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   before_filter :configure_permitted_parameters
 
-  def create
-  	super
-  	
-    flash[:success] = resource.first_name # ????
-
-    if resource.save
-      flash[:success] = "¡Tu usuario ha sido creado correctamente!"
-    else
-
-    end
-  end
-
   protected
 
   def configure_permitted_parameters
