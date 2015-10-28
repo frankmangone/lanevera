@@ -1,4 +1,6 @@
 = provide :title, "Nueva cuenta"
+- content_for :javascript_includes do
+  = javascript_include_tag "new_user_map.js"
 
 .rows.form-wrapper
   %h3 Registro de Usuario
@@ -34,7 +36,7 @@
         = f.label "Confirmar contraseña"
         %br/
         = f.password_field :password_confirmation, class: 'form-control', autocomplete: "off"
-        
+
       .actions
         = f.submit "¡Regístrate!",  class: 'btn btn-primary'
 
