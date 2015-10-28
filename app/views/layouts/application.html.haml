@@ -11,7 +11,10 @@
     = render 'layouts/shim'
   %body
     .container-fluid
-      = render 'layouts/header'
+      - if !yield(:title).empty?
+        = render 'layouts/header'
+      - else
+        = render 'layouts/home_header'
       #content
         = render "shared/alerts" if flash.present?
         = yield
