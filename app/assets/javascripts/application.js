@@ -81,7 +81,7 @@ $(document).ready( function(){
 function fadeFlashes(){
 	$alerts = $(".alert");
 	$alerts.each( function(){
-		$(this).delay(1500).fadeOut(1000);
+		$(this).delay(3000).fadeOut(1000);
 	});
 }
 

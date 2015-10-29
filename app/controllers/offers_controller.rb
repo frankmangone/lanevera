@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
 
 	before_action :find_offer, only: [:edit, :update, :destroy] 
+	before_action :logged_in_admin
 
 	def index
 		@offers = Offer.all
@@ -44,12 +45,20 @@ class OffersController < ApplicationController
 
 	private
 
-	def offer_params
-		params.require(:offer).permit(:price, :product_id)
-	end
+		def offer_params
+			params.require(:offer).permit(:price, :product_id)
+		end
 
-	def find_offer
-		@offer = Offer.find params[:id]
-	end
+		def find_offer
+			@offer = Offer.find params[:id]
+		end
+
+		# Checks if there exists a logged in admin
+		def logged_in_admin
+			unless current_user_admin?
+				flash[:error] = "No tienes permiso para realizar esa acción."
+				redirect_to products_path
+			end
+		end
 
 end

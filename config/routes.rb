@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :categories
 
   # Products
-  resources :products
+  resources :products,  exclude: :show
 
   # Photos
   resources :photos,    exclude: [:index, :show]
