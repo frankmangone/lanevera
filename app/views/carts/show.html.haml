@@ -5,7 +5,7 @@
 		= image_tag 'cart.png', id: "cart"
 
 		.item-container
-			- @cart.each do |item|
+			- @cart.items.each do |item|
 				= render 'item', item: item
 				
 			= render 'layouts/aligner'
@@ -13,14 +13,14 @@
 	.cart-info
 		%h2
 			Total:
-			%span.blue#total-price= total_price
+			%span.blue#total-price= "$ #{@cart.price}"
 
 		= link_to "#", class: 'btn btn-primary', id: 'confirm-buy' do
 			%h4 Confirmar compra
 
 		.item-list
 			%hr
-			- @cart.each do |item|
+			- @cart.items.each do |item|
 				= render 'list_item', item: item
 
 		

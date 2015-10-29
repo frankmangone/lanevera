@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  confirmed: false
+  received: false
+  price: 9.99
+
+two:
+  confirmed: false
+  received: false
+  price: 9.99

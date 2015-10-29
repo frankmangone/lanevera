@@ -1,4 +1,5 @@
-var $item = $("#item<%= params[:product_id] %>");
+
+var $item = $("#item<%= @product_id %>");
 var $counter = $item.find(".cart-counter");
 
 var $text = $counter.find("p");
@@ -10,7 +11,8 @@ amount++;
 
 $text.text(amount);
 
-var $list_text = $("#list_item<%= params[:product_id] %>").find(".list-amount").find(".value");
+var $list_text = $("#list_item<%= @product_id %>").find(".list-amount").find(".value");
 $list_text.text(amount);
 
-setTotalPrice();
+// Set total price
+$("#total-price").text('<%= j "$ #{@total_price}" %>');

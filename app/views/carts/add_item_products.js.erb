@@ -1,5 +1,5 @@
 // To handle the addition I rely on the fact that the .counter div exists only if the amount is higher than zero.
-var $product = $("#prod<%= params[:product_id] %>");
+var $product = $("#prod<%= @product_id %>");
 var $counter = $product.find(".counter");
 
 if($counter.length != 0){
