@@ -72,7 +72,7 @@ module CartsHelper
 				total += price * item["amount"]
 			end
 
-			"$" + total.to_s
+			"$ #{total.to_f.round(2)}"
 		else
 			"$0"
 		end

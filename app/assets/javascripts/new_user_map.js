@@ -42,6 +42,7 @@ function loadMap(){
 				}
 
 			});
+			
 			featureLayer.addTo(map);
 		});
 	}

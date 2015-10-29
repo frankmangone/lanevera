@@ -18,7 +18,7 @@
 		border-radius: 3px;
 		background-color: #F1F2F3;
 		padding: 40px 30px 10px;
-		box-shadow: inset 0px 0px 6px #CCC;
+		//box-shadow: inset 0px 0px 6px #CCC;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -101,8 +101,7 @@
 
 	// Override background color of price tags if the price is from an offer
 	.offer {
-		//background-color: #DEAB00;
-		background-color: #54AC00;
+		background-color: #8BB454;
 	}
 }
 
@@ -127,7 +126,6 @@
 		border-radius: 3px 0 0 3px;
 		background-color: #F1F2F3;
 		padding: 0px 30px;
-		//box-shadow: inset 0px 0px 6px #CCC;
 		.columns {
 			width: 100%;
 			.list-title {
