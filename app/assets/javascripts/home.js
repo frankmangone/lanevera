@@ -43,12 +43,3 @@ function addOfferListeners(){
 		//$(this).trigger('mouseout');
 	});
 }
-
-$(document).ready( function(){
-	// Disable previously to prevent memory leaks?
-	handleSearchBar();
-	addOfferListeners();
-}).on("page:change", function(){
-	handleSearchBar();
-	addOfferListeners();
-});

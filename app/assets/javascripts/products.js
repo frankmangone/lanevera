@@ -70,7 +70,7 @@ function addProductTabListeners($target){
 /* Master event binding function */
 /* ------------------------------------------- */
 
-function addEventsOnLoad(){
+function addProductEvents(){
 	$products = $(".product-index");
 
 	$products.find(".image-wrapper").each( function(){
@@ -82,14 +82,6 @@ function addEventsOnLoad(){
 		// The following is so that the hover fires properly on the first try.
 		$(this).trigger('mouseout');
 	});
-}
 
-/* Bind all events on load */
-/* ------------------------------------------- */
-$(document).ready( function(){
-	addEventsOnLoad();
 	disableRemoveButtons();
-}).on("page:change", function(){
-	addEventsOnLoad();
-	disableRemoveButtons();
-});
+}

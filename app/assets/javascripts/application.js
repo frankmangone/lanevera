@@ -55,13 +55,27 @@ function handleError(model, key, value){
 	});
 }
 
+/* Check if title is the provided string */
+function isTitle(string){
+	var title;
+	var base = "La Nevera, tu tienda de congelados";
+	if(string == ""){
+		title = base;
+	}
+	else{
+		title = string + " | " + base;
+	}
+
+	return document.title == title;
+}
+
 /* Listeners */
 /* --------------------------------- */
 
 $(document).ready( function(){
-	fadeFlashes();
+	addAllListeners();
 }).on("page:change", function(){
-	fadeFlashes();
+	addAllListeners();
 });
 
 function fadeFlashes(){
@@ -69,4 +83,25 @@ function fadeFlashes(){
 	$alerts.each( function(){
 		$(this).delay(1500).fadeOut(1000);
 	});
+}
+
+
+// MASTER EVENTS FUNCTION!!!!!
+
+function addAllListeners(){
+	fadeFlashes();
+	if(isTitle("Nuevo producto")){
+		bindProductFormEvents();
+	}
+	if(isTitle("Productos")){
+		addProductEvents();
+		bindCategoryTabListeners();
+	}
+	if(isTitle("Nueva cuenta")){
+		loadMap();
+	}
+	if(isTitle("")){
+		handleSearchBar();
+		addOfferListeners();
+	}
 }

@@ -1,5 +1,4 @@
 var map;
-//var click = document.getElementById('click');
 
 function loadMap(){
 	L.mapbox.accessToken = 'pk.eyJ1IjoiZnJhbmttYW5nb25lIiwiYSI6IjFlZjlmZTliYmYwYjljZDJhYmIwNmU1ZDlkOGExMDdkIn0.wSNu880_pH8ZGjMj3CoYWw';
@@ -47,9 +46,3 @@ function loadMap(){
 		});
 	}
 }
-
-$(document).ready( function(){
-	loadMap();
-}).on("page:change", function(){
-	loadMap();
-});

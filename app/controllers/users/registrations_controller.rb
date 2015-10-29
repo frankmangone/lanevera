@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
 
-    registration_params = [:first_name, :last_name, :email, :password, :password_confirmation, location_attributes: [:id, :latitude, :longitude]]
+    registration_params = [:first_name, :last_name, :email, :password, :password_confirmation, location_attributes: [:id, :latitude, :longitude, :description]]
 
     devise_parameter_sanitizer.for(:sign_up) {
         |u| u.permit(registration_params)

@@ -11,10 +11,6 @@ class ProductsController < ApplicationController
 		@product = Product.new
 		@photo   = Photo.new
 		@categories = Category.filter(params[:category_id])
-
-		respond_to do |format|
-			format.js
-		end
 	end
 
 
