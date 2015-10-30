@@ -9,25 +9,18 @@ class ProductsController < ApplicationController
 
 
 	def new
-		@product    = Product.new
-		last_photo = Photo.last
-
-		# Check the status of the last photo
-		if last_photo.product
-			# If it already has a product associated, generate a new Photo
-			@photo = Photo.new
-		else
-			# If not, force it on the new Product form
-			@photo = last_photo
-		end
+		@product = Product.new
+		@photo   = unassociated_photo
 	end
 
 
 	def create
 		@product = Product.new(product_params)
-		
+
 		respond_to do |format|
 			if @product.save
+				# Update Photo associated attribute
+				Photo.find(product_params[:photo_id]).update(associated: true)
 				format.js
 			else
 				format.js
@@ -38,13 +31,7 @@ class ProductsController < ApplicationController
 
 	def edit
 		if !@product.photo
-			# If the Product doesn't have a Photo, there are two scenarios:
-			last_photo = Photo.last
-			if last_photo.product
-				@photo = Photo.new
-			else
-				@photo = last_photo
-			end
+			@photo = unassociated_photo
 		else
 			# If the Product already has a Photo
 			@photo = @product.photo
@@ -53,10 +40,14 @@ class ProductsController < ApplicationController
 
 
 	def update
-		@product.update_attributes(product_params)
-			
+		
 		respond_to do |format|
-			format.js
+			if @product.update_attributes(product_params)
+				Photo.find(product_params[:photo_id]).update(associated: true)
+				format.js
+			else
+				format.js
+			end
 		end
 	end
 
@@ -88,6 +79,20 @@ class ProductsController < ApplicationController
 				flash[:error] = "No tienes permiso para realizar esa acción."
 				redirect_to products_path
 			end
+		end
+
+		# Returns unassociated photo if any, or a new one.
+
+		def unassociated_photo
+			photo = Photo.where(associated: false).first
+			# the "first" is there because the selection returns an array,
+			# even though it contains a single element
+
+			if !photo
+				photo = Photo.new
+			end
+
+			photo
 		end
 		
 end
