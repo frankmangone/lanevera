@@ -1,10 +1,11 @@
 /* Success */
 
 $("#new_photo").remove();
-$("#new_product").append('<input class="form-control" type="hidden" name="product[photo_id]" id="product_photo">');
-$("#product_photo").val("<%= @photo.id %>");
+$("#product_photo_id").val("<%= @photo.id %>");
 
-$("#photo-preview").css('background-image', 'url(<%= j @photo.photo.url() %>)');
+var $preview = $("#photo-preview");
+
+$preview.css('background-image', 'url(<%= j @photo.photo.url() %>)');
 
 // Remove upload info:
 
@@ -17,3 +18,17 @@ $text.text('');
 // Enable upload button
 
 $("#create-product").removeAttr('disabled');
+
+// Add rendered delete button
+
+$preview.after("<%= j render 'delete_button', photo: @photo %>");
+
+$delete_button = $("#photo-delete");
+
+$delete_button.click( function(){
+	$(this).attr('disabled', 'true');
+	$icon.addClass('glyphicon-time');
+	$text.text('Borrando...');
+	$preview.css('background-image', 'none');
+	$("#create-product").attr('disabled', 'true');
+});

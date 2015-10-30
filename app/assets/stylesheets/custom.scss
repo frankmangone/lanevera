@@ -4,8 +4,8 @@
 
 	0) Used colors
 	1) Universal assets
-	2) General typography
-	3) Forms
+	2) Forms
+	3) General typography
 	4) Header / Navigation bar
 	5) Homepage
 	6) Flashes
@@ -86,33 +86,7 @@ body {
   flex-direction: column;
 }
 
-/* 2: General typography & some effects */
-/* ------------------------------------------- */
-
-h1, h2, h3, h4, h5, h6 {
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-h1 {
-	color: #0B1D2A;
-}
-
-h3 {
-	color: #487798;
-}
-
-a:link, a:visited {
-	transition: all 0.2s linear;
-	color: #6C91AA;
-}
-
-a:hover, a:focus, a:active {
-	text-decoration: none;
-	color: #86B7C7;
-}
-
-/* 3: Forms & buttons */
+/* 2: Forms & buttons */
 /* ------------------------------------------- */
 
 .field {
@@ -181,6 +155,32 @@ label {
 
 .btn-danger:hover, .danger {
 	background-color: #CD3B2F;
+}
+
+/* 3: General typography & some effects */
+/* ------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+h1 {
+	color: #0B1D2A;
+}
+
+h3 {
+	color: #487798;
+}
+
+a:link, a:visited {
+	transition: all 0.2s linear;
+	color: #6C91AA;
+}
+
+a:hover, a:focus, a:active {
+	text-decoration: none;
+	color: #86B7C7;
 }
 
 /* 4: Navigation bar */

@@ -37,6 +37,7 @@
 
 		- if current_user_admin?
 			.product-options
+				/ Offer options
 				- if product.offer
 					= link_to edit_offer_path(product.offer, product_id: product.id) do
 						%span.glyphicon.glyphicon-certificate
@@ -44,6 +45,11 @@
 					= link_to new_offer_path(product_id: product.id) do
 						%span.glyphicon.glyphicon-certificate
 
+				/ Product edit
+				= link_to edit_product_path(product) do
+					%span.glyphicon.glyphicon-pencil
+
+				/ Product delete
 				= link_to product, method: 'delete', data: { confirm: 'Are you sure?' } do
 					%span.glyphicon.glyphicon-remove
 

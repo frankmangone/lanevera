@@ -27,6 +27,7 @@
 
     .product-creation
       - if current_user_admin?
-        = render 'new_product_btn'
+        #new-product-button
+          = link_to "Nuevo producto", new_product_path, class: 'btn btn-primary'
         
 / = session[:cart].inspect

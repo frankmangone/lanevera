@@ -1,0 +1,22 @@
+$delete_button = $("#photo-delete");
+$icon = $("#photo-upload-info").find("h2").find("span");
+$text = $("#photo-upload-info").find("p");
+
+$icon.removeClass("glyphicon-time");
+$icon.addClass("glyphicon-upload");
+$text.text('Click aquí para elegir una imagen');
+
+$delete_button.before("<%= j render 'form' %>");
+$delete_button.remove();
+
+// Bind hidden field again
+$("#photo_photo").on("change", function(){
+	// Trigger form submit
+	$("#photo-submit").trigger("click");
+});
+
+$("#photo-submit").click( function(){
+	$("#product_photo_id").val('');
+	$icon.removeClass('glyphicon-upload').addClass('glyphicon-time');
+	$text.text('Subiendo foto...');
+});

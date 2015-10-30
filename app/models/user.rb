@@ -30,7 +30,11 @@ class User < ActiveRecord::Base
     item = Item.where(cart_id: cart_id, product_id: product_id).first_or_create
 
     # Add the product price to the cart's
-    cart.price += item.product.price
+    if item.product.offer
+      cart.price += item.product.offer.price
+    else
+      cart.price += item.product.price
+    end
     cart.save
 
     # amount is 0 by default
@@ -47,7 +51,11 @@ class User < ActiveRecord::Base
     item = item.first
 
     # Substract the product price from the cart's
-    cart.price -= item.product.price
+    if item.product.offer
+      cart.price -= item.product.offer.price
+    else
+      cart.price -= item.product.price
+    end
     cart.save
 
     # If amount is 1, delete, else decrease by one

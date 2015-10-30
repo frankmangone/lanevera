@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
-	before_action :find_product,    only: [:edit, :update, :show, :destroy]
-	before_action :logged_in_admin, only: [:new, :create, :edit, :update, :destroy]
+	before_action :find_product,      only: [:edit, :update, :show, :destroy]
+	before_action :select_categories, only: [:index, :new, :edit]
+	before_action :logged_in_admin,   only: [:new, :create, :edit, :update, :destroy]
 
 	def index
-		@categories = Category.all
 		@products   = Category.search(params[:category_id], params[:search])
 	end
 
@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
 	def new
 		@product = Product.new
 		@photo   = Photo.new
-		@categories = Category.filter(params[:category_id])
 	end
 
 
@@ -34,7 +33,9 @@ class ProductsController < ApplicationController
 
 
 	def update
-		
+		if @product.update_attributes(product_params)
+			
+		end
 	end
 
 
@@ -52,6 +53,11 @@ class ProductsController < ApplicationController
 
 		def find_product
 			@product = Product.find(params[:id])
+		end
+
+		# Select categories
+		def select_categories
+			@categories = Category.all
 		end
 
 		# Checks if there exists a logged in admin

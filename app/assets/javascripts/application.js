@@ -74,7 +74,7 @@ function isTitle(string){
 
 $(document).ready( function(){
 	addAllListeners();
-}).on("page:change", function(){
+}).on("page:load", function(){
 	addAllListeners();
 });
 

@@ -11,7 +11,7 @@ if(<%= @product.errors.any? %>){
 	<% end %>
 
 	// Buttons were disabled on "create" click; I need to enable them.
-	$(this).removeAttr('disabled');
+	$("#create-product").removeAttr('disabled');
 	$("#new-product-cancel").removeAttr('disabled');
 }
 

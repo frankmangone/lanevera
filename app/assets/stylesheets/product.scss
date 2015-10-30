@@ -220,10 +220,13 @@
 	.product-options {
 		font-size: 1.2em;
 		height: 16px;
-		margin-top: -42px;
-		margin-bottom: 42px;
-		padding-right: 5px;
+		margin-top: -44px;
+		margin-bottom: 44px;
+		padding-right: 7px;
 		text-align: right;
+		a {
+			padding-left: 7px;
+		}
 	}
 }
 
