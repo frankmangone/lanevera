@@ -1,0 +1,23 @@
+/* Check if there are any errors */
+
+if(<%= @product.errors.any? %>){
+	var key;
+	var value;
+
+	<% @product.errors.each do |key, value| %>
+		key = "<%= key %>";
+		value = "<%= value %>";
+		handleError('product', key, value);
+	<% end %>
+
+	// Buttons were disabled on "create" click; I need to enable them.
+	$("#create-product").removeAttr('disabled');
+	$("#new-product-cancel").removeAttr('disabled');
+}
+
+/* If there aren't, render the new tab */
+
+else {
+	// With turbolinks, you can do a lot of crazy things. For instance:
+	Turbolinks.visit("<%= j products_path %>");
+}

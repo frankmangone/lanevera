@@ -18,6 +18,8 @@
 			= f.label "Categoría"
 			= f.select(:category_id, list_categories_for_select(@categories), {}, { class: 'form-control' })
 
+			= f.hidden_field :photo_id, value: @product.photo.id
+
 			%br
 			%br
 
@@ -28,4 +30,5 @@
 
 	/ Photo
 	.photo-input
-		/ = render 'photos/form'
+		= render 'photos/preview'      , photo: @product.photo
+		= render 'photos/delete_button', photo: @product.photo

@@ -33,8 +33,10 @@ class ProductsController < ApplicationController
 
 
 	def update
-		if @product.update_attributes(product_params)
+		@product.update_attributes(product_params)
 			
+		respond_to do |format|
+			format.js
 		end
 	end
 

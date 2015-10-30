@@ -91,16 +91,19 @@ function fadeFlashes(){
 function addAllListeners(){
 	fadeFlashes();
 	if(isTitle("Nuevo producto")){
-		bindProductFormEvents();
+		bindNewProductFormEvents();
 	}
-	if(isTitle("Productos")){
+	else if(isTitle("Editar producto")){
+		bindEditProductFormEvents();
+	}
+	else if(isTitle("Productos")){
 		addProductEvents();
 		bindCategoryTabListeners();
 	}
-	if(isTitle("Nueva cuenta")){
+	else if(isTitle("Nueva cuenta")){
 		loadMap();
 	}
-	if(isTitle("")){
+	else if(isTitle("")){
 		handleSearchBar();
 		addOfferListeners();
 	}
