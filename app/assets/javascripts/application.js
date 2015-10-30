@@ -72,9 +72,7 @@ function isTitle(string){
 /* Listeners */
 /* --------------------------------- */
 
-$(document).ready( function(){
-	addAllListeners();
-}).on("page:load", function(){
+$(document).on("page:change", function(){
 	addAllListeners();
 });
 
@@ -90,11 +88,8 @@ function fadeFlashes(){
 
 function addAllListeners(){
 	fadeFlashes();
-	if(isTitle("Nuevo producto")){
-		bindNewProductFormEvents();
-	}
-	else if(isTitle("Editar producto")){
-		bindEditProductFormEvents();
+	if(isTitle("Nuevo producto") || isTitle("Editar producto")){
+		bindProductFormEvents();
 	}
 	else if(isTitle("Productos")){
 		addProductEvents();

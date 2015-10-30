@@ -9,8 +9,17 @@ class ProductsController < ApplicationController
 
 
 	def new
-		@product = Product.new
-		@photo   = Photo.new
+		@product    = Product.new
+		last_photo = Photo.last
+
+		# Check the status of the last photo
+		if last_photo.product
+			# If it already has a product associated, generate a new Photo
+			@photo = Photo.new
+		else
+			# If not, force it on the new Product form
+			@photo = last_photo
+		end
 	end
 
 
@@ -28,7 +37,18 @@ class ProductsController < ApplicationController
 
 
 	def edit
-
+		if !@product.photo
+			# If the Product doesn't have a Photo, there are two scenarios:
+			last_photo = Photo.last
+			if last_photo.product
+				@photo = Photo.new
+			else
+				@photo = last_photo
+			end
+		else
+			# If the Product already has a Photo
+			@photo = @product.photo
+		end
 	end
 
 

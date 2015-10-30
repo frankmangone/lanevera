@@ -14,6 +14,13 @@ class PhotosController < ApplicationController
 
 	def destroy
 		@photo = Photo.find(params[:id])
+		
+		if @photo.product
+			@product = @photo.product
+			@product.photo_id = nil
+			@product.save
+		end
+
 		@photo.destroy
 		respond_to do |format|
 			format.js

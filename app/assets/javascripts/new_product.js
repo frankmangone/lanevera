@@ -1,12 +1,14 @@
 // On the form: -----------------------------------------------
 
-function bindNewProductFormEvents(){
+function bindProductFormWithoutPhoto(){
+
 	// Disable the submit button until a photo is uploaded
 	$("#create-product").attr('disabled', 'true');
 	// And disable buttons on click, to prevent double submissions.
 	$("#new_product").submit( function(){
 		$("#create-product").attr('disabled', 'true');
 		$("#new-product-cancel").attr('disabled', 'true');
+		submit = true;
 	});
 
 	// Photo events: -----------------------------------------------

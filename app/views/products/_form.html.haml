@@ -19,7 +19,7 @@
 			= f.select(:category_id, list_categories_for_select(@categories), {}, { class: 'form-control' })
 
 			= f.hidden_field :photo_id
-			
+
 			%br
 			%br
 
@@ -30,5 +30,10 @@
 
 	/ Photo
 	.photo-input
-		= render 'photos/upload'
-		= render 'photos/form'
+		- if @photo.id
+			= render 'photos/preview'      , photo: @photo
+			= render 'photos/delete_button', photo: @photo
+
+		- else
+			= render 'photos/upload'
+			= render 'photos/form'

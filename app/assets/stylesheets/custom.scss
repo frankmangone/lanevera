@@ -73,7 +73,6 @@ body {
 #content {
 	text-align: center;
 	padding-top: 50px;
-	padding-bottom: 50px;
 }
 
 .columns {
@@ -226,6 +225,7 @@ a:hover, a:focus, a:active {
 #header {
 	background-color: #6C91AA;
 	margin-bottom: 0;
+	text-align: center;
 }
 
 #fridge {
@@ -342,4 +342,48 @@ a:hover, a:focus, a:active {
 	left: 50%;
 	margin-left: -250px;
 	width: 500px;
+}
+
+
+/* 7: Footer */
+/* ------------------------------------------- */
+
+footer {
+	background-color: #6C91AA;
+	width: 100%;
+	padding: 30px 90px 90px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	.block {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.logo {
+		margin-right: 30px;
+	}
+
+	.info {
+		color: #FFF;
+		margin-top: 15px;
+
+		.field {
+			margin-bottom: 15px;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			p {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.other {
+		align-self: flex-end;
+	}
 }
