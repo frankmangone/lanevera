@@ -24,7 +24,10 @@
 			%br
 
 			= f.button :submit, class: 'btn btn-primary', id: 'create-product' do
-				Crear Producto
+				- if params[:action] == "new"
+					Crear Producto
+				- elsif params[:action] == "edit"
+					Guardar Cambios
 			= link_to products_path, class: 'btn btn-primary', id: 'new-product-cancel' do
 				Cancelar
 
