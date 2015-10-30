@@ -1,9 +1,6 @@
 class CategoriesController < ApplicationController
-	before_action :find_category, only: [:show, :destroy]
-
-	def index
-		@categories = Category.all
-	end
+	before_action :find_category,   only: [:show, :edit, :update, :destroy]
+	before_action :logged_in_admin, only: [:new, :create, :edit, :update, :destroy]
 
 	def new
 		@category = Category.new
@@ -21,8 +18,12 @@ class CategoriesController < ApplicationController
 		end
 	end
 
-	def show
-		#@products = @category.products.all
+	def edit
+		
+	end
+
+	def update
+
 	end
 
 	def destroy
@@ -37,11 +38,19 @@ class CategoriesController < ApplicationController
 	private
 
 
-	def find_category
-		@category = Category.find(params[:id])
-	end
+		def find_category
+			@category = Category.find(params[:id])
+		end
 
-	def category_params
-		params.require(:category).permit(:name)
-	end
+		def category_params
+			params.require(:category).permit(:name)
+		end
+
+		# Checks if there exists a logged in admin
+		def logged_in_admin
+			unless current_user_admin?
+				flash[:error] = "No tienes permiso para realizar esa acción."
+				redirect_to products_path
+			end
+		end
 end

@@ -10,11 +10,18 @@ module ApplicationHelper
 		end
 	end
 
+	# Checks if logged user is an admin
 	def current_user_admin?
 		if !current_user
 			false
 		else
 			current_user.admin?
 		end
+	end
+
+	# Checks if id belongs to current user
+	def current_user?(id)
+		user = User.find(id)
+		user == current_user
 	end
 end

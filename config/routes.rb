@@ -18,17 +18,17 @@ Rails.application.routes.draw do
   resources :users
 
   # Locations
-  resources :locations, exclude: [:index, :show]
+  resources :locations,  exclude: [:index, :show]
 
   # Categories
-  resources :categories
+  resources :categories, exclude: [:index, :show]
 
   # Products
-  resources :products,  exclude: :show
+  resources :products,   exclude: :show
 
   # Photos
-  resources :photos,    exclude: [:index, :show]
+  resources :photos,     exclude: [:index, :show]
 
   # Offers
-  resources :offers,    exclude: :show
+  resources :offers,     exclude: :show
 end
