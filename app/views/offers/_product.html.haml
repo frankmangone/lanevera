@@ -1,7 +1,9 @@
 .product-show
 	.thumb
-		= image_tag 'ph.jpg'
-		/ = image_tag product.photo.photo.url()
+		- if product.photo
+			= image_tag product.photo.photo.url()
+		- else
+			= image_tag 'ph.jpg'
 	.info
 		%h3= product.title
 		.offer-prices

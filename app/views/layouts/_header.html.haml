@@ -17,8 +17,9 @@
 				- if current_user_admin?
 					%li
 						= link_to "Ofertas", offers_path
+
 				%li
-					= link_to "Carro",  cart_path
+					= link_to "Carro",  cart_path(current_user.cart.id)
 				%li
 					= link_to "Perfil", current_user
 				%li
@@ -28,3 +29,4 @@
 					= link_to 'Acceso',   new_user_session_path
 				%li
 					= link_to 'Registro', new_user_registration_path
+

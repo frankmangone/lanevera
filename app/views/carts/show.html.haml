@@ -7,8 +7,10 @@
 		.item-container
 			- @cart.items.each do |item|
 				= render 'item', item: item
-				
 			= render 'layouts/aligner'
+
+			.actions
+				= link_to "Agregar producto", products_path, class: 'btn btn-primary'
 
 	.cart-info
 		%h2

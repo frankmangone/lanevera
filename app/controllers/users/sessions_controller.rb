@@ -7,13 +7,9 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  def create
-    if !current_user.cart
-      cart = current_user.build_cart
-      cart.save
-    end
-    super
-  end
+  #def create
+  #  super
+  #end
 
   # DELETE /resource/sign_out
   # def destroy

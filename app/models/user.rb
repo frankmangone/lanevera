@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  before_create :add_token
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -67,5 +70,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  private
+
+    def add_token
+      begin
+        self.token = SecureRandom.urlsafe_base64.upcase
+      end while self.class.exists?(token: token)
+    end
 
 end

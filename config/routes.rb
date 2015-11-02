@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get 'info' => 'static#info'
 
   # Shopping Cart
-  get 'cart'        => 'carts#show'
+  match 'carts/:id', to: 'carts#show', as: 'cart', via: 'get'
+  get 'purchases'   => 'carts#index'
   get 'add_item'    => 'carts#add_item'
   get 'remove_item' => 'carts#remove_item'
 

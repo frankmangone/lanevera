@@ -1,13 +1,14 @@
 #offers
-  %h1 Ofertas
+  %h2 Ofertas
   %h3 ¡Actualizamos nuestras ofertas regularmente!
   .divider
-  .columns
-    - @offers.each do |offer|
-      = render 'offer', offer: offer
+  .columns.full-width
+    .columns.offer-display
+      - @offers.each do |offer|
+        = render 'offer', offer: offer
 
 #cart-announcement
   #cart-image
     = image_tag 'cart.png'
-  %h1 Carro de compras
+  %h2 Carro de compras
   %h3 Contamos con un servicio de delivery para las compras realizadas por usuarios a través del sitio.

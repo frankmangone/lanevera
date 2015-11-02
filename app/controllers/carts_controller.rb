@@ -1,5 +1,12 @@
 class CartsController < ApplicationController
 
+	before_action :logged_in_admin, only: :index
+	before_action :cart_owner_or_admin_if_confirmed,  only: :show
+
+	def index
+
+	end
+
 	def show
 		@cart = current_user.cart
 	end
@@ -31,5 +38,26 @@ class CartsController < ApplicationController
 			end
 		end
 	end
+
+	private
+
+		# Checks if current user is owner, or admin
+		def cart_owner_or_admin_if_confirmed
+			cart = Cart.find(params[:id])
+
+			if !cart.owner?(current_user)
+
+				if !current_user_admin?
+					flash[:error] = "No tienes permiso para realizar esa acción."
+					redirect_to products_path
+				else
+					if !cart.confirmed
+						flash[:notice] = "Este carro aún no ha sido confirmado."
+						redirect_to products_path
+					end
+				end
+			end
+
+		end
 	
 end

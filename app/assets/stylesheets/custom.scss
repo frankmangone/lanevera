@@ -42,7 +42,7 @@
 /* ------------------------------------------- */
 
 body {
-	background-color: #FFFFFF;
+	background-color: #FFF;
 }
 
 .container-fluid {
@@ -164,8 +164,8 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 5px;
 }
 
-h1 {
-	color: #0B1D2A;
+h2 {
+	color: #487798;
 }
 
 h3 {
@@ -275,16 +275,27 @@ a:hover, a:focus, a:active {
 /* 5: Homepage */
 /* ------------------------------------------- */
 
+#offers {
+	padding-top: 50px;
+}
+
+#cart-announcement {
+	padding-top: 100px;
+}
+
 #offers, #cart-announcement {
 	text-align: center;
-	padding-top: 100px;
 	padding-bottom: 100px;
-	.columns {
+	.offer-display {
+		width: auto;
+		border-radius: 3px;
+		background-color: #6C91AA;
 		justify-content: center;
 		flex-wrap: wrap;
-		padding: 0 50px;
+		padding: 50px 30px;
+
 		.home-offer {
-			margin: 0 10px;
+			margin: 0 20px;
 			.offer-thumb-wrapper {
 				background-color: #666;
 				border-radius: 3px;
@@ -351,26 +362,30 @@ a:hover, a:focus, a:active {
 footer {
 	background-color: #6C91AA;
 	width: 100%;
-	padding: 30px 90px 90px;
+}
+
+footer.main {
+	padding: 50px 120px 100px;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: flex-start;
 
-	.block {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
+	.line {
+		margin: 15px 25px 0 10px;
+		border-left: 1px solid #567488;
+		height: 125px;
 	}
 
 	.logo {
 		margin-right: 30px;
+		margin-top: 50px;
 	}
 
 	.info {
 		color: #FFF;
 		margin-top: 15px;
+		margin-right: 15px;
 
 		.field {
 			margin-bottom: 15px;
@@ -380,10 +395,16 @@ footer {
 			p {
 				margin-bottom: 0;
 			}
+			span {
+				margin-top: 4px;
+			}
 		}
 	}
+}
 
-	.other {
-		align-self: flex-end;
-	}
+footer.creator {
+	text-align: right;
+	color: #4B6576;
+	padding-bottom: 5px;
+	padding-right: 60px;
 }
