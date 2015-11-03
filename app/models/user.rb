@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
 
   # Cart methods
 
+
   def add_to_cart(product_id)
     # Assumes existent cart
 
@@ -44,6 +45,7 @@ class User < ActiveRecord::Base
     item.amount += 1
     item.save
   end
+
 
   def remove_from_cart(product_id)
     # Assumes existent cart
@@ -69,6 +71,7 @@ class User < ActiveRecord::Base
       item.save
     end
   end
+
 
   private
 

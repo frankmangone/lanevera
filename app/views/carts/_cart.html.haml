@@ -1,0 +1,19 @@
+.cart-wrapper
+	.user-info
+		%p= cart.user.full_name
+		%hr
+		%p= cart.user.location.description
+
+	.purchase-info
+		.data
+			.total-price
+				= cart.write_price
+			.total-products
+				= "(#{cart.write_product_total})"
+
+		= link_to "Ver compra", cart_path(cart.id), class: 'btn btn-primary'		
+
+	.actions
+		= link_to "Entregado", "#", class: 'btn btn-success'
+		= link_to "Cancelar",  "#", class: 'btn btn-danger' 
+

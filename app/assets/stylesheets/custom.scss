@@ -152,8 +152,17 @@ label {
 	border: none;
 }
 
-.btn-danger:hover, .danger {
+.btn-danger:hover, .btn-danger:focus, .danger {
 	background-color: #CD3B2F;
+}
+
+.btn-success {
+	background-color: #C2D8A6;
+	border: none;
+}
+
+.btn-success:hover, .btn-success:focus {
+	background-color: #8BB454;
 }
 
 /* 3: General typography & some effects */
@@ -192,6 +201,9 @@ a:hover, a:focus, a:active {
 	padding-right: 30px;
 	margin-bottom: 0;
 	border: none;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .navbar-nav li {
@@ -214,23 +226,17 @@ a:hover, a:focus, a:active {
 
 /* Home: the navigation bar is replaced by a bigger header */
 
-#home-header{
-	background-color: #6C91AA;
-	padding-bottom: 75px;
-	margin-bottom: 0;
-	text-align: center;
-	/* This actually centers divs with the display: inline-block property */
-}
-
 #header {
 	background-color: #6C91AA;
 	margin-bottom: 0;
-	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
 }
 
 #fridge {
 	padding: 50px 0 25px 0;
-	display: inline-block;
 }
 
 #brand {
@@ -245,6 +251,11 @@ a:hover, a:focus, a:active {
 #brand h2 {
 	color: #F1F2F3;
 	font-size: 1.5em;
+}
+
+#search-bar {
+	padding-bottom: 75px;
+	width: 600px;
 }
 
 #search {

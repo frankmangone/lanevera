@@ -9,9 +9,10 @@ class StaticController < ApplicationController
 	private
 
 		def create_cart
-			# Generate cart if not already created
+			# Generate cart the user doesn't have an undelivered
     	if current_user
     		if !current_user.cart
+    			# No existent cart / undelivered cart
     			cart = current_user.build_cart
     			cart.save
     		end

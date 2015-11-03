@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Show
+//----------------------
+
 .cart-display {
 	padding: 0 40px;
 	flex-grow: 1;
@@ -17,7 +20,7 @@
 		width: 100%;
 		border-radius: 3px;
 		background-color: #F1F2F3;
-		padding: 40px 30px 40px;
+		padding: 40px 30px;
 		margin-bottom: 30px;
 		display: flex;
 		flex-direction: row;
@@ -143,5 +146,87 @@
 			}
 		}
 			
+	}
+}
+
+// Index
+//----------------------
+
+.purchases {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 30px;
+}
+
+.cart-wrapper {
+	background-color: #F1F2F3;
+	padding: 30px;
+	margin-bottom: 30px;
+	border-radius: 3px;
+	width: 650px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	.user-info {
+		width: 250px;
+		padding: 15px;
+		color: #6C91AA;
+		height: 100%;
+		border-radius: 3px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		p {
+			margin-bottom: 0;
+		}
+		hr {
+			margin: 5px 0;
+			border-top: 1px solid #6C91AA;
+		}
+	}
+
+	.purchase-info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		flex-grow: 1;
+
+		.data {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			font-size: 1.4em;
+
+			.total-products {
+				color: #9AC3D0;
+			}
+
+			.total-price {
+				text-align: center;
+				border-radius: 3px;
+				color: #6C91AA;
+				padding: 10px;
+			}
+		}
+
+		a {
+			color: #FFF;
+		}
+		
+	}
+
+	.actions {
+		display: flex;
+		flex-direction: column;
+		a {
+			color: #FFF;
+		}
+		.btn-success {
+			margin-bottom: 10px;
+		}
 	}
 }

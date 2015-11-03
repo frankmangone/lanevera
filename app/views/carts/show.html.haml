@@ -15,9 +15,9 @@
 	.cart-info
 		%h2
 			Total:
-			%span.blue#total-price= "$ #{@cart.price}"
+			%span.blue#total-price= @cart.write_price
 
-		= link_to "#", class: 'btn btn-primary', id: 'confirm-buy' do
+		= link_to confirm_cart_path(params[:id]), class: 'btn btn-primary', id: 'confirm-buy', method: 'post' do
 			%h4 Confirmar compra
 
 		.item-list
