@@ -4,6 +4,11 @@
 	.cart-display
 		= image_tag 'cart.png', id: "cart"
 
+		- if current_user_admin? && params[:from] == 'purchases'
+			= link_to purchases_path do
+				%span.glyphicon.glyphicon-chevron-left
+				Volver
+
 		.item-container
 			- @cart.items.each do |item|
 				= render 'item', item: item

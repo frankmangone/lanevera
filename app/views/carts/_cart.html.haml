@@ -11,7 +11,7 @@
 			.total-products
 				= "(#{cart.write_product_total})"
 
-		= link_to "Ver compra", cart_path(cart.id), class: 'btn btn-primary'		
+		= link_to "Ver compra", cart_path(cart.id, from: 'purchases'), class: 'btn btn-primary'		
 
 	.actions
 		= link_to "Entregado", "#", class: 'btn btn-success'

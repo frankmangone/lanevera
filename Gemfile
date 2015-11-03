@@ -18,12 +18,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem "haml-rails", "~> 0.6.0"
 
-# Cocoon for location saving
-gem "cocoon"
 gem 'simple_form'
 
 # For ajax file uploads
 gem 'remotipart', '~> 1.2'
+
+gem 'whenever', :require => false
 
 
 group :development, :test do
