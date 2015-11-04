@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
-	before_action :find_user,      only: :show
-	before_action :owner_or_admin, only: [:show, :edit, :update, :destroy]
+	before_action :find_user,       only: :show
+	before_action :owner_or_admin,  only: [:show, :edit, :update, :destroy]
+	before_action :logged_in_admin, only: [:admin, :index]
 
 	def show
 		

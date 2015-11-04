@@ -3,4 +3,10 @@
 %h3 Compras
 
 .purchases
-	= render @carts
+	- @carts.each do |cart|
+		- if cart.delivered
+			.cart-wrapper.delivered
+				= render cart
+		- else
+			.cart-wrapper
+				= render cart

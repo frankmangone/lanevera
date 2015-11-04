@@ -14,8 +14,10 @@
 			.cart-price
 				%p= item.product.write_price
 
-	= link_to add_item_path(product_id: item.product_id, from: "cart"), class: 'btn btn-primary btn-symbol add', method: 'get', remote: true do
-		%span.glyphicon.glyphicon-plus
-	&nbsp;
-	= link_to remove_item_path(product_id: item.product_id, from: "cart"), class: 'btn btn-primary btn-symbol remove', method: 'get', remote: true do
-		%span.glyphicon.glyphicon-minus
+	- if !confirmed
+		.actions
+			= link_to add_item_path(product_id: item.product_id, from: "cart"), class: 'btn btn-primary btn-symbol add', method: 'get', remote: true do
+				%span.glyphicon.glyphicon-plus
+			&nbsp;
+			= link_to remove_item_path(product_id: item.product_id, from: "cart"), class: 'btn btn-primary btn-symbol remove', method: 'get', remote: true do
+				%span.glyphicon.glyphicon-minus

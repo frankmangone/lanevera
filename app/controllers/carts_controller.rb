@@ -1,8 +1,9 @@
 class CartsController < ApplicationController
 
-	before_action :find_cart,       only: [:show, :confirm]
-	before_action :logged_in_admin, only: :index
-	before_action :cart_owner_or_admin_if_confirmed,  only: :show
+	before_action :find_cart,       only: [:show, :confirm, :mark_delivered]
+	before_action :logged_in_admin, only: [:index, :mark_delivered]
+	before_action :cart_owner_or_admin_if_confirmed, only: :show
+	before_action :cart_owner,      only: :confirm
 
 	def index
 		# Only select confirmed carts.
@@ -16,6 +17,13 @@ class CartsController < ApplicationController
 	def confirm
 		@cart.update(confirmed: true)
 		redirect_to cart_path(params[:id])
+	end
+
+	def mark_delivered
+		@cart.update(delivered: true)
+		respond_to do |format|
+			format.js
+		end
 	end
 
 	def add_item
@@ -52,7 +60,18 @@ class CartsController < ApplicationController
 			@cart = Cart.find(params[:id])
 		end
 
-		# Checks if current user is owner, or admin
+
+		def cart_owner
+			cart = Cart.find(params[:id])
+
+			unless cart.owner?(current_user)
+				flash[:error] = "No tienes permiso para realizar esta acción."
+				redirect_to products_path
+			end
+		end
+
+
+		# Checks if current user is owner, or admin in case the cart is confirmed.
 		def cart_owner_or_admin_if_confirmed
 			cart = Cart.find(params[:id])
 
@@ -62,12 +81,11 @@ class CartsController < ApplicationController
 					redirect_to products_path
 				else
 					if !cart.confirmed
-						flash[:notice] = "Este carro aún no ha sido confirmado."
+						flash[:notice] = "Esta compra aún no ha sido confirmada."
 						redirect_to products_path
 					end
 				end
 			end
-
 		end
 	
 end

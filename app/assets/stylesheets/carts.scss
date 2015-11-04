@@ -35,9 +35,6 @@
 		.actions {
 			width: 100%;
 			text-align: center;
-			a {
-				color: #FFF;
-			}
 		}
 	}
 }
@@ -45,7 +42,7 @@
 // Item partial
 .item-wrapper {
 	width: 140px;
-	margin: 0 20px 30px;
+	margin: 0 20px;
 
 	.thumb-wrapper {
 		box-shadow: 0px 0px 6px #CCC;
@@ -114,6 +111,10 @@
 	.offer {
 		background-color: #8BB454;
 	}
+
+	.actions {
+		margin-bottom: 30px;
+	}
 }
 
 // Info bar on the right
@@ -122,6 +123,9 @@
 	margin-top: 105px;
 	flex-basis: 350px;
 	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
 	.blue {
 		color: #487798
@@ -132,10 +136,23 @@
 		color: #FFF;
 	}
 
+	.confirmed {
+		background-color: #8BB454;
+		border-radius: 3px;
+		margin: 20px 0 5px;
+		padding: 6px 12px;
+		color: #FFF;
+	}
+
+	.cancelled {
+
+	}
+
 	.item-list {
 		width: 100%;
 		border-radius: 3px 0 0 3px;
 		background-color: #F1F2F3;
+		margin-top: 25px;
 		margin-bottom: 30px;
 		padding: 0px 30px;
 		.columns {
@@ -164,7 +181,7 @@
 	padding: 30px;
 	margin-bottom: 30px;
 	border-radius: 3px;
-	width: 650px;
+	width: 700px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -189,44 +206,32 @@
 
 	.purchase-info {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		align-items: center;
 		justify-content: center;
 		flex-grow: 1;
+		font-size: 1.4em;
 
-		.data {
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: center;
-			font-size: 1.4em;
-
-			.total-products {
-				color: #9AC3D0;
-			}
-
-			.total-price {
-				text-align: center;
-				border-radius: 3px;
-				color: #6C91AA;
-				padding: 10px;
-			}
+		.total-products {
+			color: #9AC3D0;
 		}
 
-		a {
-			color: #FFF;
+		.total-price {
+			text-align: center;
+			border-radius: 3px;
+			color: #6C91AA;
 		}
-		
 	}
 
 	.actions {
 		display: flex;
 		flex-direction: column;
 		a {
-			color: #FFF;
-		}
-		.btn-success {
-			margin-bottom: 10px;
+			margin: 5px 0px;
 		}
 	}
+}
+
+.delivered {
+	background-color: #C2D8A6;
 }

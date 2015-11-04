@@ -1,29 +1,36 @@
 - provide :title, "Carro de Compras"
 
 .columns
+
 	.cart-display
 		= image_tag 'cart.png', id: "cart"
 
 		- if current_user_admin? && params[:from] == 'purchases'
-			= link_to purchases_path do
+			= link_to purchases_path, class: 'btn btn-primary' do
 				%span.glyphicon.glyphicon-chevron-left
 				Volver
 
 		.item-container
 			- @cart.items.each do |item|
-				= render 'item', item: item
+				= render 'item', item: item, confirmed: @cart.confirmed
 			= render 'layouts/aligner'
 
 			.actions
-				= link_to "Agregar producto", products_path, class: 'btn btn-primary'
+				- if !@cart.confirmed
+					= link_to "Agregar producto", products_path, class: 'btn btn-primary'
+
 
 	.cart-info
 		%h2
 			Total:
 			%span.blue#total-price= @cart.write_price
 
-		= link_to confirm_cart_path(params[:id]), class: 'btn btn-primary', id: 'confirm-buy', method: 'post' do
-			%h4 Confirmar compra
+		- if !@cart.confirmed
+			= link_to confirm_cart_path(params[:id]), class: 'btn btn-primary', id: 'confirm-buy', method: 'post' do
+				%h4 Confirmar compra
+		- else
+			.confirmed
+				%h4 Compra confirmada
 
 		.item-list
 			%hr

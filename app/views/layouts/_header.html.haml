@@ -1,39 +1,23 @@
 #header
-	%nav.navbar
-		%ul.nav.navbar-nav
-			%li
-				= link_to root_path do
-					%span.glyphicon.glyphicon-home
-			%li
-				= link_to 'Productos',   products_path
-			%li
-				= link_to 'Información', info_path
-			%li
-				= link_to 'Contacto',    "#"
+	%nav
+		= link_to root_path do
+			%span.glyphicon.glyphicon-home
+		= link_to 'Productos',   products_path
+		= link_to 'Información', info_path
+		= link_to 'Contacto',    "#"
 
-		%ul.nav.navbar-nav.navbar-right
-			- if user_signed_in?
-				
-				- if current_user_admin?
-					%li
-						= link_to "Ofertas", offers_path
-					%li
-						= link_to "Compras", purchases_path
-				
-				%li
-					= link_to "Carro",   cart_path(current_user.cart.id)
-				%li
-					= link_to "Perfil",  current_user
-				%li
-					= link_to "Salir",   destroy_user_session_path , method: :delete
+		- if user_signed_in?
+
+			= link_to "Carro",   cart_path(current_user.cart.id)			
+			= link_to "Perfil",  current_user
+			= link_to "Salir",   destroy_user_session_path , method: :delete
 			
-			- else
-				%li
-					= link_to 'Acceso',   new_user_session_path
-				%li
-					= link_to 'Registro', new_user_registration_path
+		- else
 
-	- if home # Works only for the Homepage.
+			= link_to 'Acceso',   new_user_session_path
+			= link_to 'Registro', new_user_registration_path
+
+	- if home
 		/ Brand section
 		#fridge
 			= image_tag 'fridge.png'
@@ -47,3 +31,18 @@
 				= text_field_tag :search, params[:search], placeholder: "Buscar producto...", class: 'form-control'
 				= button_tag(type: 'submit', id: 'search-submit', name: nil) do
 					%span.glyphicon.glyphicon-search
+
+
+.side-nav
+	- if current_user_admin? && !home
+		%nav
+			%p Admin
+			= link_to "Ofertas", offers_path
+			= link_to "Compras", purchases_path
+
+	- else
+		.info
+			.field
+				%span.glyphicon.glyphicon-earphone
+				&nbsp; &nbsp;
+				2710 5858

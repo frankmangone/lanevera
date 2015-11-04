@@ -61,11 +61,6 @@ body {
 	height: 50px;
 }
 
-.centered {
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .hidden {
 	visibility: hidden;
 }
@@ -149,15 +144,17 @@ label {
 
 .btn-danger {
 	background-color: #E0B9B9;
+	color: #FFF;
 	border: none;
 }
 
 .btn-danger:hover, .btn-danger:focus, .danger {
-	background-color: #CD3B2F;
+	background-color: #B96161;
 }
 
 .btn-success {
 	background-color: #C2D8A6;
+	color: #FFF;
 	border: none;
 }
 
@@ -181,7 +178,7 @@ h3 {
 	color: #487798;
 }
 
-a:link, a:visited {
+a {
 	transition: all 0.2s linear;
 	color: #6C91AA;
 }
@@ -194,37 +191,59 @@ a:hover, a:focus, a:active {
 /* 4: Navigation bar */
 /* ------------------------------------------- */
 
-/* Normal Navigation bar */
+/* Admin Navigation bar OR Information depending on user type*/
 
-.navbar {
-	padding-left: 30px;
-	padding-right: 30px;
-	margin-bottom: 0;
-	border: none;
+.side-nav {
 	width: 100%;
-	display: flex;
-	justify-content: center;
+	background-color: #487798;
+
+	p {
+		color: #B9D6E0;
+		margin-bottom: 0px;
+	}
+
+	nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+
+		p {
+			padding: 0 30px 0 15px;
+			margin: 15px 15px;
+			border-right: 1px solid #B9D6E0;
+		}
+
+		a {
+			padding: 15px;
+			color: #FFF;
+		}
+
+		a:hover, a:focus{
+			text-shadow: 0px 0px 4px #FFF;
+			background-color: transparent;
+		}
+	}
+
+	.info {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+
+		.field {
+			margin: 15px;
+			display: flex;
+			flex-direction: row;
+			color: #FFF;
+			font-size: 1.4em;
+			span {
+				margin-top: 5px;
+			}
+		}	
+	}
+	
 }
 
-.navbar-nav li {
-	overflow: hidden;
-}
-
-.navbar-nav li a {
-	color: #F1F2F3;
-	font-size: 1.1em;
-}
-
-.navbar-nav li a:hover, .navbar-nav li a:focus {
-	color: #FFFFFF;
-	text-shadow: 0px 0px 4px #F1F2F3;
-	background-color: transparent;
-	/*-ms-transform: scale(1.05, 1.05);
-	-webkit-transform: scale(1.05, 1.05);
-	transform: scale(1.05, 1.05);*/
-}
-
-/* Home: the navigation bar is replaced by a bigger header */
 
 #header {
 	background-color: #6C91AA;
@@ -233,7 +252,24 @@ a:hover, a:focus, a:active {
 	flex-direction: column;
 	align-items: center;
 
+	nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+
+		a {
+			padding: 15px;
+			color: #FFF;
+		}
+
+		a:hover, a:focus{
+			text-shadow: 0px 0px 4px #FFF;
+			background-color: transparent;
+		}
+	}
 }
+
+/* Home: the navigation bar is replaced by a bigger header */
 
 #fridge {
 	padding: 50px 0 25px 0;
@@ -241,6 +277,7 @@ a:hover, a:focus, a:active {
 
 #brand {
 	padding-bottom: 25px;
+	text-align: center;
 }
 
 #brand h1 {
