@@ -101,4 +101,7 @@ function addAllListeners(){
 		handleSearchBar();
 		addOfferListeners();
 	}
+	else if(isTitle("Compra")){
+		loadCartMap();
+	}
 }

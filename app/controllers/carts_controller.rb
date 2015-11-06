@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
 
-	before_action :find_cart,       only: [:show, :confirm, :mark_delivered]
-	before_action :logged_in_admin, only: [:index, :mark_delivered]
+	before_action :find_cart,       only: [:show, :purchase, :confirm, :mark_delivered]
+	before_action :logged_in_admin, only: [:index, :purchase, :mark_delivered]
 	before_action :cart_owner_or_admin_if_confirmed, only: :show
 	before_action :cart_owner,      only: :confirm
 
@@ -11,7 +11,14 @@ class CartsController < ApplicationController
 	end
 
 	def show
-		
+		if current_user_admin? && !@cart.owner?(current_user)
+			redirect_to purchase_path(params[:id])
+		end
+	end
+
+	# Show for admins so that they can build the real life delivery.
+	def purchase
+
 	end
 
 	def confirm

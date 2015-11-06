@@ -11,7 +11,7 @@
 		= "(#{cart.write_product_total})"
 
 .actions
-	= link_to "Ver compra", cart_path(cart.id, from: 'purchases'), class: 'btn btn-primary'
+	= link_to "Ver compra", purchase_path(cart.id), class: 'btn btn-primary'
 	- if !cart.delivered
 		= link_to "Marcar entregado", mark_delivered_cart_path(cart.id), class: 'btn btn-success', method: 'post', remote: true
 		= link_to "Cancelar",  "#", class: 'btn btn-danger' 

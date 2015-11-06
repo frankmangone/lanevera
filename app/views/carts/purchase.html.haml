@@ -1,0 +1,25 @@
+- provide :title, "Compra"
+
+= link_to purchases_path, class: 'btn btn-primary' do
+	%span.glyphicon.glyphicon-chevron-left
+	Volver
+
+.columns.purchase
+	
+	.user-info
+		%h2= @cart.user.full_name
+		%h4= @cart.user.location.description
+		#map{latitude: @cart.user.location.latitude, longitude: @cart.user.location.longitude}
+
+	.cart-info
+		%h2
+			Total:
+			%span.blue#total-price= @cart.write_price
+
+		.confirmed
+			%h4 Compra confirmada
+		
+		.item-list
+			%hr
+			- @cart.items.each do |item|
+				= render 'list_item', item: item

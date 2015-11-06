@@ -166,6 +166,26 @@
 	}
 }
 
+.purchase {
+	justify-content: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+
+	.user-info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		#map {
+			width: 350px;
+			height: 350px;
+		}
+	}
+
+	.cart-info {
+		margin-top: 0;
+	}
+}
+
 // Index
 //----------------------
 

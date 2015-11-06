@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get 'purchases'   => 'carts#index'
   get 'add_item'    => 'carts#add_item'
   get 'remove_item' => 'carts#remove_item'
-  match 'carts/:id', to: 'carts#show', as: 'cart', via: 'get'
+  match 'carts/:id',    to: 'carts#show',     as: 'cart',     via: 'get'
+  match 'purchase/:id', to: 'carts#purchase', as: 'purchase', via: 'get'
   match 'carts/:id/confirm',   to: 'carts#confirm',        as: 'confirm_cart',        via: 'post'
   match 'carts/:id/delivered', to: 'carts#mark_delivered', as: 'mark_delivered_cart', via: 'post'
 
