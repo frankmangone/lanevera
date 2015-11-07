@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
 	validates :title, :price, :category_id, presence: true
 
 	def self.search(search)
-		if search
+		if search != "" && search
 			where('lower(title) = ?', search.downcase)
 		else
 			all

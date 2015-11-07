@@ -1,15 +1,11 @@
 .category-tab{:id => "cat#{category.id}"}
-  - if current_user_admin?
-    = link_to "#", class: 'btn btn-primary btn-symbol' do
-      %span.glyphicon.glyphicon-minus
-     
-  = link_to category.name, products_path(category_id: category.id)
-- if current_user_admin?
-  .category-delete-tab
-    %p
-      = link_to "#", class: 'btn btn-danger btn-symbol' do
-        %span.glyphicon.glyphicon-remove
-      = link_to category, class: 'btn btn-danger btn-symbol', method: 'delete', remote: true do
-        %span.glyphicon.glyphicon-ok
-       
-      ¿Estás seguro?
+
+	- if current_user_admin?
+		= link_to pop_up_path(target: category_path(category.id), method: 'delete', text: '¿Estás seguro de eliminar esta categoría?'), remote: true do
+			%span.glyphicon.glyphicon-remove
+		&nbsp;
+		= link_to edit_category_path(category.id), class: 'edit-category', remote: true do
+			%span.glyphicon.glyphicon-pencil
+		&nbsp;
+		
+	= link_to category.name, products_path(category_id: category.id)

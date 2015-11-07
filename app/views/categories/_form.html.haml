@@ -1,6 +1,9 @@
-#new-category-form
-  = form_for @category, remote: true do |f|
-    = f.text_field :name, placeholder: 'Categoría...', class: 'form-control'
-    #category-name-errors.errors
-    = f.submit "Crear", class: 'btn btn-primary', id: 'create-category'
-    = button_to "Cancelar", "#", class: 'btn btn-primary', id: 'new-category-cancel'
+#category-form
+	= form_for @category, remote: true do |f|
+		= f.text_field :name, placeholder: 'Categoría...', class: 'form-control'
+		#category-name-errors.errors
+		- if params[:action] == 'edit'
+			= f.submit "Guardar", class: 'btn btn-primary', id: 'create-category'
+		- else
+			= f.submit "Crear", class: 'btn btn-primary', id: 'create-category'
+		= button_to "Cancelar", "#", class: 'btn btn-primary', id: 'new-category-cancel'

@@ -123,7 +123,6 @@ function addAllListeners(){
 	}
 	else if(isTitle("Productos")){
 		addProductEvents();
-		bindCategoryTabListeners();
 	}
 	else if(isTitle("Nueva cuenta")){
 		loadMap();

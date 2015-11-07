@@ -55,6 +55,7 @@ class ProductsController < ApplicationController
 
 	def destroy
 		@product.destroy
+		flash[:notice] = "Producto borrado exitosamente."
 		redirect_to products_path
 	end
 	

@@ -14,8 +14,10 @@
     
     - if current_user_admin?
       .category-add-tab
-        = link_to new_category_path, class: 'btn btn-primary btn-symbol', id: 'new-category-btn', remote: true do
+        = link_to new_category_path, id: 'new-category-btn', remote: true do
           %span.glyphicon.glyphicon-plus
+
+    .category-form
 
   / Products
   #products
@@ -29,5 +31,3 @@
       - if current_user_admin?
         #new-product-button
           = link_to "Nuevo producto", new_product_path, class: 'btn btn-primary'
-        
-/ = session[:cart].inspect

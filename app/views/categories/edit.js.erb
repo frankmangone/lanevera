@@ -3,7 +3,7 @@ $(".category-form").children().last().remove();
 $(".category-form").append("<%= j render 'form' %>");
 
 // Then, slide down the form:
-$("#new_category").hide().slideDown( function(){
+$("#category-form").hide().slideDown( function(){
 
 	var $form = $(this);
 	$("#category_name").focus();
@@ -11,6 +11,9 @@ $("#new_category").hide().slideDown( function(){
 	/* Bind the cancel button: */
 	$("#new-category-cancel").click( function(event){
 		event.preventDefault();
+
+		$("#new-category-btn").parent().slideDown();
+		$("#new-category-btn").removeAttr('disabled');
 		
 		$(this).parent().parent().slideUp( function(){
 			$(this).remove();

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # Static
   get 'info' => 'static#info'
+  get 'contact' => 'static#contact'
 
   # Pop Ups
   get 'pop_up' => 'pop_ups#pop_up'

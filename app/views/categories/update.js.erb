@@ -1,0 +1,24 @@
+/* Check if there are any errors */
+
+if(<%= @category.errors.any? %>){
+	var key;
+	var value;
+
+	<% @category.errors.each do |key, value| %>
+		key = "<%= key %>";
+		value = "<%= value %>";
+		handleError('category', key, value);
+	<% end %>
+}
+
+/* If there aren't, render the new tab */
+
+else {
+	// Disable buttons
+	$("#edit_category").find("input[type=submit]").each( function(){ $(this).toggleDisable(); });
+	var $category_form_tab = $(".category-form").last();
+	$("#cat<%= @category.id %>").find('a').last().text("<%= j@category.name %>");
+	$category_form_tab.slideDown( function(){
+		Turbolinks.visit("<%= j products_path %>");
+	});
+}
