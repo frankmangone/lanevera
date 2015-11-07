@@ -50,7 +50,7 @@
 					%span.glyphicon.glyphicon-pencil
 
 				/ Product delete
-				= link_to product, method: 'delete', data: { confirm: 'Are you sure?' } do
+				= link_to pop_up_path(target: product_path(product.id), method: 'delete', text: '¿Estás seguro de eliminar este producto?'), remote: true do
 					%span.glyphicon.glyphicon-remove
 
 					

@@ -16,5 +16,5 @@
 		.offer-options
 			= link_to edit_offer_path(offer), class: 'btn btn-primary btn-symbol' do
 				%span.glyphicon.glyphicon-pencil
-			= link_to offer, method: 'delete', class: 'btn btn-primary btn-symbol', data: { confirm: '¿Seguro desea eliminar esta oferta?' } do
+			= link_to pop_up_path(target: offer_path(offer.id), method: 'delete', text: '¿Seguro desea eliminar esta oferta?'), class: 'btn btn-primary btn-symbol', remote: true do
 				%span.glyphicon.glyphicon-remove

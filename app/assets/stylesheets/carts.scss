@@ -137,7 +137,7 @@
 	}
 
 	.confirmed {
-		background-color: #8BB454;
+		background-color: #55C971;
 		border-radius: 3px;
 		margin: 20px 0 5px;
 		padding: 6px 12px;
@@ -216,24 +216,31 @@
 		flex-direction: column;
 		justify-content: center;
 		p {
-			margin-bottom: 0;
-		}
-		hr {
-			margin: 5px 0;
-			border-top: 1px solid #6C91AA;
+			margin-top: 4px;
+			margin-bottom: 4px;
 		}
 	}
 
 	.purchase-info {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		flex-grow: 1;
 		font-size: 1.4em;
 
 		.total-products {
-			color: #9AC3D0;
+			display: flex;
+			flex-direction: row;
+			color: #C97155;
+			p {
+				margin-bottom: 0;
+				margin-right: 10px;
+			}
+			span {
+				margin-top: 5px;
+				margin-left: 2px;
+			}
 		}
 
 		.total-price {
@@ -246,6 +253,12 @@
 	.actions {
 		display: flex;
 		flex-direction: column;
+		p {
+			font-size: 14px;
+			padding: 6px 12px;
+			border-radius: 3px;
+			margin: 3px 0;
+		}
 		a {
 			margin: 5px 0px;
 		}
@@ -253,5 +266,6 @@
 }
 
 .delivered {
-	background-color: #C2D8A6;
+	border: 1px solid #9AD0A7;
+	box-shadow: 0px 0px 6px #9AD0A7;
 }

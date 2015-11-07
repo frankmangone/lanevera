@@ -28,9 +28,7 @@ class CartsController < ApplicationController
 
 	def mark_delivered
 		@cart.update(delivered: true)
-		respond_to do |format|
-			format.js
-		end
+		redirect_to purchases_path
 	end
 
 	def add_item

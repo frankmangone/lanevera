@@ -13,15 +13,6 @@ class Cart < ActiveRecord::Base
 		"$ #{price}"
 	end
 
-	# Returns string with total product amount
-	def write_product_total
-		amount = product_total
-		if amount == 1
-			"1 artículo"
-		else
-			"#{amount} artículos"
-		end
-	end
 
 	# Returns total amount of products in cart
 	def product_total

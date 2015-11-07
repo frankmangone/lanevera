@@ -1,18 +1,22 @@
 .user-info
-	%p= cart.user.full_name
-	%hr
+	%h3= cart.user.full_name
 	%p= cart.user.location.description
 
 .purchase-info
 	.total-price
-		= cart.write_price
-		&nbsp;
+		%h3= cart.write_price
 	.total-products
-		= "(#{cart.write_product_total})"
+		%p= cart.product_total
+		%span.glyphicon.glyphicon-stop
+		%span.glyphicon.glyphicon-stop
+		%span.glyphicon.glyphicon-stop
 
 .actions
-	= link_to "Ver compra", purchase_path(cart.id), class: 'btn btn-primary'
-	- if !cart.delivered
-		= link_to "Marcar entregado", mark_delivered_cart_path(cart.id), class: 'btn btn-success', method: 'post', remote: true
-		= link_to "Cancelar",  "#", class: 'btn btn-danger' 
+	- if cart.delivered
+		%p.success Compra entregada
 
+	= link_to "Ver compra", purchase_path(cart.id), class: 'btn btn-primary'
+
+	- if !cart.delivered
+		= link_to "Marcar entregado", pop_up_path(target: mark_delivered_cart_path(cart.id), method: 'post', text: '¿Deseas confirmar la entrega del pedido?'), class: 'btn btn-primary', remote: true
+		= link_to "Cancelar", "#", class: 'btn btn-danger'

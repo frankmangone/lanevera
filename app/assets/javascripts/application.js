@@ -68,6 +68,7 @@ function isTitle(string){
 	return document.title == title;
 }
 
+
 /* Listeners */
 /* --------------------------------- */
 

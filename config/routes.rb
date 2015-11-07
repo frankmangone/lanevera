@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   root 'static#home'
 
+  # Static
   get 'info' => 'static#info'
+
+  # Pop Ups
+  get 'pop_up' => 'pop_ups#pop_up'
 
   # Shopping Cart
   get 'purchases'   => 'carts#index'

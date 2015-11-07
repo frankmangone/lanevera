@@ -1,0 +1,9 @@
+$("body").append("<%= j render 'layouts/pop_up', text: @text, target: @target, method: @method %>");
+
+// Bind cancel button:
+
+$pop_up = $(".pop-up");
+$pop_up.find(".btn-danger").click( function(e){
+	e.preventDefault();
+	$pop_up.parent().remove();
+});
