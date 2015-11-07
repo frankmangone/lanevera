@@ -16,3 +16,10 @@
  
 @import "bootstrap";
 @import "bootstrap-sprockets";
+
+$nprogress-color: #78d5f2;
+$nprogress-height: 2px;
+$nprogress-zindex: 10000;
+
+@import 'nprogress';
+@import 'nprogress-bootstrap';

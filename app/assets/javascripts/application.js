@@ -14,8 +14,18 @@
 //= require jquery_ujs
 //= require jquery.remotipart
 //= require turbolinks
+//= require nprogress
+//= require nprogress-turbolinks
 //= require_self
 //= require_tree .
+
+/* Progress bar settings */
+/* --------------------------------- */
+NProgress.configure({
+  showSpinner: false,
+  ease: 'ease',
+  speed: 500
+});
 
 /* jQuery plugins */
 /* --------------------------------- */
@@ -29,7 +39,6 @@ $.fn.toggleDisable = function(){
 		this.attr('disabled', 'true');
 	}
 }
-
 
 /* Other */
 /* --------------------------------- */

@@ -16,8 +16,9 @@
 			Total:
 			%span.blue#total-price= @cart.write_price
 
-		.confirmed
-			%h4 Compra confirmada
+		- if !@cart.delivered
+			= link_to pop_up_path(target: mark_delivered_cart_path(@cart.id), method: 'post', text: '¿Deseas confirmar la entrega del pedido?'), class: 'btn btn-success', id: 'mark-delivered', remote: true do
+				%h4 Marcar entregada
 		
 		.item-list
 			%hr

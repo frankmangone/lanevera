@@ -136,16 +136,16 @@
 		color: #FFF;
 	}
 
-	.confirmed {
-		background-color: #55C971;
-		border-radius: 3px;
-		margin: 20px 0 5px;
-		padding: 6px 12px;
-		color: #FFF;
+	#mark-delivered {
+		margin: 35px 0 5px;
 	}
 
-	.cancelled {
-
+	.confirmed {
+		background-color: #9AD0A7;
+		padding: 6px 12px;
+		margin: 20px 0 5px;
+		border-radius: 3px;
+		color: #FFF;
 	}
 
 	.item-list {

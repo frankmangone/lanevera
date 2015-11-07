@@ -18,5 +18,5 @@
 	= link_to "Ver compra", purchase_path(cart.id), class: 'btn btn-primary'
 
 	- if !cart.delivered
-		= link_to "Marcar entregado", pop_up_path(target: mark_delivered_cart_path(cart.id), method: 'post', text: '¿Deseas confirmar la entrega del pedido?'), class: 'btn btn-primary', remote: true
+		= link_to "Marcar entregada", pop_up_path(target: mark_delivered_cart_path(cart.id), method: 'post', text: '¿Deseas confirmar la entrega del pedido?'), class: 'btn btn-primary', remote: true
 		= link_to "Cancelar", "#", class: 'btn btn-danger'

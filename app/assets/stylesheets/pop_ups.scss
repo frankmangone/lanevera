@@ -4,7 +4,7 @@
 
 .shader {
 	position: fixed;
-	z-index: 100;
+	z-index: 1001;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -20,9 +20,8 @@
 	background-color: #F1F2F3;
 	border-radius: 3px;
 	box-shadow: 0px 0px 6px rgba(0,0,0,0.4);
-	padding: 0 20px;
+	padding: 20px 20px;
 	width: 300px;
-	height: 150px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -31,6 +30,6 @@
 		text-align: center;
 		color: #487798;
 		font-size: 1.1em;
-		margin-bottom: 15px;
+		margin-bottom: 30px;
 	}
 }
