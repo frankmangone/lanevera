@@ -68,6 +68,26 @@ function isTitle(string){
 	return document.title == title;
 }
 
+/* Handle tooltips */
+function handleTooltips(){
+	// Tooltip only Text
+	$('.hover-tooltip').hover(function(){
+    // Hover over code
+		var title = $(this).attr('title');
+		// Delete data attribute to hide default tooltip
+		$(this).data('tooltip-aux', title).removeAttr('title');
+		$('<p class="tooltip-text"></p>').text(title).appendTo('body');
+	}, function() {
+		// Hover out code
+		$(this).attr('title', $(this).data('tooltip-aux'));
+		$('.tooltip-text').remove();
+	}).mousemove(function(e) {
+		var mousex = e.pageX + 20; //Get X coordinates
+		var mousey = e.pageY + 10; //Get Y coordinates
+		$('.tooltip-text').css({ top: mousey, left: mousex })
+	});
+
+}
 
 /* Listeners */
 /* --------------------------------- */
@@ -88,6 +108,7 @@ function fadeFlashes(){
 
 function addAllListeners(){
 	fadeFlashes();
+	handleTooltips();
 	if(isTitle("Nuevo producto") || isTitle("Editar producto")){
 		bindProductFormEvents();
 	}

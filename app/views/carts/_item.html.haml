@@ -1,5 +1,5 @@
-.item-wrapper{:id => "item#{item.product_id}"}
-	.thumb-wrapper
+.item-wrapper{id: "item#{item.product_id}"}
+	.thumb-wrapper.hover-tooltip{title: item.product.title}
 		= image_tag 'ph.jpg', class: 'cart-thumb'
 
 		.cart-counter

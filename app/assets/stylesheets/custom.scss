@@ -460,3 +460,17 @@ footer.creator {
 	padding-bottom: 5px;
 	padding-right: 60px;
 }
+
+
+/* 8: Tooltips */
+/* ------------------------------------------- */
+
+.tooltip-text {
+	position: absolute;
+	z-index: 90;
+	background-color: #15242D;
+	border-radius: 3px;
+	padding: 5px 8px;
+	color: #FFF;
+	//font-size: 12px;
+}
