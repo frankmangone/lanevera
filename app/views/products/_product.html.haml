@@ -18,10 +18,11 @@
 			/ = image_tag product.photo.photo.url()
 
 		- if product.offer
-			.price.offer
+			.price.offer.hover-tooltip{title: "¡Oferta!"}
 				%p
 					%span.glyphicon.glyphicon-certificate
 					= product.offer.write_price
+					
 		- else
 			.price
 				%p= product.write_price

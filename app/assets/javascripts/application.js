@@ -95,7 +95,6 @@ function handleTooltips(){
 		var mousey = e.pageY + 10; //Get Y coordinates
 		$('.tooltip-text').css({ top: mousey, left: mousex })
 	});
-
 }
 
 /* Listeners */
