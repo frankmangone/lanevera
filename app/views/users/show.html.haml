@@ -4,7 +4,7 @@
 	.header
 		.important-info
 			%h3= @user.full_name
-			%p= @user.location.description
+			%p= @user.address
 			%p= @user.phone
 		- if current_user_admin?
 			.rating.hover-tooltip{ title: "#{@user.rating_average} / 3.0" }
@@ -45,7 +45,7 @@
 			.field	
 				%p
 					Dirección:
-					= @user.location.description
+					= @user.address
 			.field	
 				%p
 					Teléfono:

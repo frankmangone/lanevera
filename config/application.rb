@@ -22,5 +22,15 @@ module Lanevera
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+      if html_tag =~ /\<label/
+        "<div class=\"field-with-errors control-group error\">#{html_tag}</div>".html_safe
+      else
+        # Show first error only
+        error = Array(instance.error_message).first
+        "<div class=\"field-with-errors control-group error\">#{html_tag}</div><span class=\"validation-error\">#{error}</span>".html_safe
+      end
+end
   end
 end

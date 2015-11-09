@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108185209) do
+ActiveRecord::Schema.define(version: 20151109142048) do
 
   create_table "carts", force: :cascade do |t|
     t.boolean  "confirmed",  default: false, null: false
@@ -40,9 +40,8 @@ ActiveRecord::Schema.define(version: 20151108185209) do
     t.decimal  "latitude"
     t.decimal  "longitude"
     t.integer  "user_id"
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "offers", force: :cascade do |t|
@@ -96,6 +95,7 @@ ActiveRecord::Schema.define(version: 20151108185209) do
     t.string   "phone"
     t.decimal  "rating_average",         default: 0.0,   null: false
     t.integer  "rating_amount",          default: 0,     null: false
+    t.string   "address"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -29,15 +29,13 @@ en:
       user:
         first_name: "Nombre"
         last_name: "Apellido"
+        address: "Dirección"
         phone: "Teléfono"
         password: "Contraseña"
         password_confirmation: "Confirmar contraseña"
+        location: "Tu ubicación"
     errors:
       models:
-        user:
-          attributes:
-            email:
-              blank: "is required"
         category:
           attributes:
             name:
@@ -48,6 +46,7 @@ en:
               blank: "El título no puede estar en blanco"
             price:
               blank: "El precio no puede estar en blanco"
+              greater_than: "El precio debe ser mayor a %{count}"
         user:
           attributes:
             first_name: 
@@ -56,5 +55,26 @@ en:
               blank: "El apellido no puede estar en blanco"
             email:
               blank: "El email no puede estar en blanco"
+              taken: "Este email ya ha sido usado"
+              invalid: "El email no es válido"
+            address:
+              blank: "La dirección no puede estar en blanco"
+            phone:
+              blank: "El teléfono no puede estar en blanco"
+              invalid: "El teléfono puede contener números solamente"
+              too_short:
+                other: "El teléfono debe tener entre 8 y 9 números"
+              too_long:
+                other: "El teléfono debe tener entre 8 y 9 números"
             password:
               blank: "La contraseña no puede estar en blanco"
+              too_short:
+                other: "La contraseña debe tener un mínimo de %{count} caracteres"
+            password_confirmation:
+              confirmation: "La contraseña no concuerda con la confirmación"
+            location:
+              blank: "No has marcado tu posición en el mapa"
+      template:
+        header:
+          one: "Ha ocurrido el siguiente error:"
+          other: "Han ocurrido los siguientes %{count} errores:"

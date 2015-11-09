@@ -4,7 +4,8 @@ class Product < ActiveRecord::Base
 	has_one    :offer, dependent: :destroy
 	has_many   :items, dependent: :destroy
 
-	validates :title, :price, :category_id, presence: true
+	validates :title, :category_id, presence: true
+	validates :price, presence: true, numericality: { greater_than: 0 }
 
 	def self.search(search)
 		if search != "" && search

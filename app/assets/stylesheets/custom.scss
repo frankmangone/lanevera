@@ -67,19 +67,38 @@ body {
 /* 2: Forms & buttons */
 /* ------------------------------------------- */
 
+// Errors ------------------------------------
+.field-with-errors {
+	label {
+		color: #C97155;
+	}
+	span {
+		color: #C97155;
+	}
+	input[type=text], input[type=password] {
+		border-color: #C97155 !important;
+ 		box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(208,167,154,0.6) !important;
+	}
+}
+
+span.validation-error {
+	color: #C97155;
+}
+
 .field {
 	margin-bottom: 25px;
 }
 
 .invalid-field {
- 	border-color: #CD3B2F !important;
- 	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(229,170,166,0.6) !important;
+ 	border-color: #C97155 !important;
+ 	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(208,167,154,0.6) !important;
 }
 
 .errors p{
-	color: #CD3B2F;
+	color: #C97155;
 }
 
+// Form style ----------------------------------------
 .form-control {
 	color: #487798;
 }
@@ -93,12 +112,14 @@ label {
 	color: #6C91AA;
 }
 
-.label {
-	color: #6C91AA;
-	font-weight: bold;
-	font-size: 1em;
-	margin-bottom: 5px;
-}
+//.label {
+	//color: #6C91AA;
+	//font-weight: bold;
+	//font-size: 1em;
+	//margin-bottom: 5px;
+//}
+
+// Buttons ------------------------------------------
 
 .btn {
 	transition: all 0.2s linear;

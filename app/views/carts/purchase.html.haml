@@ -8,7 +8,7 @@
 	
 	.user-info
 		%h2= @cart.user.full_name
-		%h4= @cart.user.location.description
+		%h4= @cart.user.address
 		#map{latitude: @cart.user.location.latitude, longitude: @cart.user.location.longitude}
 
 	.cart-info

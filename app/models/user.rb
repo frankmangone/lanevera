@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   before_create :add_token
   after_create  :send_welcome_email
 
+  VALID_PHONE_REGEX = /^[0-9]+$/
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -12,9 +14,14 @@ class User < ActiveRecord::Base
   has_one :cart,     dependent: :destroy
 
   accepts_nested_attributes_for :location, reject_if: :all_blank
+  validates_presence_of :location
+  validates_associated  :location
 
   validates :first_name, presence: true
   validates :last_name,  presence: true
+  validates :phone,      presence: true, format: { with: VALID_PHONE_REGEX, multiline: true }, 
+                         length: { in: 8..9 }
+  validates :address,    presence: true
 
   def admin?
   	self.admin

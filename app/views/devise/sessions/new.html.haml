@@ -1,16 +1,16 @@
 = provide :title, "Acceso"
 
-.rows.form-wrapper
-  %h3 Acceso de Usuarios
+%h3 Acceso de Usuarios
 
-  .form-container
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+.form-wrapper.full-width
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .form-container
       .field
         = f.label :email
         %br/
         = f.email_field :email, class: 'form-control', autofocus: true
       .field
-        = f.label "Contraseña"
+        = f.label :password
         %br/
         = f.password_field :password, class: 'form-control', autocomplete: "off"
       - if devise_mapping.rememberable?
@@ -20,4 +20,4 @@
       .actions
         = f.submit "Entrar", class: 'btn btn-primary'
 
-  = render "devise/shared/links"
+= render "devise/shared/links"
