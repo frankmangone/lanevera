@@ -15,10 +15,6 @@ $text = $("#photo-upload-info").find("p")
 $icon.removeClass('glyphicon-time');
 $text.text('');
 
-// Enable upload button
-
-$("#create-product").removeAttr('disabled');
-
 // Add rendered delete button
 
 $preview.after("<%= j render 'delete_button', photo: @photo %>");
@@ -30,5 +26,4 @@ $delete_button.click( function(){
 	$icon.addClass('glyphicon-time');
 	$text.text('Borrando...');
 	$preview.css('background-image', 'none');
-	$("#create-product").attr('disabled', 'true');
 });

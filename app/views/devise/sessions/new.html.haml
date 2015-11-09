@@ -5,16 +5,16 @@
 .form-wrapper.full-width
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-container
-      .field
+      .field-margin
         = f.label :email
         %br/
         = f.email_field :email, class: 'form-control', autofocus: true
-      .field
+      .field-margin
         = f.label :password
         %br/
         = f.password_field :password, class: 'form-control', autocomplete: "off"
       - if devise_mapping.rememberable?
-        .field
+        .field-margin
           = f.check_box :remember_me
           = f.label "Recordarme en esta PC"
       .actions

@@ -4,21 +4,24 @@ var key;
 var value;
 
 <% @photo.errors.each do |key, value| %>
-	key = "<%= key %>";
-	value = "<%= value %>";
-	handleError('photo', key, value);
+		key = "<%= key %>";
+		value = "<%= value %>";
+
+	$("#product-photo_id-errors").html("<p>"+value+"</p>")
+							  .hide()
+							  .slideDown();
+
+	$("#photo-preview").addClass("invalid-field").on("click", function(){
+		$("#product-photo_id-errors").slideUp( function(){ $(this).remove(); });
+		$(this).removeClass("invalid-field");
+		$(this).off("change");
+	});
+
+	// Restore upload info:
+
+	$icon = $("#photo-upload-info").find("h2").find("span")
+	$text = $("#photo-upload-info").find("p")
+
+	$icon.removeClass('glyphicon-time').addClass('glyphicon-upload');
+	$text.text('Click aquí para elegir una imagen');
 <% end %>
-
-// Attach some specific events:
-
-$("#photo-preview").addClass("invalid-field").click( function(){
-	$(this).removeClass("invalid-field");
-});
-
-// Restore upload info:
-
-$icon = $("#photo-upload-info").find("h2").find("span")
-$text = $("#photo-upload-info").find("p")
-
-$icon.removeClass('glyphicon-time').addClass('glyphicon-upload');
-$text.text('Click aquí para elegir una imagen');

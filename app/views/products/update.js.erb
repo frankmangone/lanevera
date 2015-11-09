@@ -7,7 +7,21 @@ if(<%= @product.errors.any? %>){
 	<% @product.errors.each do |key, value| %>
 		key = "<%= key %>";
 		value = "<%= value %>";
-		handleError('product', key, value);
+		if (key != "photo_id"){
+			handleError('product', key, value);
+		}
+		else {
+			$("#product-photo_id-errors").html("<p>"+value+"</p>")
+									  .hide()
+									  .slideDown();
+
+			$("#photo-preview").addClass("invalid-field").on("click", function(){
+				$("#product-photo_id-errors").slideUp( function(){ $(this).remove(); });
+				$(this).removeClass("invalid-field");
+				$(this).off("change");
+			});
+
+		}
 	<% end %>
 
 	// Buttons were disabled on "create" click; I need to enable them.

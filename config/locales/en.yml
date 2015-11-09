@@ -46,7 +46,10 @@ en:
               blank: "El título no puede estar en blanco"
             price:
               blank: "El precio no puede estar en blanco"
+              not_a_number: "El precio no es un número"
               greater_than: "El precio debe ser mayor a %{count}"
+            photo_id:
+              blank: "Es necesario subir una foto"
         user:
           attributes:
             first_name: 

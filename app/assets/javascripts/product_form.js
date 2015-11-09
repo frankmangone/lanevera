@@ -37,10 +37,10 @@ function bindProductFormWithPhoto(){
 	$delete_button = $("#photo-delete");
 	$delete_button.click( function(){
 		$(this).attr('disabled', 'true');
+		$("#product_photo_id").removeAttr("value");
 		$icon.addClass('glyphicon-time');
 		$text.text('Borrando...');
 		$preview.css('background-image', 'none');
-		$("#create-product").attr('disabled', 'true');
 	});
 }
 
@@ -49,9 +49,7 @@ function bindProductFormWithoutPhoto(){
 
 	// On the form: -----------------------------------------------
 
-	// Disable the submit button until a photo is uploaded
-	$("#create-product").attr('disabled', 'true');
-	// And disable buttons on click, to prevent double submissions.
+	// Disable buttons on click, to prevent double submissions.
 	$("#new_product").submit( function(){
 		$("#create-product").attr('disabled', 'true');
 		$("#new-product-cancel").attr('disabled', 'true');
@@ -75,7 +73,6 @@ function bindProductFormWithoutPhoto(){
 	$("#photo-submit").click( function(){
 		$icon = $("#photo-upload-info").find("h2").find("span")
 		$text = $("#photo-upload-info").find("p")
-
 		$icon.removeClass('glyphicon-upload').addClass('glyphicon-time');
 		$text.text('Subiendo foto...');
 	});

@@ -5,31 +5,31 @@
 			= hidden_field_tag :authenticity_token, form_authenticity_token
 
 			/ Title
-			= f.label "Título"
-			= f.text_field :title, class: 'form-control'
-			#product-title-errors.errors
-			%br/
+			.field
+				= f.label "Título"
+				= f.text_field :title, class: 'form-control'
+				#product-title-errors.errors
 
-			= f.label "Precio"
-			= f.number_field :price, step: 0.5, class: 'form-control'
-			#product-price-errors.errors
-			%br/
+			.field
+				= f.label "Precio"
+				= f.number_field :price, step: 0.5, class: 'form-control'
+				#product-price-errors.errors
 
-			= f.label "Categoría"
-			= f.select(:category_id, list_categories_for_select(@categories), {}, { class: 'form-control' })
+			.field
+				= f.label "Categoría"
+				= f.select(:category_id, list_categories_for_select(@categories), {}, { class: 'form-control' })
+				#product-category_id-errors.errors
 
 			= f.hidden_field :photo_id, value: @photo.id
 
-			%br
-			%br
-
-			= f.button :submit, class: 'btn btn-primary', id: 'create-product' do
-				- if params[:action] == "new"
-					Crear
-				- elsif params[:action] == "edit"
-					Guardar
-			= link_to products_path, class: 'btn btn-primary', id: 'new-product-cancel' do
-				Cancelar
+			.actions
+				= f.button :submit, class: 'btn btn-primary', id: 'create-product' do
+					- if params[:action] == "new"
+						Crear
+					- elsif params[:action] == "edit"
+						Guardar
+				= link_to products_path, class: 'btn btn-primary', id: 'new-product-cancel' do
+					Cancelar
 
 	/ Photo
 	.photo-input
@@ -40,3 +40,5 @@
 		- else
 			= render 'photos/upload'
 			= render 'photos/form'
+
+		#product-photo_id-errors.errors

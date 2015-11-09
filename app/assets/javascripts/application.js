@@ -51,15 +51,11 @@ function capitalize(string){
 /* Display error messages upon failed [model] creation. */
 function handleError(model, key, value){
 	$("#"+model+"-"+key+"-errors").html("<p>"+value+"</p>")
-									  .hide()
-									  .slideDown();
+	$("#"+model+"-"+key+"-errors").find("p").hide().fadeIn();
 
-	$("#"+model+"_"+key).addClass("invalid-field").on("keydown", function(){
-		$("#"+model+"-"+key+"-errors").slideUp();
-		$(this).removeClass("invalid-field").off("keydown");
-	}).on("change", function(){
-		$("#"+model+"-"+key+"-errors").slideUp();
-		$(this).removeClass("invalid-field").off("keydown");
+	$("#"+model+"_"+key).addClass("invalid-field").on("keydown change", function(){
+		$("#"+model+"-"+key+"-errors").find("p").fadeOut( function(){ $(this).remove(); });
+		$(this).removeClass("invalid-field").off("keydown").off("change");
 	});
 }
 
