@@ -133,4 +133,7 @@ function addAllListeners(){
 	else if(isTitle("Compra")){
 		loadCartMap();
 	}
+	else if(isTitle("Perfil de usuario")){
+		loadUserMap();
+	}
 }

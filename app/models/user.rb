@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   before_create :add_token
+  after_create  :send_welcome_email
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -79,6 +80,11 @@ class User < ActiveRecord::Base
       begin
         self.token = SecureRandom.urlsafe_base64.upcase
       end while self.class.exists?(token: token)
+    end
+
+
+    def send_welcome_email
+      #UserMailer.welcome_email(self).deliver_now
     end
 
 end

@@ -22,6 +22,11 @@
         %br/
         = f.email_field :email, autofocus: true, class: 'form-control'
 
+      .field
+        = f.label "Teléfono"
+        %br/
+        = f.text_field :phone, autofocus: true, class: 'form-control'
+
       = f.fields_for :location do |location|
         = render 'location_fields', f: location
 
@@ -41,8 +46,9 @@
       .actions
         = f.submit "¡Regístrate!",  class: 'btn btn-primary'
 
-    .map-wrapper
+    .map-form
       %span.label Tu ubicación
-      #map
+      .map-wrapper
+        #map
 
   = render "devise/shared/links"

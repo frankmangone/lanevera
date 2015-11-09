@@ -7,7 +7,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   	resource = build_resource({})
     resource.build_location
     respond_with resource
-
     # Previously:
   	# super needs to be the last call for the instance variable above to work
   	# super	
@@ -17,7 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
 
-    registration_params = [:first_name, :last_name, :email, :password, :password_confirmation, location_attributes: [:id, :latitude, :longitude, :description]]
+    registration_params = [:first_name, :last_name, :email, :phone, :password, :password_confirmation, location_attributes: [:id, :latitude, :longitude, :description]]
 
     devise_parameter_sanitizer.for(:sign_up) {
         |u| u.permit(registration_params)

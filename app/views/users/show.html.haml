@@ -1,7 +1,56 @@
-= provide :title, @user.full_name
+= provide :title, "Perfil de usuario"
 
-%h1
-	= @user.full_name
+.wrapper
+	.header
+		.important-info
+			%h3= @user.full_name
+			%p= @user.location.description
+			%p= @user.phone
+		- if current_user_admin?
+			.rating
+				%span.glyphicon.glyphicon-star
+				%span.glyphicon.glyphicon-star
+				%span.glyphicon.glyphicon-star
 
-%p
-	= @user.email
+	/ User details & info
+
+	.main
+		.user-info
+			%p Información personal
+			.field
+				%p
+					Nombre:
+					= @user.first_name
+			.field
+				%p
+					Apellido:
+					= @user.last_name
+			.field	
+				%p
+					E-mail:
+					= @user.email
+			.field	
+				%p
+					Dirección:
+					= @user.location.description
+			.field	
+				%p
+					Teléfono:
+					= @user.phone
+			= link_to "#" do
+				%span.glyphicon.glyphicon-pencil
+		.map-wrapper
+			#map{latitude: @user.location.latitude, longitude: @user.location.longitude}
+
+	/ User current cart information
+
+	.cart
+		%h3 Carro de compras
+
+		.item-container
+			- @user.cart.items.each do |item|
+				= render 'carts/item', item: item, confirmed: true
+
+		- if !@user.cart.confirmed
+			= link_to "Modificar compra", cart_path(@user.cart.id), class: 'btn btn-primary'
+
