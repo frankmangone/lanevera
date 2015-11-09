@@ -1,0 +1,8 @@
+var key;
+var value;
+
+<% @category.errors.each do |key, value| %>
+	key = "<%= key %>";
+	value = "<%= value %>";
+	handleError('category', key, value);
+<% end %>

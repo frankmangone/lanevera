@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 	before_action :logged_in_admin, only: [:admin, :index]
 
 	def show
-		
+		@round_rating = @user.round_rating
 	end
 
 	def index

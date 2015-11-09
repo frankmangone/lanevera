@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   	first_name + " " + last_name
   end
 
+
   # Cart methods
 
 
@@ -73,6 +74,17 @@ class User < ActiveRecord::Base
     end
   end
 
+
+  # Rating methods
+
+
+  def round_rating
+    # Returns rounded rating value. For values higher than x.5, returns x + 1, otherwise x.
+    # Example: 2.5 -> returns 3
+    # Example 2: 1.2 -> returns 1 
+    
+    round = (rating_average - 0.49).ceil
+  end
 
   private
 

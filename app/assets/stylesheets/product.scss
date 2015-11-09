@@ -120,6 +120,10 @@
 		.add, .remove {
 			box-shadow: 0px 0px 6px #365A72;
 		}
+		.blank {
+			width: 79px;
+			height: 76px;
+		}
 	}
 
 	.image-wrapper {
@@ -258,7 +262,7 @@
 			text-align: left;
 			width: 220px;
 			a {
-				color: #FFF;
+				margin-left: 5px;
 			}
 		}
 	}

@@ -8,12 +8,12 @@
       = devise_error_messages!
 
       .field
-        = f.label "Nombre"
+        = f.label :first_name
         %br/
         = f.text_field :first_name, class: 'form-control'
 
       .field
-        = f.label "Apellido"
+        = f.label :last_name
         %br/
         = f.text_field :last_name, class: 'form-control'
 
@@ -23,7 +23,7 @@
         = f.email_field :email, autofocus: true, class: 'form-control'
 
       .field
-        = f.label "Teléfono"
+        = f.label :phone
         %br/
         = f.text_field :phone, autofocus: true, class: 'form-control'
 
@@ -31,7 +31,7 @@
         = render 'location_fields', f: location
 
       .field
-        = f.label "Contraseña"
+        = f.label :password
         - if @validatable
           %span.label
             (#{@minimum_password_length} caracteres mínimo)
@@ -39,7 +39,7 @@
         = f.password_field :password, class: 'form-control', autocomplete: "off"
 
       .field
-        = f.label "Confirmar contraseña"
+        = f.label :password_confirmation
         %br/
         = f.password_field :password_confirmation, class: 'form-control', autocomplete: "off"
 

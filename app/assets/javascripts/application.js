@@ -50,7 +50,7 @@ function capitalize(string){
 
 /* Display error messages upon failed [model] creation. */
 function handleError(model, key, value){
-	$("#"+model+"-"+key+"-errors").html("<p>"+capitalize(key)+" "+value+"</p>")
+	$("#"+model+"-"+key+"-errors").html("<p>"+value+"</p>")
 									  .hide()
 									  .slideDown();
 
@@ -107,7 +107,7 @@ $(document).on("page:change", function(){
 function fadeFlashes(){
 	$alerts = $(".alert");
 	$alerts.each( function(){
-		$(this).delay(3000).fadeOut(1000);
+		$(this).delay(2000).fadeOut(1000);
 	});
 }
 

@@ -7,10 +7,23 @@
 			%p= @user.location.description
 			%p= @user.phone
 		- if current_user_admin?
-			.rating
-				%span.glyphicon.glyphicon-star
-				%span.glyphicon.glyphicon-star
-				%span.glyphicon.glyphicon-star
+			.rating.hover-tooltip{ title: "#{@user.rating_average} / 3.0" }
+				- if @round_rating == 3
+					%span.glyphicon.glyphicon-star.highlighted
+					%span.glyphicon.glyphicon-star.highlighted
+					%span.glyphicon.glyphicon-star.highlighted
+				- if @round_rating == 2
+					%span.glyphicon.glyphicon-star.highlighted
+					%span.glyphicon.glyphicon-star.highlighted
+					%span.glyphicon.glyphicon-star
+				- elsif @round_rating == 0
+					%span.glyphicon.glyphicon-star
+					%span.glyphicon.glyphicon-star
+					%span.glyphicon.glyphicon-star
+				- else
+					%span.glyphicon.glyphicon-star.highlighted
+					%span.glyphicon.glyphicon-star
+					%span.glyphicon.glyphicon-star
 
 	/ User details & info
 

@@ -18,16 +18,16 @@
 			= f.label "Categoría"
 			= f.select(:category_id, list_categories_for_select(@categories), {}, { class: 'form-control' })
 
-			= f.hidden_field :photo_id
+			= f.hidden_field :photo_id, value: @photo.id
 
 			%br
 			%br
 
 			= f.button :submit, class: 'btn btn-primary', id: 'create-product' do
 				- if params[:action] == "new"
-					Crear Producto
+					Crear
 				- elsif params[:action] == "edit"
-					Guardar Cambios
+					Guardar
 			= link_to products_path, class: 'btn btn-primary', id: 'new-product-cancel' do
 				Cancelar
 

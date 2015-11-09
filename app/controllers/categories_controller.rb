@@ -12,9 +12,13 @@ class CategoriesController < ApplicationController
 
 	def create
 		@category = Category.new(category_params)
-		@category.save
+		
 		respond_to do |format|
-			format.js
+			if @category.save
+				format.js
+			else
+				format.js { render 'error.js.erb' }
+			end
 		end
 	end
 
@@ -27,9 +31,11 @@ class CategoriesController < ApplicationController
 
 	def update
 		@category = Category.find(params[:id])
-		if @category.update(category_params)
-			respond_to do |format|
+		respond_to do |format|
+			if @category.update(category_params)
 				format.js
+			else
+				format.js { render 'error.js.erb' }
 			end
 		end
 	end

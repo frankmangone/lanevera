@@ -3,12 +3,15 @@
 	
 		.cart-manage
 			- if current_user
-				= image_tag 'cart-glow.png'
-				= link_to add_item_path(product_id: product.id, from: "products"), class: 'btn btn-primary btn-symbol add', method: 'get', remote: true do
-					%span.glyphicon.glyphicon-plus
-				&nbsp;
-				= link_to remove_item_path(product_id: product.id, from: "products"), class: 'btn btn-primary btn-symbol remove', method: 'get', remote: true do
-					%span.glyphicon.glyphicon-minus
+				- if !current_user.cart.confirmed
+					= image_tag 'cart-glow.png'
+					= link_to add_item_path(product_id: product.id, from: "products"), class: 'btn btn-primary btn-symbol add', method: 'get', remote: true do
+						%span.glyphicon.glyphicon-plus
+					&nbsp;
+					= link_to remove_item_path(product_id: product.id, from: "products"), class: 'btn btn-primary btn-symbol remove', method: 'get', remote: true do
+						%span.glyphicon.glyphicon-minus
+				- else
+					.blank
 			- else
 				= link_to new_user_session_path do
 					= image_tag 'cart-glow.png'

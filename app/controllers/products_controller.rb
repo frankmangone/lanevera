@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
 			if @product.save
 				# Update Photo associated attribute
 				Photo.find(product_params[:photo_id]).update(associated: true)
+				flash[:notice] = "Producto creado."
 				format.js
 			else
 				format.js

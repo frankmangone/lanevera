@@ -20,4 +20,41 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  errors:
+    format: "%{message}"
+  activerecord:
+    attributes:
+      category:
+        name: "Nombre"
+      user:
+        first_name: "Nombre"
+        last_name: "Apellido"
+        phone: "Teléfono"
+        password: "Contraseña"
+        password_confirmation: "Confirmar contraseña"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "is required"
+        category:
+          attributes:
+            name:
+              blank: "El nombre no puede estar en blanco"
+        product:
+          attributes:
+            title:
+              blank: "El título no puede estar en blanco"
+            price:
+              blank: "El precio no puede estar en blanco"
+        user:
+          attributes:
+            first_name: 
+              blank: "El nombre no puede estar en blanco"
+            last_name:
+              blank: "El apellido no puede estar en blanco"
+            email:
+              blank: "El email no puede estar en blanco"
+            password:
+              blank: "La contraseña no puede estar en blanco"

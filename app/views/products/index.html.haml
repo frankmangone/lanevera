@@ -9,8 +9,6 @@
     - if !@categories.empty?
       - @categories.each do |category|
         = render category
-    - else
-      %p No hay ninguna categoría aún
     
     - if current_user_admin?
       .category-add-tab
