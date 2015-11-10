@@ -7,8 +7,9 @@
 		= render 'product', product: @offer.product
 
 		= form_for @offer, remote: true do |f|
-			= f.label "Precio de Oferta"
-			= f.number_field :price, step: 0.5, class: 'form-control'
+			.field
+				= f.label "Precio de Oferta"
+				= f.number_field :price, step: 0.5, class: 'form-control'
 			#offer-price-errors.errors
 
 			= f.button :submit, class: 'btn btn-primary' do

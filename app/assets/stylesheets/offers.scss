@@ -152,6 +152,12 @@
 	}
 
 	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.field {
+			max-width: 200px;
+		}
 		button[type=submit] {
 			margin-top: 20px;
 		}
