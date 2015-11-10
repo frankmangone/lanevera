@@ -8,7 +8,7 @@ class CartsController < ApplicationController
 
 	def index
 		# Only select confirmed carts.
-		@carts = Cart.where(confirmed: true)
+		@carts = Cart.where(confirmed: true).paginate(page: params[:page], per_page: 4)
 	end
 
 	def show

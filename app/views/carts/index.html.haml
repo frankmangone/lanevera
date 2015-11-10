@@ -2,6 +2,8 @@
 
 %h3 Compras
 
+= will_paginate previous_label: "&#8592; Anterior", next_label: "Siguiente &#8594;"
+
 .purchases
 	- @carts.each do |cart|
 		- if cart.delivered

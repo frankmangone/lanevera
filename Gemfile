@@ -19,11 +19,8 @@ gem 'devise'
 gem "haml-rails", "~> 0.6.0"
 
 gem 'simple_form'
-
-# For ajax file uploads
 gem 'remotipart', '~> 1.2'
 
-# Turbolinks progress bar
 gem 'nprogress-rails'
 
 gem 'whenever', :require => false
