@@ -16,9 +16,20 @@
 			Total:
 			%span.blue#total-price= @cart.write_price
 
-		- if !@cart.delivered
-			= link_to pop_up_path(target: mark_delivered_cart_path(@cart.id), method: 'post', text: '¿Deseas confirmar la entrega del pedido?'), class: 'btn btn-success', id: 'mark-delivered', remote: true do
-				%h4 Marcar entregada
+		.actions
+			- if !@cart.delivered && !@cart.cancelled
+				= link_to pop_up_path(target: mark_delivered_cart_path(@cart.id), method: 'post', text: '¿Deseas confirmar la entrega del pedido?'), class: 'btn btn-success', remote: true do
+					%h4 Marcar entregada
+				= link_to cancel_cart_path(@cart.id),  class: 'btn btn-danger' do
+					%h4 Cancelar compra
+
+			- elsif @cart.delivered
+				.success
+					%h4 Compra entregada
+
+			- elsif @cart.cancelled
+				.danger
+					%h4 Compra cancelada
 		
 		.item-list
 			%hr

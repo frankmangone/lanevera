@@ -14,9 +14,13 @@
 .actions
 	- if cart.delivered
 		%p.success Compra entregada
+		
+	- elsif cart.cancelled
+		%p.danger Compra cancelada
+		= link_to "Borrar ahora", "#", class: 'btn btn-primary'
 
 	= link_to "Ver compra", purchase_path(cart.id), class: 'btn btn-primary'
 
-	- if !cart.delivered
+	- if !cart.delivered && !cart.cancelled
 		= link_to "Marcar entregada", pop_up_path(target: mark_delivered_cart_path(cart.id), method: 'post', text: '¿Deseas confirmar la entrega del pedido?'), class: 'btn btn-primary', remote: true
-		= link_to "Cancelar", "#", class: 'btn btn-danger'
+		= link_to "Cancelar", cancel_cart_path(cart.id), class: 'btn btn-danger'

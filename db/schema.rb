@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109142048) do
+ActiveRecord::Schema.define(version: 20151110014605) do
 
   create_table "carts", force: :cascade do |t|
-    t.boolean  "confirmed",  default: false, null: false
-    t.boolean  "delivered",  default: false, null: false
-    t.decimal  "price",      default: 0.0,   null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "confirmed",     default: false, null: false
+    t.boolean  "delivered",     default: false, null: false
+    t.decimal  "price",         default: 0.0,   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "user_id"
+    t.boolean  "cancelled",     default: false, null: false
+    t.string   "cancel_reason"
   end
 
   create_table "categories", force: :cascade do |t|

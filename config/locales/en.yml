@@ -34,6 +34,8 @@ en:
         password: "Contraseña"
         password_confirmation: "Confirmar contraseña"
         location: "Tu ubicación"
+      cart:
+        cancel_reason: "Razón de cancelación"
     errors:
       models:
         category:

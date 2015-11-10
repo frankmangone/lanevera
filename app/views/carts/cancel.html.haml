@@ -1,0 +1,17 @@
+= provide :title, "Cancelar compra"
+
+%h3 Cancelar compra
+
+.cancel-wrapper
+	= form_for :cart, url: { action: :mark_cancelled, id: @cart }, remote: true do |f|
+		= f.label :cancel_reason
+		= f.text_area :cancel_reason, class: 'form-control', rows: 10
+
+		#cart-cancel_reason-errors.errors
+
+		= f.hidden_field :cancelled, :value => '1'
+
+		.actions
+			= link_to "Volver", purchases_path, class: 'btn btn-primary'
+			= f.button :submit, class: 'btn btn-danger' do
+				Cancelar

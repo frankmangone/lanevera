@@ -7,6 +7,9 @@
 		- if cart.delivered
 			.cart-wrapper.delivered
 				= render cart
+		- elsif cart.cancelled
+			.cart-wrapper.cancelled
+				= render cart
 		- else
 			.cart-wrapper
 				= render cart

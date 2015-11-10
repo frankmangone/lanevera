@@ -37,8 +37,9 @@
 	- if current_user_admin?
 		%nav
 			%p Admin
-			= link_to "Ofertas", offers_path
-			= link_to "Compras", purchases_path
+			= link_to "Ofertas",  offers_path
+			= link_to "Compras",  purchases_path
+			= link_to "Usuarios", "#"
 
 	- elsif home
 		.info

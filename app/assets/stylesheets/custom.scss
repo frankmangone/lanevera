@@ -158,7 +158,7 @@ label {
 	background-color: #AAA;
 }
 
-.btn-danger {
+.btn-danger{
 	background-color: #D0A79A;
 	color: #FFF;
 	border: none;
@@ -168,14 +168,18 @@ label {
 	background-color: #C97155;
 }
 
-.btn-success, .success {
+.btn-success {
 	background-color: #9AD0A7;
 	color: #FFF;
 	border: none;
 }
 
-.btn-success:hover, .btn-success:focus {
+.btn-success:hover, .btn-success:focus, .success {
 	background-color: #55C971;
+}
+
+.danger, .success {
+	color: #FFF;
 }
 
 /* 3: General typography & some effects */

@@ -1,9 +1,10 @@
 class CartsController < ApplicationController
 
-	before_action :find_cart,       only: [:show, :purchase, :confirm, :mark_delivered]
-	before_action :logged_in_admin, only: [:index, :purchase, :mark_delivered]
+	before_action :find_cart,       only: [:show, :purchase, :mark_confirmed, :mark_delivered, :mark_cancelled, :cancel]
+	before_action :logged_in_admin, only: [:index, :purchase, :mark_delivered, :mark_cancelled]
+	before_action :cart_owner,      only: :mark_confirmed
 	before_action :cart_owner_or_admin_if_confirmed, only: :show
-	before_action :cart_owner,      only: :confirm
+	before_action :not_cancelled_nor_delievered,      only: [:mark_delivered, :mark_cancelled, :cancel]
 
 	def index
 		# Only select confirmed carts.
@@ -21,7 +22,9 @@ class CartsController < ApplicationController
 
 	end
 
-	def confirm
+	# Status change options
+
+	def mark_confirmed
 		@cart.update(confirmed: true)
 		redirect_to cart_path(params[:id])
 	end
@@ -30,6 +33,20 @@ class CartsController < ApplicationController
 		@cart.update(delivered: true)
 		redirect_to purchases_path
 	end
+
+	def mark_cancelled
+		respond_to do |format|
+			@cart.update(cart_params)
+			format.js
+		end
+	end
+
+	# Cancel view
+	def cancel
+
+	end
+
+	# Item management
 
 	def add_item
 		@product_id = params[:product_id]
@@ -61,6 +78,12 @@ class CartsController < ApplicationController
 
 	private
 
+		def cart_params 
+			# Only used for the cancel action
+			params.require(:cart).permit(:cancel_reason, :cancelled)
+		end
+
+
 		def find_cart
 			@cart = Cart.find(params[:id])
 		end
@@ -90,6 +113,16 @@ class CartsController < ApplicationController
 						redirect_to products_path
 					end
 				end
+			end
+		end
+
+
+		def not_cancelled_nor_delievered
+			cart = Cart.find(params[:id])
+
+			if cart.cancelled || cart.delivered
+				flash[:error] = "Ya no es posible realizar esta acción"
+				redirect_to root_path
 			end
 		end
 	

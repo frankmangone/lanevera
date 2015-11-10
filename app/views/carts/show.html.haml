@@ -21,7 +21,7 @@
 			%span.blue#total-price= @cart.write_price
 
 		- if !@cart.confirmed && @cart.items.length != 0
-			= link_to pop_up_path(target: confirm_cart_path(params[:id]), method: 'post', text: '¿Deseas confirmar tu compra? Si olvidaste algo, toca "Cancelar" y modifica tu compra.'), class: 'btn btn-primary', id: 'confirm-buy', remote: true do
+			= link_to pop_up_path(target: mark_confirmed_cart_path(params[:id]), method: 'post', text: '¿Deseas confirmar tu compra? Si olvidaste algo, toca "Cancelar" y modifica tu compra.'), class: 'btn btn-primary', id: 'confirm-buy', remote: true do
 				%h4 Confirmar compra
 		- elsif @cart.confirmed
 			.confirmed
