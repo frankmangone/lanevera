@@ -7,23 +7,7 @@
 			%p= @user.address
 			%p= @user.phone
 		- if current_user_admin?
-			.rating.hover-tooltip{ title: "#{@user.rating_average} / 3.0" }
-				- if @round_rating == 3
-					%span.glyphicon.glyphicon-star.highlighted
-					%span.glyphicon.glyphicon-star.highlighted
-					%span.glyphicon.glyphicon-star.highlighted
-				- if @round_rating == 2
-					%span.glyphicon.glyphicon-star.highlighted
-					%span.glyphicon.glyphicon-star.highlighted
-					%span.glyphicon.glyphicon-star
-				- elsif @round_rating == 0
-					%span.glyphicon.glyphicon-star
-					%span.glyphicon.glyphicon-star
-					%span.glyphicon.glyphicon-star
-				- else
-					%span.glyphicon.glyphicon-star.highlighted
-					%span.glyphicon.glyphicon-star
-					%span.glyphicon.glyphicon-star
+			= render 'rating', user: @user
 
 	/ User details & info
 
@@ -50,7 +34,7 @@
 				%p
 					Teléfono:
 					= @user.phone
-			= link_to "#" do
+			= link_to edit_user_path(@user) do
 				%span.glyphicon.glyphicon-pencil
 		.map-wrapper
 			#map{latitude: @user.location.latitude, longitude: @user.location.longitude}

@@ -20,16 +20,34 @@
 			Total:
 			%span.blue#total-price= @cart.write_price
 
-		- if !@cart.confirmed && @cart.items.length != 0
+		- if @cart.delivered
+
+			.success
+				%h4 Compra confirmada
+
+		- elsif @cart.cancelled
+
+			.danger
+				%h4 Compra cancelada
+			%br
+			%h4.reason Motivo:
+			.reason-description
+				= @cart.cancel_reason
+
+		- elsif !@cart.confirmed && @cart.items.length != 0
+
 			= link_to pop_up_path(target: mark_confirmed_cart_path(params[:id]), method: 'post', text: '¿Deseas confirmar tu compra? Si olvidaste algo, toca "Cancelar" y modifica tu compra.'), class: 'btn btn-primary', id: 'confirm-buy', remote: true do
 				%h4 Confirmar compra
+
 		- elsif @cart.confirmed
+
 			.confirmed
 				%h4 Compra confirmada
 		
+		/ ---------------------------------------------
+
 		- if @cart.items.length != 0
 			.item-list
-				%hr
 				- @cart.items.each do |item|
 					= render 'list_item', item: item
 

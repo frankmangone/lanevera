@@ -1,6 +1,8 @@
 function loadMap(){
 	L.mapbox.accessToken = 'pk.eyJ1IjoiZnJhbmttYW5nb25lIiwiYSI6IjFlZjlmZTliYmYwYjljZDJhYmIwNmU1ZDlkOGExMDdkIn0.wSNu880_pH8ZGjMj3CoYWw';
-	var map = L.mapbox.map('map', 'frankmangone.o0mg9e5k').setView([-34.91587454384448, -56.158976554870605], 16);
+	var map = L.mapbox.map('map', 'frankmangone.o0mg9e5k', {
+		minZoom: 14
+	}).setView([-34.91527190781726, -56.159612238407135], 16);
 
 	$latitude = $("#user_location_attributes_latitude");
 	$longitude = $("#user_location_attributes_longitude");

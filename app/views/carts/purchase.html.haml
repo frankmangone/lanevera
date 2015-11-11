@@ -1,7 +1,7 @@
 - provide :title, "Compra"
 
 = link_to purchases_path, class: 'btn btn-primary' do
-	&#8592 Volver
+	Volver
 
 .columns.purchase
 	
@@ -29,8 +29,9 @@
 			- elsif @cart.cancelled
 				.danger
 					%h4 Compra cancelada
-		
+
+		/ ----------------------------------------
+
 		.item-list
-			%hr
 			- @cart.items.each do |item|
 				= render 'list_item', item: item

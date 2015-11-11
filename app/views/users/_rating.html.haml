@@ -1,0 +1,19 @@
+.rating.hover-tooltip{ title: "#{user.rating_average} / 3.0" }
+	- rating = user.round_rating
+
+	- if rating == 3
+		%span.glyphicon.glyphicon-star.highlighted
+		%span.glyphicon.glyphicon-star.highlighted
+		%span.glyphicon.glyphicon-star.highlighted
+	- elsif rating == 2
+		%span.glyphicon.glyphicon-star.highlighted
+		%span.glyphicon.glyphicon-star.highlighted
+		%span.glyphicon.glyphicon-star
+	- elsif rating == 0
+		%span.glyphicon.glyphicon-star
+		%span.glyphicon.glyphicon-star
+		%span.glyphicon.glyphicon-star
+	- else
+		%span.glyphicon.glyphicon-star.highlighted
+		%span.glyphicon.glyphicon-star
+		%span.glyphicon.glyphicon-star

@@ -132,4 +132,7 @@ function addAllListeners(){
 	else if(isTitle("Perfil de usuario")){
 		loadUserMap();
 	}
+	else if(isTitle("Editar cuenta")){
+		loadUserEditMap();
+	}
 }

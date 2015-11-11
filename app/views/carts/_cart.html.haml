@@ -17,7 +17,7 @@
 		
 	- elsif cart.cancelled
 		%p.danger Compra cancelada
-		= link_to "Borrar ahora", "#", class: 'btn btn-primary'
+		= link_to "Borrar ahora", pop_up_path(target: delete_cart_path(cart.id), method: 'delete', text: '¿Estás seguro? Recuerda que la compra se borra automáticamente luego de 3 horas.'), class: 'btn btn-primary', remote: true
 
 	= link_to "Ver compra", purchase_path(cart.id), class: 'btn btn-primary'
 

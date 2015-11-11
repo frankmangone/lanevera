@@ -1,2 +1,8 @@
 = provide :title, "Usuarios"
-HOLA
+
+%h3 Usuarios
+
+= will_paginate previous_label: "Anterior", next_label: "Siguiente"
+
+.users
+	= render @users

@@ -1,0 +1,45 @@
+= provide :title, "Editar cuenta"
+
+%h3 Edita tu información
+
+.form-wrapper.full-width
+  = form_for @user do |f|
+    .form-container
+      .field-margin
+        = f.label :first_name
+        = f.text_field :first_name, autofocus: true, class: 'form-control'
+
+      .field-margin
+        = f.label :last_name
+        = f.text_field :last_name, class: 'form-control'
+
+      .field-margin
+        = f.label :email
+        = f.text_field :email, class: 'form-control'
+
+      .field-margin
+        = f.label :phone
+        = f.text_field :phone, class: 'form-control hover-tooltip', title: 'Números solamente'
+
+      .field-margin
+        = f.label :address
+        = f.text_field :address, class: 'form-control'
+
+      .field-margin
+        = f.label :password
+        = f.password_field :password, class: 'form-control hover-tooltip', title: '6 caracteres mínimo', autocomplete: "off"
+
+      .field-margin
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, class: 'form-control', autocomplete: "off"
+
+      .actions
+        = f.submit "Guardar",  class: 'btn btn-primary', remote: true
+
+    .map-form
+      = f.label :location
+      = f.text_field :location, id: 'location-field'
+      .map-wrapper
+        #map{latitude: @user.location.latitude, longitude: @user.location.longitude}
+      = f.fields_for :location do |location|
+        = render 'devise/registrations/location_fields', f: location

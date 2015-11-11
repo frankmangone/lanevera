@@ -1,10 +1,10 @@
 class CartsController < ApplicationController
 
-	before_action :find_cart,       only: [:show, :purchase, :mark_confirmed, :mark_delivered, :mark_cancelled, :cancel]
-	before_action :logged_in_admin, only: [:index, :purchase, :mark_delivered, :mark_cancelled]
+	before_action :find_cart,       only: [:show, :purchase, :mark_confirmed, :mark_delivered, :mark_cancelled, :cancel, :destroy]
+	before_action :logged_in_admin, only: [:index, :purchase, :mark_delivered, :mark_cancelled, :destroy]
 	before_action :cart_owner,      only: :mark_confirmed
 	before_action :cart_owner_or_admin_if_confirmed, only: :show
-	before_action :not_cancelled_nor_delievered,      only: [:mark_delivered, :mark_cancelled, :cancel]
+	before_action :not_cancelled_nor_delievered,     only: [:mark_delivered, :mark_cancelled, :cancel]
 
 	def index
 		# Only select confirmed carts.
@@ -15,6 +15,11 @@ class CartsController < ApplicationController
 		if current_user_admin? && !@cart.owner?(current_user)
 			redirect_to purchase_path(params[:id])
 		end
+	end
+
+	def destroy
+		@cart.destroy
+		redirect_to purchases_path
 	end
 
 	# Show for admins so that they can build the real life delivery.

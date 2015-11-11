@@ -1,0 +1,15 @@
+.user-wrapper
+	.user-info
+		%h3= user.full_name
+		%p=  user.address
+
+	= render 'rating', user: user
+
+	.actions
+		= link_to user do
+			%span.glyphicon.glyphicon-user
+		= link_to "#" do
+			%span.glyphicon.glyphicon-envelope
+		= link_to pop_up_path(target: user_path(user.id), method: 'delete', text: '¿Estás seguro de eliminar a este usuario?'), remote: true do
+			%span.glyphicon.glyphicon-remove
+	

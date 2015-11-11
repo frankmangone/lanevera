@@ -1,15 +1,35 @@
 class UsersController < ApplicationController
 
-	before_action :find_user,       only: :show
+	before_action :find_user,       only: [:show, :destroy, :edit, :update]
 	before_action :owner_or_admin,  only: [:show, :edit, :update, :destroy]
-	before_action :logged_in_admin, only: [:admin, :index]
+	before_action :logged_in_admin, only: [:admin, :index, :destroy]
 
 	def show
-		@round_rating = @user.round_rating
+		
 	end
 
 	def index
-		@users = User.all
+		@users = User.all.paginate(page: params[:page], per_page: 12)
+	end
+
+	def edit
+		
+	end
+
+	def update
+		if @user.update(user_params)
+			flash[:notice] = "Información actualizada."
+			redirect_to @user
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		if @user.destroy
+			flash[:notice] == "Usuario borrado correctamente."
+			redirect_to users_path
+		end
 	end
 
 	private
