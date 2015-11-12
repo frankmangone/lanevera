@@ -25,6 +25,7 @@
 			- elsif @cart.delivered
 				.success
 					%h4 Compra entregada
+				= render 'rating_form', cart: @cart
 
 			- elsif @cart.cancelled
 				.danger

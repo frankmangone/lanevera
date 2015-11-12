@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
 
-	before_action :find_cart,       only: [:show, :purchase, :mark_confirmed, :mark_delivered, :mark_cancelled, :cancel, :destroy]
-	before_action :logged_in_admin, only: [:index, :purchase, :mark_delivered, :mark_cancelled, :destroy]
+	before_action :find_cart,       only: [:show, :purchase, :mark_confirmed, :mark_delivered, :mark_cancelled, :cancel, :destroy, :rate]
+	before_action :logged_in_admin, only: [:index, :purchase, :mark_delivered, :mark_cancelled, :destroy, :rate]
 	before_action :cart_owner,      only: :mark_confirmed
 	before_action :cart_owner_or_admin_if_confirmed, only: :show
 	before_action :not_cancelled_nor_delievered,     only: [:mark_delivered, :mark_cancelled, :cancel]
@@ -43,6 +43,15 @@ class CartsController < ApplicationController
 		respond_to do |format|
 			@cart.update(cart_params)
 			format.js
+		end
+	end
+
+	# Rate purchase
+
+	def rate
+		@cart.update(rating: params[:rating])
+		respond_to do |format|
+			format.js { render nothing: true }
 		end
 	end
 

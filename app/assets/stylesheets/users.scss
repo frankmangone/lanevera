@@ -151,12 +151,17 @@
 	flex-direction: row;
 	align-items: center;
 
+	p {
+		margin-bottom: 0;
+		color: #365A72;
+	}
 	.user-info {
 		text-align: center;
 		flex-grow: 1;
-		p {
-			margin-bottom: 0;
-		}
+	}
+
+	.rating {
+		margin-top: 7px;
 	}
 
 	.actions {
@@ -199,11 +204,12 @@
 
 .rating {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	font-size: 1.8em;
 	margin-left: 50px;
 	span{
 		margin: 0 5px;
+		font-size: 1.8em;
 	}
 	span.highlighted {
 		color: #F4D12A;

@@ -362,3 +362,23 @@
 
 	}
 }
+
+// Purchase input
+//--------------------------------------
+
+.rating-form {
+	margin-top: 15px;
+	span {
+		transition: all 0.2s linear;
+		margin: 0 3px;
+		font-size: 1.8em;
+		color: #CCC;
+	}
+	span.highlighted {
+		color: #F4D12A;
+	}
+
+	span.hover {
+		color: #F7E962;
+	}
+}

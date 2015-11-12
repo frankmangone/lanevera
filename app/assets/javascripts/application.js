@@ -128,6 +128,7 @@ function addAllListeners(){
 	}
 	else if(isTitle("Compra")){
 		loadCartMap();
+		controlStars();
 	}
 	else if(isTitle("Perfil de usuario")){
 		loadUserMap();

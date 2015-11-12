@@ -1,0 +1,15 @@
+.rating-form
+	= link_to rate_cart_path(cart.id, rating: 1), star: 1, method: 'post', remote: true do
+		%span.glyphicon.glyphicon-star.highlighted
+
+	= link_to rate_cart_path(cart.id, rating: 2), star: 2, method: 'post', remote: true do
+		- if cart.rating > 1
+			%span.glyphicon.glyphicon-star.highlighted
+		- else
+			%span.glyphicon.glyphicon-star
+
+	= link_to rate_cart_path(cart.id, rating: 3), star: 3, method: 'post', remote: true do
+		- if cart.rating == 3
+			%span.glyphicon.glyphicon-star.highlighted
+		- else
+			%span.glyphicon.glyphicon-star
