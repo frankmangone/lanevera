@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110014605) do
+ActiveRecord::Schema.define(version: 20151112024013) do
 
   create_table "carts", force: :cascade do |t|
     t.boolean  "confirmed",     default: false, null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20151110014605) do
     t.integer  "user_id"
     t.boolean  "cancelled",     default: false, null: false
     t.string   "cancel_reason"
+    t.integer  "rating",        default: 3,     null: false
   end
 
   create_table "categories", force: :cascade do |t|
