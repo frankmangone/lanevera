@@ -61,6 +61,7 @@
 		border-radius: 3px;
 		display: flex;
 		justify-content: center;
+		align-items: center;
 		.important-info {
 			text-align: left;
 			h3 {
@@ -207,11 +208,13 @@
 	flex-direction: column;
 	align-items: center;
 	margin-left: 50px;
-	span{
-		margin: 0 5px;
-		font-size: 1.8em;
-	}
-	span.highlighted {
-		color: #F4D12A;
+	.stars {
+		span{
+			margin: 0 5px;
+			font-size: 1.4em;
+		}
+		span.highlighted {
+			color: #F4D12A;
+		}
 	}
 }

@@ -5,7 +5,10 @@ class UsersController < ApplicationController
 	before_action :logged_in_admin, only: [:admin, :index, :destroy]
 
 	def show
-		
+		if !@user.cart
+			cart = @user.build_cart
+			cart.save
+		end
 	end
 
 	def index

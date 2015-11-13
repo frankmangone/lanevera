@@ -63,6 +63,7 @@
 		justify-content: center;
 		form {
 			width: 400px;
+			display: flex;
 			input[type=search] {
 				border: #F1F2F3 1px solid;
 				box-shadow: none;
@@ -275,35 +276,11 @@
 	}
 }
 
-// Product viewpage ------------------------------------------
+// Image hover ------------------------------------------
 
-.show-wrapper {
-	display: flex;
-	justify-content: center;
-
-	#show-columns {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		background-color: #F1F2F3;
-		border-radius: 3px;
-		padding: 30px 30px;
-		width: 1000px;
-
-		.photo {
-			width: 300px;
-			height: 300px;
-			overflow: hidden;
-			border-radius: 3px;
-
-			img {
-				width: 300px;
-				height: 300px;
-			}
-		}
-
-		.info {
-			flex-grow: 1;
-		}
-	}
+.image-hover {
+	-ms-transform: scale(1.05, 1.05);
+	-webkit-transform: scale(1.05, 1.05);
+	transform: scale(1.05, 1.05);
+	opacity: 0.35;
 }

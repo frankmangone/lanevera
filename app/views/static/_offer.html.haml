@@ -1,8 +1,10 @@
 .home-offer
 	.offer-thumb-wrapper
-		= image_tag 'ph.jpg'
-		/ = image_tag offer.product.photo.photo.url()
-
+		/= image_tag 'ph.jpg'
+		= image_tag offer.product.photo.photo.url()
+	.offer-price
+		%span.glyphicon.glyphicon-certificate
+		= offer.write_price
 	.offer-info
 		%h3= offer.product.title
 

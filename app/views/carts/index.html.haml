@@ -5,13 +5,16 @@
 = will_paginate previous_label: "Anterior", next_label: "Siguiente"
 
 .purchases
-	- @carts.each do |cart|
-		- if cart.delivered
-			.cart-wrapper.delivered
-				= render cart
-		- elsif cart.cancelled
-			.cart-wrapper.cancelled
-				= render cart
-		- else
-			.cart-wrapper
-				= render cart
+	- if @carts.empty?
+		%p No hay ninguna compra confirmada en este momento
+	- else
+		- @carts.each do |cart|
+			- if cart.delivered
+				.cart-wrapper.delivered
+					= render cart
+			- elsif cart.cancelled
+				.cart-wrapper.cancelled
+					= render cart
+			- else
+				.cart-wrapper
+					= render cart

@@ -12,11 +12,10 @@
       , a diferencia de los precios regulares, marcados en
       %span.blue azul
       = "."
-  .divider
-  .columns.full-width
-    .columns.offer-display
-      - @offers.each do |offer|
-        = render 'offer', offer: offer
+      
+  .columns.offer-wrapper
+    - @offers.each do |offer|
+      = render 'offer', offer: offer
 
 #cart-announcement
   #cart-image

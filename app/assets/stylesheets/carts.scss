@@ -367,7 +367,10 @@
 //--------------------------------------
 
 .rating-form {
-	margin-top: 15px;
+	margin-top: 25px;
+	p {
+		color: #365A72;
+	}
 	span {
 		transition: all 0.2s linear;
 		margin: 0 3px;
@@ -377,8 +380,10 @@
 	span.highlighted {
 		color: #F4D12A;
 	}
-
-	span.hover {
+	span.selected {
 		color: #F7E962;
+	}
+	span.unselected {
+		color: #CCC;
 	}
 }

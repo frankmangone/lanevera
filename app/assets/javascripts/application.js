@@ -107,12 +107,32 @@ function fadeFlashes(){
 	});
 }
 
+// Manage collapse of navigation bar.
+function navbarControl(){
+	$("#collapsed-button").find("a").click( function(event){
+		event.preventDefault();
+		$menu = $("#collapse-wrapper");
+
+		if ($menu.css("display") == "none"){	
+			$menu.addClass("visible");
+			$menu.slideDown();
+		}
+		else {
+			$menu.slideUp( function(){
+				$menu.removeClass("visible").removeAttr("style");
+			});
+		}
+	});
+}
+
 
 // MASTER EVENTS FUNCTION!!!!!
 
 function addAllListeners(){
 	fadeFlashes();
+	navbarControl();
 	handleTooltips();
+
 	if(isTitle("Nuevo producto") || isTitle("Editar producto")){
 		bindProductFormEvents();
 	}
@@ -124,7 +144,7 @@ function addAllListeners(){
 	}
 	else if(isTitle("")){
 		handleSearchBar();
-		addOfferListeners();
+		//addOfferListeners();
 	}
 	else if(isTitle("Compra")){
 		loadCartMap();

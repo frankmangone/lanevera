@@ -1,4 +1,5 @@
 .rating-form
+	%p ¡Puntúa esta entrega!
 	= link_to rate_cart_path(cart.id, rating: 1), star: 1, method: 'post', remote: true do
 		%span.glyphicon.glyphicon-star.highlighted
 

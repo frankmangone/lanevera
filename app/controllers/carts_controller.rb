@@ -24,7 +24,7 @@ class CartsController < ApplicationController
 
 	# Show for admins so that they can build the real life delivery.
 	def purchase
-
+		
 	end
 
 	# Status change options

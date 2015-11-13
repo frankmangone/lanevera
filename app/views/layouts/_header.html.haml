@@ -1,21 +1,28 @@
 #header
 	%nav
-		= link_to root_path do
-			%span.glyphicon.glyphicon-home
-		= link_to 'Productos',   products_path
-		= link_to 'Información', info_path
-		= link_to 'Contacto',    contact_path
+		.main-links
+			= link_to root_path do
+				%span.glyphicon.glyphicon-home
+			#collapsed-button
+				= link_to "#", target: "collapsable" do
+					%span.glyphicon.glyphicon-align-justify
 
-		- if user_signed_in?
+		#collapse-wrapper
+			#collapsable
+				= link_to 'Productos',   products_path
+				= link_to 'Información', info_path
+				= link_to 'Contacto',    contact_path
 
-			= link_to "Carro",   cart_path(current_user.cart.id)			
-			= link_to "Perfil",  current_user
-			= link_to "Salir",   destroy_user_session_path , method: :delete
-			
-		- else
-
-			= link_to 'Acceso',   new_user_session_path
-			= link_to 'Registro', new_user_registration_path
+				- if user_signed_in?
+					= link_to "Carro",   cart_path(current_user.cart.id)			
+					= link_to "Perfil",  current_user
+					= link_to "Salir",   destroy_user_session_path , method: :delete
+				
+				- else
+					= link_to 'Acceso',   new_user_session_path
+					= link_to 'Registro', new_user_registration_path
+					
+	/ ------
 
 	- if home
 		/ Brand section

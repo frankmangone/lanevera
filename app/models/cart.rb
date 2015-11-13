@@ -8,6 +8,11 @@ class Cart < ActiveRecord::Base
 
 	validate :cancel_reason_valid
 
+	# Checks if cart is empty
+	def empty?
+		self.items
+	end
+
 	# Checks if a certain user is the owner of the cart
 	def owner?(user)
 		user.id == self.user.id

@@ -279,8 +279,55 @@ a:hover, a:focus, a:active {
 			text-shadow: 0px 0px 4px #FFF;
 			background-color: transparent;
 		}
+
+		.main-links {
+			display: flex;
+			align-items: center;
+		}
 	}
 }
+
+// For the collapsable part:
+#collapsable {
+	display: flex;
+	align-items: center;
+}
+
+#collapsed-button {
+	display: none;
+}
+
+@media (max-width: 600px){
+	#header {
+		nav {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+
+	#collapse-wrapper {
+		display: none;
+
+		#collapsable {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+	}
+
+	#collapsed-button {
+		display: flex;
+		align-items: center;
+	}
+
+	.visible {
+		display: block;
+	}
+}
+
+//-----------------------------
 
 #fridge {
 	padding: 50px 0 25px 0;
@@ -301,16 +348,21 @@ a:hover, a:focus, a:active {
 	font-size: 1.5em;
 }
 
+// ---------------- Search bar
+
 #search-bar {
 	padding-bottom: 75px;
-	width: 600px;
+	width: 550px;
+	form {
+		display: flex;
+	}
 }
 
 #search {
 	border-radius: 3px 0 0 3px;
 	border: none;
 	float: left;
-	width: 88%;
+	flex-grow: 1;
 	height: 45px;
 	font-size: 1.3em;
 }
@@ -322,13 +374,36 @@ a:hover, a:focus, a:active {
 	color: #FFF;
 	border: none;
 	overflow: hidden;
-	width: 12%;
+	width: 65px;
 	height: 45px;
 	font-size: 1.3em;
 }
 
 .valid-search {
 	background-color: #9AC3D0 !important;
+	color: #FFF !important;
+}
+
+@media (max-width: 600px){
+	#search-bar {
+		width: 100%;
+		padding: 0 20px 75px;
+		form {
+			flex-direction: column;
+
+			#search {
+				border-radius: 3px;
+				margin-bottom: 3px;
+				width: 100%;
+			}
+			#search-submit {
+				border-radius: 3px;
+				width: 100%;
+				background-color: #6C91AA;
+				color: #6C91AA;
+			}	
+		}
+	}
 }
 
 /* 5: Homepage */
@@ -336,23 +411,79 @@ a:hover, a:focus, a:active {
 
 #offers {
 	padding-top: 50px;
+	padding-bottom: 20px;
+	.info {
+		background-color: #F1F2F3;
+	}
+
+	.offer-wrapper {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		padding: 30px 30px;
+		margin-top: 0;
+		background-color: #FFF;
+
+		.home-offer {
+			margin: 0 20px 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			.offer-thumb-wrapper {
+				background-color: #666;
+				border-radius: 5px 5px 0 0;
+				overflow: hidden;
+				img {
+					position: relative;
+					z-index: 1;
+					transition: all 0.2s linear;
+					width: 300px;
+					height: 300px;
+				}
+			}
+			.offer-price {
+				position: relative;
+				z-index: 5;
+				font-size: 1.6em;
+				background-color: #8BB454;
+				color: #FFF;
+				padding: 15px;
+				border-radius: 3px;
+				margin-top: -31px;
+			}
+			
+			.offer-info {
+				width: 100%;
+				text-align: center;
+				background-color: #F1F2F3;
+				padding: 50px 15px 20px;
+				margin-top: -30px;
+				border-radius: 0 0 5px 5px;
+				h3 {
+					color: #365A72;
+				}
+			}
+
+		}
+	}
 }
 
 #cart-announcement {
 	padding-top: 100px;
+	padding-bottom: 100px;
 }
 
 #offers, #cart-announcement {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding-bottom: 100px;
 	
 	.info {
 		max-width: 700px;
 		margin: 30px;
 		padding: 30px;
-		background-color: #F1F2F3;
 		color: #365A72;
 		border-radius: 3px;
 		p {
@@ -371,53 +502,8 @@ a:hover, a:focus, a:active {
 			color: #FFF;
 		}
 	}
-
-	.offer-display {
-		width: auto;
-		border-radius: 3px;
-		background-color: #6C91AA;
-		justify-content: center;
-		flex-wrap: wrap;
-		padding: 50px 30px;
-
-		.home-offer {
-			margin: 0 20px;
-			.offer-thumb-wrapper {
-				background-color: #666;
-				border-radius: 3px;
-				overflow: hidden;
-				img {
-					position: relative;
-					z-index: 1;
-					transition: all 0.2s linear;
-					width: 300px;
-					height: 300px;
-				}
-			}
-			.offer-info {
-				position: relative;
-				z-index: 2;
-				margin-top: -300px;
-				width: 300px;
-				height: 300px;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-				h3 {
-					color: #FFF;
-				}
-			}
-		}
-	}
 }
 
-.image-hover {
-	-ms-transform: scale(1.05, 1.05);
-	-webkit-transform: scale(1.05, 1.05);
-	transform: scale(1.05, 1.05);
-	opacity: 0.35;
-}
 
 //
 

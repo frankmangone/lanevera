@@ -45,8 +45,11 @@
 		%h3 Carro de compras
 
 		.item-container
-			- @user.cart.items.each do |item|
-				= render 'carts/item', item: item, confirmed: true
+			- if @user.cart.empty?
+				%p Aún no hay productos en tu carro.
+			- else
+				- @user.cart.items.each do |item|
+					= render 'carts/item', item: item, confirmed: true
 
 		- if !@user.cart.confirmed
 			= link_to "Modificar compra", cart_path(@user.cart.id), class: 'btn btn-primary'
