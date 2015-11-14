@@ -110,6 +110,11 @@
 	}
 }
 
+.product-display {
+	// Avoid mozilla problems
+	width: 255px;
+}
+
 .product-wrapper {
 	transition: all 0.2s linear;
 	width: 230px;

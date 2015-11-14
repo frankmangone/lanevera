@@ -47,6 +47,8 @@
 	.thumb-wrapper {
 		box-shadow: 0px 0px 6px #CCC;
 		margin-bottom: 10px;
+		// Avoid mozilla problems
+		width: 140px;
 	}
 	
 	.cart-thumb {
