@@ -70,7 +70,7 @@ class CartsController < ApplicationController
 			if params[:from] == "products"
 				format.js { render 'add_item_products.js.erb' }
 			elsif params[:from] == "cart"
-				@total_price = current_user.cart.price
+				@price = monetize(current_user.cart.price)
 				format.js { render 'add_item_cart.js.erb' }
 			end
 		end
@@ -84,7 +84,7 @@ class CartsController < ApplicationController
 			if params[:from] == "products"
 				format.js { render 'remove_item_products.js.erb' }
 			elsif params[:from] == "cart"
-				@total_price = current_user.cart.price
+				@price = monetize(current_user.cart.price)
 				format.js { render 'remove_item_cart.js.erb' }
 			end
 		end

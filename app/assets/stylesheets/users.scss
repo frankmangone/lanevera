@@ -129,9 +129,36 @@
 	}
 }
 
-
-// User partial
+// Index
 // ---------------------------
+
+.user-search {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: center;
+	form {
+		width: 400px;
+		height: 35px;
+		display: flex;
+		#search {
+			border: #F1F2F3 1px solid;
+			box-shadow: none;
+			height: 35px;
+			font-size: 1.1em;
+		}
+		#search-submit {
+			transition: background-color 0.2s linear;
+			background-color: #9AC3D0;
+			color: #FFF;
+			height: 35px;
+			font-size: 1.2em;
+		}
+		//button[type=submit]:hover {
+		//	background-color: #6C91AA;
+		//}
+	}
+}
 
 .users {
 	display: flex;
@@ -140,6 +167,9 @@
 	flex-wrap: wrap;
 	margin-bottom: 15px;
 }
+
+// User partial
+// ---------------------------
 
 .user-wrapper {
 	justify-content: center;

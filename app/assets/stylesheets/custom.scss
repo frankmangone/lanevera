@@ -412,9 +412,6 @@ a:hover, a:focus, a:active {
 #offers {
 	padding-top: 50px;
 	padding-bottom: 20px;
-	.info {
-		background-color: #F1F2F3;
-	}
 
 	.offer-wrapper {
 		width: 100%;
@@ -474,7 +471,7 @@ a:hover, a:focus, a:active {
 
 #cart-announcement {
 	padding-top: 100px;
-	padding-bottom: 100px;
+	padding-bottom: 50px;
 }
 
 #offers, #cart-announcement {
@@ -487,7 +484,6 @@ a:hover, a:focus, a:active {
 		margin: 30px;
 		padding: 30px;
 		color: #365A72;
-		border-radius: 3px;
 		p {
 			line-height: 40px;
 		}
@@ -503,6 +499,11 @@ a:hover, a:focus, a:active {
 			background-color: #6C91AA;
 			color: #FFF;
 		}
+	}
+
+	h2, h3 {
+		padding: 0 15px;
+		max-width: 600px;
 	}
 }
 
@@ -604,6 +605,35 @@ footer.creator {
 	padding-right: 60px;
 }
 
+@media (max-width: 800px){
+	footer.main {
+		flex-direction: column;
+		align-items: flex-start;
+		text-align: left;
+		padding: 30px 30px 120px;
+
+		.line {
+			display: none;
+		}
+
+		.info {
+			margin-top: 0;
+		}
+		.info:last-child {
+			border-top: 1px solid #567488;
+			padding-top: 15px;
+		}
+
+		.logo {
+			margin-bottom: 30px;
+			margin-top: 30px;
+		}
+	}
+	footer.creator {
+		padding-right: 30px;
+	}
+}
+
 
 /* 9: Tooltips */
 /* ------------------------------------------- */
@@ -625,7 +655,6 @@ div.pagination {
 	ul.pagination {
 		margin: 0;
 		border: 1px solid #F1F2F3;
-		box-shadow: 0px 0px 4px #F1F2F3; 
 		li a {
 			border: none;
 			color: #6C91AA;

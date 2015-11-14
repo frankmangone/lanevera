@@ -1,0 +1,5 @@
+.user-search
+  = form_tag users_path, method: 'get' do
+    = search_field_tag :search, params[:search], placeholder: "Buscar...", class: 'form-control'
+    = button_tag(type: 'submit', id: 'search-submit', name: nil) do
+      %span.glyphicon.glyphicon-search

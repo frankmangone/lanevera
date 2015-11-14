@@ -24,4 +24,9 @@ module ApplicationHelper
 		user = User.find(id)
 		user == current_user
 	end
+
+	# Write value as price
+	def monetize(value)
+		"$ #{value}"	
+	end
 end

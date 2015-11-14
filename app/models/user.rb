@@ -31,6 +31,13 @@ class User < ActiveRecord::Base
   	first_name + " " + last_name
   end
 
+  def self.search(search)
+    if search != "" && search
+      where('lower(first_name) = ?', search.downcase)
+    else
+      all
+    end
+  end
 
   # Cart methods
 
@@ -41,14 +48,6 @@ class User < ActiveRecord::Base
     cart_id = self.cart.id
 
     item = Item.where(cart_id: cart_id, product_id: product_id).first_or_create
-
-    # Add the product price to the cart's
-    if item.product.offer
-      cart.price += item.product.offer.price
-    else
-      cart.price += item.product.price
-    end
-    cart.save
 
     # amount is 0 by default
     item.amount += 1
@@ -64,14 +63,6 @@ class User < ActiveRecord::Base
     # Little catch here: an array is returned, so I need the first element:
     item = item.first
 
-    # Substract the product price from the cart's
-    if item.product.offer
-      cart.price -= item.product.offer.price
-    else
-      cart.price -= item.product.price
-    end
-    cart.save
-
     # If amount is 1, delete, else decrease by one
     if item.amount == 1
       item.delete
@@ -84,6 +75,10 @@ class User < ActiveRecord::Base
 
   # Rating methods
 
+  def rating
+    # Getter method, which cuts the number to one decimal place
+    self.rating_average.round(1)
+  end
 
   def round_rating
     # Returns rounded rating value. For values higher than x.5, returns x + 1, otherwise x.

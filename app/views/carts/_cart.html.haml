@@ -4,7 +4,7 @@
 
 .purchase-info
 	.total-price
-		%h3= cart.write_price
+		%h3= monetize(cart.price)
 	.total-products
 		%p= cart.product_total
 		%span.glyphicon.glyphicon-stop

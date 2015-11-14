@@ -13,7 +13,7 @@
 	.cart-info
 		%h2
 			Total:
-			%span.blue#total-price= @cart.write_price
+			%span.blue#total-price= monetize(@cart.price)
 
 		.actions
 			- if !@cart.delivered && !@cart.cancelled

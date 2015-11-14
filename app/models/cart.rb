@@ -18,9 +18,14 @@ class Cart < ActiveRecord::Base
 		user.id == self.user.id
 	end
 
-	# Returns string with price ready to show
-	def write_price
-		"$ #{price}"
+
+	# Gets total price of cart
+	def price
+		value = 0
+		self.items.each do |item|
+			value += item.product.price * item.amount
+		end
+		value
 	end
 
 

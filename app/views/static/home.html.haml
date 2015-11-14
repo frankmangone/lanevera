@@ -22,3 +22,16 @@
     = image_tag 'cart.png'
   %h2 Carro de compras
   %h3 Contamos con un servicio de delivery para las compras realizadas por usuarios a través del sitio.
+  .info
+    - if current_user
+      %p
+        Puedes agregar productos a tu carro ahora mismo desde
+        = link_to "aquí", products_path
+        = "."
+    - else
+      %p
+        ¡Accede a tu
+        = link_to "cuenta", new_user_session_path
+        o
+        = link_to "regístrate", new_user_registration_path
+        en nuestra web para hacer pedidos online ya mismo!

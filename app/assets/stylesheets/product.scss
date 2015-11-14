@@ -110,6 +110,21 @@
 	}
 }
 
+@media (max-width: 600px){
+	#product-page {
+		display: flex;
+		flex-direction: column-reverse;
+		padding-bottom: 15px;
+	}
+	#categories {
+		margin-top: 0;
+		flex-basis: auto;
+		margin-bottom: -15px;
+		border-top: 1px solid #D0D8E0;
+		border-right: none;
+	}
+}
+
 .product-display {
 	// Avoid mozilla problems
 	width: 255px;

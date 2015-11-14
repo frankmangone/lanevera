@@ -15,4 +15,4 @@ var $list_text = $("#list_item<%= @product_id %>").find(".list-amount").find(".v
 $list_text.text(amount);
 
 // Set total price
-$("#total-price").text('<%= j "$ #{@total_price}" %>');
+$("#total-price").text('<%= j @price %>');
