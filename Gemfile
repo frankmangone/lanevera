@@ -25,7 +25,6 @@ gem 'nprogress-rails'
 
 gem 'whenever', :require => false
 
-
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'

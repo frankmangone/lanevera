@@ -9,13 +9,15 @@ class Product < ActiveRecord::Base
 	validates :price,       presence: true, numericality: { greater_than: 0 }
 	validates :photo_id,    presence: true
 
-	def self.search(search)
+	scope :search, lambda { |search|
 		if search != "" && search
-			where('lower(title) = ?', search.downcase)
+			# This is unsafe due to SQL exploits, see how to fix
+			where("lower(title) LIKE ?", "%#{search.downcase}%")
+			# where("lower(title) LIKE ?", search.downcase) <- should work in pg
 		else
 			all
 		end
-	end
+	}
 
 	def write_price
 		"$" +	price.to_s

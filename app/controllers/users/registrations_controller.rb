@@ -12,6 +12,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     respond_with resource
   end
 
+  def create
+    super
+    UserMailer.welcome_email(resource).deliver_now
+  end
+
   protected
 
   def configure_permitted_parameters

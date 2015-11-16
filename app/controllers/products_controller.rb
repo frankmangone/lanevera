@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 	before_action :logged_in_admin,   only: [:new, :create, :edit, :update, :destroy]
 
 	def index
-		@products   = Category.search(params[:category_id], params[:search])
+		@products = Category.search(params[:category_id], params[:search])
 	end
 
 

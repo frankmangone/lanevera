@@ -2,7 +2,7 @@
 
 %h3 Compras
 
-= will_paginate previous_label: "Anterior", next_label: "Siguiente"
+= will_paginate previous_label: '<span class="glyphicon glyphicon-chevron-left">', next_label: '<span class="glyphicon glyphicon-chevron-right">'
 
 .purchases
 	- if @carts.empty?

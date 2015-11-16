@@ -31,13 +31,15 @@ class User < ActiveRecord::Base
   	first_name + " " + last_name
   end
 
-  def self.search(search)
+  scope :search, lambda {|search| 
     if search != "" && search
-      where('lower(first_name) = ?', search.downcase)
+      # Good enough for now
+      where("first_name LIKE ? or last_name LIKE ?", "%#{search.split(' ').first}%", "%#{search.split(' ').last}%")
     else
       all
     end
-  end
+  }
+  
 
   # Cart methods
 
